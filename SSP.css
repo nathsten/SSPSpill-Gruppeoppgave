@@ -1,3 +1,35 @@
 #main{
 
 }
+#header {
+    border: 1px black solid;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right, #6b6b6b,#ffffff, #ff0000);
+}
+#overskrift, #winstreak, #wins, #losses {
+    position: absolute;
+}
+#overskrift {
+    font-size: 4rem;
+    font-family: Gotham Rounded, sans-serif;
+    left: 33%;
+    top: 20px;
+}
+#winstreak {
+    font-size: 2rem;
+    font-family: Gotham Rounded, sans-serif;
+    left: 20px;
+    top: 15px;
+}
+#wins, #losses {
+    font-size: 2rem;
+    font-family: Gotham Rounded, sans-serif;
+    right: 50px;
+}
+#wins {
+    top: 15px;
+}
+#losses {
+    top: 55px;
+}
