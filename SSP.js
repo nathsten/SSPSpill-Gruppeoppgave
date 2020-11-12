@@ -6,6 +6,8 @@ const $ = (id) => document.getElementById(id);
 /**
  * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
  * @returns {String}
+ * Skriver den som "const" fordi da kan vi ikke endre på funksjonen
+ * ved et uheld senere.
  */
 const rndSSP = () => {
     // En array med med lengde 0-2.
