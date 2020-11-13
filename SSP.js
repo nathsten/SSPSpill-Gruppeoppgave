@@ -47,7 +47,7 @@ const rndSSP = () => {
  */
 function endreFarge(element, farge){
     /**
-     * Her skal du først endre bakgrunnsfargen til elementet
+     * Her skal funksjonen først endre bakgrunnsfargen til elementet
      * og bruke 250ms på det.
      * Derretter venter den 250ms før den bruker nye 250ms
      * til å endre tilbake til standard
@@ -81,6 +81,21 @@ function finnHighScore(scoreList){
 }
 
 /**
+ * Funskjonen tar inn de globale vaiablene "antallWins" og "antallLosses".
+ * Dette er ikke nødvendig fordi de er globale variabler, 
+ * men vi gjør det alikevel for treningen sin del.
+ * @param {Number} wins
+ * @param {Number} losses
+ */
+function sjekkSeier(wins, losses){
+    /**
+     * Funksjonen skal sjekke om summen av dine seiere og tap >= 20.
+     * Dersom den er 20, finner vi ut hvem som har vunnet og lagrer highScoren din
+     * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
+     */
+}
+
+/**
  * value (navnet til dataen vi lagrer i localStorrage) 
  * sender vi som en String "scoreArray".
  * @param {String} value
@@ -103,7 +118,7 @@ function setToLocalStorrage(value, item){
  */
 function getFromLocalStorrage(value){
     /**
-     * Funksjoenen sjekker om verdien allerede finnes i localStorrage
+     * Funksjoenen sjekker om verdien allerede finnes i localStorrage,
      * for å så hente den ut og legge den dataen til i highScoreArray (global variabel).
      * For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
      * da bruker vi JSON.parse( localStorrage.getItem(value) )
@@ -113,7 +128,7 @@ function getFromLocalStorrage(value){
 /**
  * HOVEDFUNKSJONEN:
  * Den tar inn "e" som den bruker til å finne ut hvile av 
- * SSP bildene du har trykket på, og lagrer den som t. 
+ * SSP bildene du har trykket på, og lagrer den som "t". 
  * Derretter kjører den funksjonen rndSSP(); som returnerer 
  * maskinen sitt tilfeldige svar på stein / saks / papir.
  * @param {{ target: HTMLElement; }} e
