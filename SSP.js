@@ -15,7 +15,10 @@ const $ = (id) => document.getElementById(id);
 // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
 const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
-
+const overskrift = $("overskrift");
+const winstreak = $("winstreak");
+const win = $("wins");
+const lose = $("losses");
 
 /** 
  * EventListener som kjører funskjonen sjekkSSP(); når du 
