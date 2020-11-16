@@ -15,6 +15,11 @@ const $ = (id) => document.getElementById(id);
 // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
 const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
+const overskriftDiv = $("overskrift");
+const winstreakDiv = $("winstreak");
+const winsDiv = $("wins");
+const loosesDiv = $("losses");
+
 
 /** 
  * EventListener som kjører funskjonen sjekkSSP(); når du 
@@ -91,11 +96,17 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall){
  * @returns {Number}
  */
 function finnHighScore(scoreList){
+    let max = scoreList[0];
     /**
      * Bruker en "for løkke" til å sortere ut det høyeste tallet 
      * i arrayen som blir tilsendt
      */
-    return null;
+    for(let i=0; i<scoreList.length; i++){
+        if(scoreList[i]  > max) {
+            max = scoreList[i];
+        }
+    }
+    return max;
 }
 
 /**
@@ -164,15 +175,28 @@ function sjekkSSP(e){
     const maskinSSP = rndSSP();
     if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
-            alert("uavgjort");
+            wins += 0;
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
-            alert("du vinner")
+            wins += 1;
+            winstreak += 1;
+
+            console.log(wins); 
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
-            alert("du vinner")
+            wins += 1;
+            winstreak += 1;
+
+            console.log(wins); 
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
-            alert("du vinner")
+            wins += 1;
+            winstreak += 1;
+
+            console.log(wins); 
         } else {
-            alert("maskin vinner")
+            losses += 1;
+            winstreak = 0;
+            console.log(losses); 
+            console.log(winstreak); 
+
         } 
     }
     
