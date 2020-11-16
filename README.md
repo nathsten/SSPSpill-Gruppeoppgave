@@ -34,6 +34,15 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
 
             2.41 Programmet endrer bakgrunnsfargen til den du har trykket på bassert på om du vinner, taper eller det blir uavgjort. 
 
-        2.50 Programmet oppdaterer antall wins, losses, winstreak osv. 
+        2.50 Programmet oppdaterer antall wins, losses, winstreak, og score. 
 
-### 3. Dersom summen av dine wins og losses blir 20, blir highscoren din lagret i en array og vi starer spillet på nytt
+### 3. Dersom summen av dine wins og losses blir 20. 
+        3.10 Vi gir beskjed om du har vunnet eller tapt. 
+
+        3.11 Scoren din blir lagret i en array, med dine andre scores. 
+
+        3.12 wins, losses, winstreak og score blir til 0 og spillet starter på nytt
+
+        3.12 Hvis scoren din er større enn din gamle score:
+        
+            3.121 HigscoreDiv blir oppdatert. 
