@@ -32,8 +32,8 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
 
         2.40 Programmet sjekker om du vinner eller taper. 
 
-        2.50 Programmet endrer bakgrunnsfargen til den du har trykket på bassert på om du vinner, taper eller det blir uavgjort. 
+            2.41 Programmet endrer bakgrunnsfargen til den du har trykket på bassert på om du vinner, taper eller det blir uavgjort. 
 
-        2.60 Programmet oppdaterer antall wins, losses, winstreak osv. 
+        2.50 Programmet oppdaterer antall wins, losses, winstreak osv. 
 
 ### 3. Dersom summen av dine wins og losses blir 20, blir highscoren din lagret i en array og vi starer spillet på nytt
