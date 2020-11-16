@@ -16,13 +16,22 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
 
 ## Pseudokode
 1. Brukeren åpner siden og siden sjekker i localStorrage om spilleren har lagret noen highscores tidligere. 
+
         - Dersom den har det blir det hentet ut og vises i headeren, da kan du se tidligere high score. 
+
 2. Brukeren trykker på en av de tre valgene 'stein', 'saks', 'papir'.
     2.1 Programmet registerer hvilke av de spilleren har trykket på.
+
     2.2 Programmet kjører funksjonen rndSSP(); og får en tilfeldig stein / saks / papir. Dette blir maskinen sitt valg. 
+
     2.3 Programmet sjekker om den du har trykket på er den samme som maskinen.
+
         2.31 Det blir uavgjort. 
+
     2.4 Programmet sjekker om du vinner eller taper. 
+
     2.5 Programmet endrer bakgrunnsfargen til den du har trykket på bassert på om du vinner, taper eller det blir uavgjort. 
+
     2.6 Programmet oppdaterer antall wins, losses, winstreak osv. 
+    
 3. Dersom summen av dine wins og losses blir 20, blir highscoren din lagret i en array og vi starer spillet på nytt
