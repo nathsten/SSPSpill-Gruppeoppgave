@@ -13,7 +13,7 @@
 const $ = (id) => document.getElementById(id);
 
 // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
-const SSPDiv = $("SSPdiv");
+const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
 
 

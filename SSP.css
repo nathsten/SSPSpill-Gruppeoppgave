@@ -23,3 +23,45 @@
 #losses {
     top: 55px;
 }
+
+#SSPDiv{
+    position: relative;
+    width: 60%;
+    height: 400px;
+    left: calc(50% - 30%);
+    top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#SSPDiv>div{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 255, 255, 0.65);
+    left: calc(50% - 125px);
+    top: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.25s;
+    background-position: center;
+    background-size: 60%;;
+    background-repeat: no-repeat;
+    font-size: 0%;
+}
+
+#SSPDiv>div:hover{
+    background-color: rgba(255, 97, 39, 0.527);
+}
+
+#stein{
+    background-image: url("/bilder/stein.png");
+}
+
+#saks{
+    background-image: url("/bilder/saks.png");
+}
+
+#papir{
+    background-image: url("/bilder/papir.png");
+}
