@@ -158,6 +158,7 @@ function sjekkSSP(e){
         } else {
             alert("maskin vinner")
         } 
+    }
     
     /**
      * Først må vi sjekke at du faktisk har trykket på en av SSP bildene.
