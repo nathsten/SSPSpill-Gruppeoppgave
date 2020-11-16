@@ -12,6 +12,9 @@
  */
 const $ = (id) => document.getElementById(id);
 
+// Sjekker om i allerede har en lagret highscore.
+getFromLocalStorrage("scoreArray");
+
 // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
 const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
@@ -28,15 +31,13 @@ const loosesDiv = $("losses");
 SSPDiv.addEventListener("click", sjekkSSP);
 
 // Globale variabler:
-// let wins = 0;
-// osv..
 let wins = 0;
 let losses = 0;
 let scores = 0;
 let winstreak = 0;
-let tapfarge = "rgba(245, 69, 38, 0.739)";
-let winfarge = "rgba(136, 231, 27, 0.685)";
-let uavgjortfarge = "rgba(255, 255, 0, 0.664)";
+let tapFarge = "rgba(245, 69, 38, 0.739)";
+let winFarge = "rgba(136, 231, 27, 0.685)";
+let uavgjortFarge = "rgba(255, 255, 0, 0.664)";
 let highScoreArray = [];
 
 /**
@@ -61,6 +62,10 @@ const rndSSP = () => {
  * @param {HTMLElement} element
  * Fargen vi sender til funksjonen er en string: "rgba(214, 147, 79, 0.78)".
  * @param {String} farge
+ * Her skal funksjonen først endre bakgrunnsfargen til elementet
+    og bruke 250ms på det.
+    Derretter venter den 250ms før den bruker nye 250ms
+    til å endre tilbake til standard
  */
 function endreFarge(element, farge){
     element.style.backgroundColor = farge;
@@ -70,12 +75,6 @@ function endreFarge(element, farge){
         element.style.transition = "0.25s";
     }, 250);
 } 
-    /**
-     * Her skal funksjonen først endre bakgrunnsfargen til elementet
-     * og bruke 250ms på det.
-     * Derretter venter den 250ms før den bruker nye 250ms
-     * til å endre tilbake til standard
-     */
 
 /**
  * @param {Number} winsTall
@@ -90,6 +89,8 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall){
 }
 
 /**
+ * Bruker en "for løkke" til å sortere ut det høyeste tallet 
+ * i arrayen som blir tilsendt
  * Tar inn en array med tall
  * @param {Number[]} scoreList
  * Returnerer et enkelt tall (mulig vi skal gjøre det om til String)
@@ -97,12 +98,8 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall){
  */
 function finnHighScore(scoreList){
     let max = scoreList[0];
-    /**
-     * Bruker en "for løkke" til å sortere ut det høyeste tallet 
-     * i arrayen som blir tilsendt
-     */
     for(let i=0; i<scoreList.length; i++){
-        if(scoreList[i]  > max) {
+        if(scoreList[i] > max) {
             max = scoreList[i];
         }
     }
@@ -122,39 +119,40 @@ function sjekkSeier(wins, losses){
      * Dersom den er 20, finner vi ut hvem som har vunnet og lagrer highScoren din
      * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
      */
+    if(wins + losses === 20){
+        // Start spill på nytt.
+    }
 }
 
 /**
- * value (navnet til dataen vi lagrer i localStorrage) 
+ * key (navnet til dataen vi lagrer i localStorrage) 
  * sender vi som en String "scoreArray".
- * @param {String} value
+ * @param {String} key
  * Vi tar inn og lagrer arrayen med tall som "item", dette må gjøres
  * om til en JSON String. ( JSON.stringify(item) )
  * @param {Number[]} item
+ * Funksjonen skal lagre highScoreArray(eller den arrayen vi sender til den)
+    i localStorrage vi bruker navet "scoreArray" som key. 
  */
-function setToLocalStorrage(value, item){
-    /**
-     * Funksjonen skal lagre highScoreArray(eller den arrayen vi sender til den)
-     * i localStorrage vi bruker navet "scoreArray" som value. 
-     */
-    localStorage.setItem(value, JSON.stringify(item));
+function setToLocalStorrage(key, item){
+    localStorage.setItem(key, JSON.stringify(item));
 }
 
 /**
  * Tar inn navnet på dataen vi skal hente ut som en String
- * @param {String} value
+ * @param {String} key
  * Funksjonen erstatter den tomme globale arrayen highScoreArray med 
  * dataen den får fra localStorrage. 
+ * Funksjoenen sjekker om verdien allerede finnes i localStorrage,
+    for å så hente den ut og legge den dataen til i highScoreArray (global variabel).
+    For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
+    da bruker vi JSON.parse( localStorrage.getItem(key) )
  */
-function getFromLocalStorrage(value){
-    /**
-     * Funksjoenen sjekker om verdien allerede finnes i localStorrage,
-     * for å så hente den ut og legge den dataen til i highScoreArray (global variabel).
-     * For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
-     * da bruker vi JSON.parse( localStorrage.getItem(value) )
-     */
-    let getHighScore = JSON.parse(localStorage.getItem(value));
-    
+function getFromLocalStorrage(key){
+    if(localStorage.getItem(key)){
+        let getHighScore = JSON.parse(localStorage.getItem(key));
+        highScoreArray = getHighScore;
+    }
 }
 
 /**
@@ -173,36 +171,42 @@ function sjekkSSP(e){
     
     // maskinSSP er maskinen sin tilfeldig valgte stein / saks / papir.
     const maskinSSP = rndSSP();
-    if (t.className === "SSP") {
-        if (t.innerHTML === maskinSSP) {
-            wins += 0;
-        } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
-            wins += 1;
-            winstreak += 1;
 
-            console.log(wins); 
-        } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
-            wins += 1;
-            winstreak += 1;
-
-            console.log(wins); 
-        } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
-            wins += 1;
-            winstreak += 1;
-
-            console.log(wins); 
-        } else {
-            losses += 1;
-            winstreak = 0;
-            console.log(losses); 
-            console.log(winstreak); 
-
-        } 
-    }
-    
     /**
      * Først må vi sjekke at du faktisk har trykket på en av SSP bildene.
      * Så sjekker vi om det blir uavgjort.
      * Dersom det ikke er uavgjort sjekker vi om du vinner eller taper. 
      */
+    // For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
+    // vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
+    if (t.className === "SSP") {
+        if (t.innerHTML === maskinSSP) {
+            wins += 0;
+            // bakgrunn blir uavgjortFarge.
+
+        } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
+            wins += 1;
+            winstreak += 1;
+            // bakgrunnsfarge blir winFarge.
+
+            console.log("Wins: " + wins); 
+        } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
+            wins += 1;
+            winstreak += 1;
+            // bakgrunnsfarge blir winFarge.
+
+            console.log("Wins: " + wins); 
+        } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
+            wins += 1;
+            winstreak += 1;
+            // bakgrunnsfarge blir winFarge.
+
+            console.log("Wins: " + wins); 
+        } else {
+            losses += 1;
+            winstreak = 0;
+            // bakgrunnsfarge blir tapFarge.
+            console.log("Losses: " + losses); 
+        } 
+    }
 }
