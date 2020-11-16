@@ -16,7 +16,6 @@ const $ = (id) => document.getElementById(id);
 const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
 
-
 /** 
  * EventListener som kjører funskjonen sjekkSSP(); når du 
  * trykker på en av stein / saks / papir bildene på skjermen.
@@ -30,9 +29,10 @@ let wins = 0;
 let losses = 0;
 let scores = 0;
 let winstreak = 0;
-let tapfarge = "red";
-let winfarge = "green";
-let uavgjortfarge = "yellow";
+let tapfarge = "rgba(245, 69, 38, 0.739)";
+let winfarge = "rgba(136, 231, 27, 0.685)";
+let uavgjortfarge = "rgba(255, 255, 0, 0.664)";
+let highScoreArray = [];
 
 /**
  * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
@@ -61,7 +61,7 @@ function endreFarge(element, farge){
     element.style.backgroundColor = farge;
     element.style.transition = "0.25s";
     setTimeout(() => {
-        element.style.backgroundColor = "white";
+        element.style.backgroundColor = "rgba(0, 255, 255, 0.65)";
         element.style.transition = "0.25s";
     }, 250);
 } 
@@ -126,6 +126,7 @@ function setToLocalStorrage(value, item){
      * Funksjonen skal lagre highScoreArray(eller den arrayen vi sender til den)
      * i localStorrage vi bruker navet "scoreArray" som value. 
      */
+    localStorage.setItem(value, JSON.stringify(item));
 }
 
 /**
@@ -141,6 +142,8 @@ function getFromLocalStorrage(value){
      * For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
      * da bruker vi JSON.parse( localStorrage.getItem(value) )
      */
+    let getHighScore = JSON.parse(localStorage.getItem(value));
+    
 }
 
 /**
@@ -161,7 +164,7 @@ function sjekkSSP(e){
     const maskinSSP = rndSSP();
     if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
-            alert("uavgjort")
+            alert("uavgjort");
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
             alert("du vinner")
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
