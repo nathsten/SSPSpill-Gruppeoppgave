@@ -1,5 +1,5 @@
 // @ts-check
-
+//Helene
 /**
  * Forkortelse for document.getElementById("idName");
  * @param {string} id
