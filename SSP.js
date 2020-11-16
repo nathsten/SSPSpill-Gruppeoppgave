@@ -167,15 +167,28 @@ function sjekkSSP(e){
     const maskinSSP = rndSSP();
     if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
-            alert("uavgjort")
+            wins += 0;
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
-            alert("du vinner")
+            wins += 1;
+            winstreak += 1;
+
+            console.log(wins); 
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
-            alert("du vinner")
+            wins += 1;
+            winstreak += 1;
+
+            console.log(wins); 
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
-            alert("du vinner")
+            wins += 1;
+            winstreak += 1;
+
+            console.log(wins); 
         } else {
-            alert("maskin vinner")
+            losses += 1;
+            winstreak = 0;
+            console.log(losses); 
+            console.log(winstreak); 
+
         } 
     }
     
