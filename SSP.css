@@ -24,8 +24,8 @@ body{
 #overskrift {
     position: absolute;
     top: 15px;
-    font-size: 4rem;
-    left: calc(50% - 210px);
+    font-size: 3.5rem;
+    left: calc(50% - 197px);
     margin-top: 5px;
 }
 #wins {
