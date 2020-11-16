@@ -12,16 +12,14 @@
  */
 const $ = (id) => document.getElementById(id);
 
-// Sjekker om i allerede har en lagret highscore.
-getFromLocalStorrage("scoreArray");
 
 // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
 const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
-const overskriftDiv = $("overskrift");
 const winstreakDiv = $("winstreak");
 const winsDiv = $("wins");
 const loosesDiv = $("losses");
+const highScoreDiv = $("highscore");
 
 
 /** 
@@ -35,10 +33,19 @@ let wins = 0;
 let losses = 0;
 let scores = 0;
 let winstreak = 0;
-let tapFarge = "rgba(245, 69, 38, 0.739)";
-let winFarge = "rgba(136, 231, 27, 0.685)";
-let uavgjortFarge = "rgba(255, 255, 0, 0.664)";
+const tapFarge = "rgba(245, 69, 38, 0.739)";
+const winFarge = "rgba(136, 231, 27, 0.685)";
+const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
 let highScoreArray = [];
+
+// Sjekker om i allerede har en lagret highscore.
+getFromLocalStorrage("scoreArray");
+
+// Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
+//  til start verdien av wins, losses, winstreak, og highscoren din.
+// Denne kjøres når siden starter. 
+// per nå gjør ikke funksjonen noen ting.
+oppdatereLabels(wins, losses, winstreak, finnHighScore(highScoreArray));
 
 /**
  * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
@@ -68,8 +75,14 @@ const rndSSP = () => {
     til å endre tilbake til standard
  */
 function endreFarge(element, farge){
+    // Vi bruker CSS kommandoer på HTMLElementet som blir sendt inn. 
+    // Først endrer vi background-color.
     element.style.backgroundColor = farge;
+    // Så gir vi elementet kommandoen transition, 
+    //  som forteller den, hvor lang tid den skal bruke på å gjennomføre ting. 
     element.style.transition = "0.25s";
+
+    // Vi venter 250ms, før vi endrer den tilbake til opprinnelig bakgrunnsfarge. 
     setTimeout(() => {
         element.style.backgroundColor = "rgba(0, 255, 255, 0.65)";
         element.style.transition = "0.25s";
@@ -77,15 +90,18 @@ function endreFarge(element, farge){
 } 
 
 /**
+ * Oppdaterer divene "#winstreak, #wins, #losses" sin innterHTML
+    med tallene som blir tatt inn i parametrene (winsTall, lossesTall, winstreakTall).
  * @param {Number} winsTall
  * @param {Number} lossesTall
  * @param {Number} winstreakTall
+ * @param {Number} highscoreTall
  */
-function oppdatereLabels(winsTall, lossesTall, winstreakTall){
-    /**
-     * Oppdaterer divene "#winstreak, #wins, #losses" sin innterHTML
-     * med tallene som blir tatt inn i parametrene (winsTall, lossesTall, winstreakTall).
-     */
+function oppdatereLabels(winsTall, lossesTall, winstreakTall, highscoreTall){
+    // winsDiv.innerHTML
+    // loosesDiv.innerHTML
+    // winstreakDiv.innerHTML
+    // highScoreDiv.innerHTML
 }
 
 /**
@@ -97,12 +113,17 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall){
  * @returns {Number}
  */
 function finnHighScore(scoreList){
-    let max = scoreList[0];
+    let max = scoreList[0]; // Annta at den første verdien i arrayen er størt. 
+
+    // "looper" igjennom arrayen.
     for(let i=0; i<scoreList.length; i++){
+        // Dersom scoreList possisjon i (som er mellom 0 og lengden av scoreList)
+        //  er større enn den som allerede er lagre som "max", endrer vi max til funnet tall. ß
         if(scoreList[i] > max) {
             max = scoreList[i];
         }
     }
+    // Til slutt returnerer vi "max", som er den største verdien funnet i arrayen. 
     return max;
 }
 
@@ -189,24 +210,25 @@ function sjekkSSP(e){
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
-            console.log("Wins: " + wins); 
+            console.log("Wins: " + wins); // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
-            console.log("Wins: " + wins); 
+            console.log("Wins: " + wins); // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
-            console.log("Wins: " + wins); 
+            console.log("Wins: " + wins); // Skal oppdatere divene med wins/loss og winstreak
         } else {
             losses += 1;
             winstreak = 0;
             // bakgrunnsfarge blir tapFarge.
-            console.log("Losses: " + losses); 
+
+            console.log("Losses: " + losses); // Skal oppdatere divene med wins/loss og winstreak
         } 
     }
 }
