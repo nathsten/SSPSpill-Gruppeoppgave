@@ -41,10 +41,12 @@ let highScoreArray = [];
 // Sjekker om i allerede har en lagret highscore.
 getFromLocalStorrage("scoreArray");
 
-// Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
-//  til start verdien av wins, losses, winstreak, og highscoren din.
-// Denne kjøres når siden starter. 
-// per nå gjør ikke funksjonen noen ting.
+/** 
+* Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
+    til start verdien av wins, losses, winstreak, og highscoren din.
+* Denne kjøres når siden starter. 
+* Per nå gjør ikke funksjonen noen ting.
+*/
 oppdatereLabels(wins, losses, winstreak, finnHighScore(highScoreArray));
 
 /**
@@ -98,10 +100,10 @@ function endreFarge(element, farge){
  * @param {Number} highscoreTall
  */
 function oppdatereLabels(winsTall, lossesTall, winstreakTall, highscoreTall){
-    // winsDiv.innerHTML
-    // loosesDiv.innerHTML
-    // winstreakDiv.innerHTML
-    // highScoreDiv.innerHTML
+    // winsDiv.innerHTML = `Vunnet: ${}`;
+    // loosesDiv.innerHTML = `Tapt: ${}`;
+    // winstreakDiv.innerHTML = `Winstreak: ${}`;
+    // highScoreDiv.innerHTML = `Highscore: ${}`;
 }
 
 /**
@@ -210,25 +212,28 @@ function sjekkSSP(e){
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
-            console.log("Wins: " + wins); // Skal oppdatere divene med wins/loss og winstreak
+            // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
-            console.log("Wins: " + wins); // Skal oppdatere divene med wins/loss og winstreak
+            // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
-            console.log("Wins: " + wins); // Skal oppdatere divene med wins/loss og winstreak
+            // Skal oppdatere divene med wins/loss og winstreak
         } else {
             losses += 1;
             winstreak = 0;
             // bakgrunnsfarge blir tapFarge.
 
-            console.log("Losses: " + losses); // Skal oppdatere divene med wins/loss og winstreak
-        } 
+            // Skal oppdatere divene med wins/loss og winstreak
+        }
+        console.log("Wins: " + wins); 
+        console.log("Losses: " + losses);
+        console.log("Winstreak: " + winstreak);
     }
 }

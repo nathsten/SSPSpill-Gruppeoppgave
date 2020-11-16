@@ -1,5 +1,6 @@
 #header {
     border: black 1px solid;
+    border-radius: 20px;
     width: 100%;
     height: 100px;
     background: linear-gradient(to right, #6b6b6b,#ffffff, #ff0000);
@@ -7,37 +8,44 @@
 #winstreak, #wins, #losses, #highscore {
     position: absolute;
     font-family: Gotham Rounded, sans-serif;
-    font-size: 2rem;
+    font-size: 1.8em;
     top: 15px;
-    width: 250px;
-    height: 30px;
-    border: 1px black solid;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px black solid;
+    border-radius: 10px;
 }
 #overskrift {
     position: absolute;
     top: 15px;
     font-size: 4rem;
     left: 33%;
+    margin-top: 5px;
 }
-#wins, #losses {
-    left: 1%;
+#wins {
+    top: 35px;
+    left: 2%;
 }
 #losses {
-    top: 55px;
+    top: 35px;
+    left: 17.5%;
 }
-#highscore, #winstreak {
-    right: 1%;
+#highscore {
+    top: 35px;
+    right: 2%;
 }
-#winstreak {
-    top: 55px;
+#winstreak{
+    top: 35px;
+    right: 20%;
 }
+
 
 #SSPDiv{
     position: relative;
     width: 60%;
     height: 400px;
     left: calc(50% - 30%);
-    top: 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     user-select: none;
@@ -61,6 +69,7 @@
 
 #SSPDiv>div:hover{
     background-color: rgba(39, 151, 255, 0.527);
+    animation: vinke 1s linear infinite;
 }
 
 #stein{
@@ -73,4 +82,12 @@
 
 #papir{
     background-image: url("/bilder/papir.png");
+}
+
+@keyframes vinke{
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(-20deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(20deg);}
+    100%{transform: rotate(0deg);}
 }
