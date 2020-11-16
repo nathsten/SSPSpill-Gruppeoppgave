@@ -91,11 +91,17 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall){
  * @returns {Number}
  */
 function finnHighScore(scoreList){
+    let max = scoreList[0];
     /**
      * Bruker en "for løkke" til å sortere ut det høyeste tallet 
      * i arrayen som blir tilsendt
      */
-    return null;
+    for(let i=0; i<scoreList.length; i++){
+        if(scoreList[i]  > max) {
+            max = scoreList[i];
+        }
+    }
+    return max;
 }
 
 /**
