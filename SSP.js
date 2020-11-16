@@ -1,5 +1,5 @@
 // @ts-check
-//Helene
+//Helene 
 /**
  * Forkortelse for document.getElementById("idName");
  * Kunne også ha vert skrevet slik:
