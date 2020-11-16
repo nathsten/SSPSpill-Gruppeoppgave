@@ -26,6 +26,13 @@ SSPDiv.addEventListener("click", sjekkSSP);
 // Globale variabler:
 // let wins = 0;
 // osv..
+let wins = 0;
+let losses = 0;
+let scores = 0;
+let winstreak = 0;
+let tapfarge = "red";
+let winfarge = "green";
+let uavgjortfarge = "yellow";
 
 /**
  * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
@@ -51,13 +58,19 @@ const rndSSP = () => {
  * @param {String} farge
  */
 function endreFarge(element, farge){
+    element.style.backgroundColor = farge;
+    element.style.transition = "0.25s";
+    setTimeout(() => {
+        element.style.backgroundColor = "white";
+        element.style.transition = "0.25s";
+    }, 250);
+} 
     /**
      * Her skal funksjonen først endre bakgrunnsfargen til elementet
      * og bruke 250ms på det.
      * Derretter venter den 250ms før den bruker nye 250ms
      * til å endre tilbake til standard
      */
-}
 
 /**
  * @param {Number} winsTall
