@@ -8,9 +8,10 @@
     position: absolute;
     font-family: Gotham Rounded, sans-serif;
     font-size: 2rem;
-    top: 115px;
+    top: 15px;
     width: 250px;
     height: 30px;
+    border: 1px black solid;
 }
 #overskrift {
     position: absolute;
@@ -18,17 +19,17 @@
     font-size: 4rem;
     left: 33%;
 }
-#wins {
+#wins, #losses {
     left: 1%;
 }
 #losses {
-    left: 28%;
+    top: 55px;
 }
-#highscore {
+#highscore, #winstreak {
     right: 1%;
 }
 #winstreak {
-    right: 28%;
+    top: 55px;
 }
 
 #SSPDiv{
