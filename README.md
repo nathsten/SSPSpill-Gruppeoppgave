@@ -2,11 +2,14 @@
 Stein, saks, papir spill mot maskinen.
 
 ## Div med Stein, saks, papir knapper. 
-Diven må bestå av tre diver som får innerHTML "stein"( font-size blir på 0% fordi vi vil ikke se teksten) osv slik at det blir lett for oss å sjekke hvilke du har trykket på i ‘’SjekkSSP’’ funksjonen 
-Alle divene må ha klassenavnet "SSP" slik at vi kan senere sjekke i ‘’SjekkSSP’’ at du har trykket på en av de tre inputene. 
+Diven må bestå av tre diver som får innerHTML "stein" / "saks" / "papir"( font-size blir på 0% fordi vi vil ikke se teksten) slik at det blir lett for oss å sjekke hvilke du har trykket på i "SjekkSSP()" funksjonen.
 
-## Funksjon (rndSSP) som returnerer stein/saks/papir som er maskinen sitt valg. 
-Tar inn en array: const SSP = ['stein', 'saks', 'papir'], og genrerer et tilfeldig tall mellom 0 og lengden av arrayen. Derretter returnerer den SSP[0 / 1 / 2];
+Alle divene må ha klassenavnet "SSP" slik at vi kan senere sjekke i "SjekkSSP()" at du har trykket på en av de tre inputene. 
+
+## Funksjon rndSSP() som returnerer stein/saks/papir som er maskinen sitt valg. 
+Tar inn en array: const SSP = ['stein', 'saks', 'papir'], og genrerer et tilfeldig tall mellom 0 og lengden av arrayen. 
+
+Derretter returnerer den SSP[0 / 1 / 2];
 
 ## Funksjonen SjekkSSP() 
 Finner ut hvilke av stein/saks/papir du har trykket på, og lager en variabel med maskinen sin tilfeldige stein/saks/papir. 
@@ -44,5 +47,5 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
         3.12 wins, losses, winstreak og score blir til 0 og spillet starter på nytt
 
         3.12 Hvis scoren din er større enn din gamle score:
-        
+
             3.121 HigscoreDiv blir oppdatert. 

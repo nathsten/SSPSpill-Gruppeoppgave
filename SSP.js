@@ -31,15 +31,15 @@ SSPDiv.addEventListener("click", sjekkSSP);
 // Globale variabler:
 let wins = 0;
 let losses = 0;
-let scores = 0;
+let score = 0;
 let winstreak = 0;
-const tapFarge = "rgba(245, 69, 38, 0.739)";
+const loseFarge = "rgba(245, 69, 38, 0.739)";
 const winFarge = "rgba(136, 231, 27, 0.685)";
 const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
 let highScoreArray = [];
 
-// Sjekker om i allerede har en lagret highscore.
-getFromLocalStorrage("scoreArray");
+// Sjekker om vi allerede har en lagret highscore og legger den til i highScoreArray.
+getFromLocalStorrage("scoreArray", highScoreArray);
 
 /** 
 * Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
@@ -167,14 +167,15 @@ function setToLocalStorrage(key, item){
  * Funksjonen erstatter den tomme globale arrayen highScoreArray med 
  * dataen den får fra localStorrage. 
  * Funksjoenen sjekker om verdien allerede finnes i localStorrage,
-    for å så hente den ut og legge den dataen til i highScoreArray (global variabel).
+    for å så hente den ut og legge den dataen til i arrayen vi sender til den.
     For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
     da bruker vi JSON.parse( localStorrage.getItem(key) )
- */
-function getFromLocalStorrage(key){
+ * @param {Number[]} array
+*/
+function getFromLocalStorrage(key, array){
     if(localStorage.getItem(key)){
         let getHighScore = JSON.parse(localStorage.getItem(key));
-        highScoreArray = getHighScore;
+        array = getHighScore;
     }
 }
 
@@ -204,31 +205,35 @@ function sjekkSSP(e){
     // vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
     if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
-            wins += 0;
+            // Det blir uavgjort
             // bakgrunn blir uavgjortFarge.
 
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
+            // Du vinner
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
+            // Du vinner
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
+            // Du vinner
             wins += 1;
             winstreak += 1;
             // bakgrunnsfarge blir winFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else {
+            // Du taper
             losses += 1;
             winstreak = 0;
-            // bakgrunnsfarge blir tapFarge.
+            // bakgrunnsfarge blir loseFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
         }
