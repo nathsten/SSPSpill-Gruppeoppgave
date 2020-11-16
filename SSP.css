@@ -1,25 +1,32 @@
 #header {
-    border: 1px black solid;
+    border: black 1px solid;
     width: 100%;
     height: 100px;
-    background: linear-gradient(to right, #6b6b6b, #ffffff, #ff0000);
+    background: linear-gradient(to right, #6b6b6b,#ffffff, #ff0000);
 }
-#overskrift, #winstreak, #wins, #losses {
+#winstreak, #wins, #losses, #highscore {
     position: absolute;
     font-family: Gotham Rounded, sans-serif;
-    top: 15px;
     font-size: 2rem;
+    top: 115px;
+    width: 250px;
+    height: 30px;
 }
 #overskrift {
+    position: absolute;
+    top: 15px;
     font-size: 4rem;
     left: 33%;
 }
-#winstreak {
-    left: 20px;
-}
-#wins, #losses {
-    right: 50px;
+#wins {
+    left: 1%;
 }
 #losses {
-    top: 55px;
+    left: 28%;
+}
+#highscore {
+    right: 1%;
+}
+#winstreak {
+    right: 28%;
 }
