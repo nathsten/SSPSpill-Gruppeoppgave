@@ -1,5 +1,5 @@
 // @ts-check
-//Helene 
+
 /**
  * Forkortelse for document.getElementById("idName");
  * Kunne også ha vert skrevet slik:
@@ -146,7 +146,19 @@ function sjekkSSP(e){
     
     // maskinSSP er maskinen sin tilfeldig valgte stein / saks / papir.
     const maskinSSP = rndSSP();
-
+    if (t.className === "SSP") {
+        if (t.innerHTML === maskinSSP) {
+            alert("uavgjort")
+        } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
+            alert("du vinner")
+        } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
+            alert("du vinner")
+        } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
+            alert("du vinner")
+        } else {
+            alert("maskin vinner")
+        } 
+    
     /**
      * Først må vi sjekke at du faktisk har trykket på en av SSP bildene.
      * Så sjekker vi om det blir uavgjort.
