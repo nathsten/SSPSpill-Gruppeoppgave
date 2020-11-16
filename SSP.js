@@ -2,6 +2,11 @@
 //Helene
 /**
  * Forkortelse for document.getElementById("idName");
+ * Kunne også ha vert skrevet slik:
+    function $(id){
+        return document.getElementById(id);
+    }
+ * Den må ikke hete "$", men det er bare et typisk tegn for å hente data (ligner på jquery);
  * @param {string} id
  * @returns {object}
  */
