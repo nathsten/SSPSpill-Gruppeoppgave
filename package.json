@@ -1,0 +1,16 @@
+{
+  "name": "ssp-spill",
+  "version": "1.0.0",
+  "description": "stein saks papir mot en bot",
+  "main": "SSP.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathsten/SSPSpill-Gruppeoppgave.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathsten/SSPSpill-Gruppeoppgave/issues"
+  },
+  "homepage": "https://github.com/nathsten/SSPSpill-Gruppeoppgave#readme"
+}
