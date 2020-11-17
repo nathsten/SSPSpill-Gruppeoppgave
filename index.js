@@ -25,7 +25,7 @@ function sendUsername(request, response){
     let data = request.params;
     let brukernavnValue = data.brukernavn;
     getScoreList[brukernavnValue] = 1;
-    let storeScoreList = JSON.stringify(getScoreList, null, 2);
+    let storeScoreList = JSON.stringify(getScoreList);
     fs.writeFileSync('node/highscore.json', storeScoreList, finished);
     response.send(`Takk for din registrering ${brukernavnValue}, du er nå registrert i vår database`);
 }
