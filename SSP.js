@@ -20,6 +20,7 @@ const winstreakDiv = $("winstreak");
 const winsDiv = $("wins");
 const loosesDiv = $("losses");
 const highScoreDiv = $("highscore");
+const scoreDiv = $("score");
 
 
 /** 
@@ -33,10 +34,11 @@ let wins = 0;
 let losses = 0;
 let score = 0;
 let winstreak = 0;
+let winstreakPoeng = 50;
 const loseFarge = "rgba(245, 69, 38, 0.739)";
 const winFarge = "rgba(136, 231, 27, 0.685)";
 const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
-let highScoreArray = [];
+let highScoreArray = [0];
 
 // Sjekker om vi allerede har en lagret highscore og legger den til i highScoreArray.
 getFromLocalStorrage("scoreArray", highScoreArray);
@@ -97,13 +99,13 @@ function endreFarge(element, farge){
  * @param {Number} winsTall
  * @param {Number} lossesTall
  * @param {Number} winstreakTall
- * @param {Number} highscoreTall
+ * @param {Number} scoreTall
  */
-function oppdatereLabels(winsTall, lossesTall, winstreakTall, highscoreTall){
+function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
     // winsDiv.innerHTML = `Vunnet: ${}`;
     // loosesDiv.innerHTML = `Tapt: ${}`;
     // winstreakDiv.innerHTML = `Winstreak: ${}`;
-    // highScoreDiv.innerHTML = `Highscore: ${}`;
+    // scoreDiv.innerHTML = `Score: ${}`;
 }
 
 /**
@@ -212,6 +214,12 @@ function sjekkSSP(e){
             // Du vinner
             wins += 1;
             winstreak += 1;
+            score += 100;
+            // Dersom du har en winstreak får du poeng for det, og poeng gitt for
+            if(winstreak > 1){
+                score += winstreakPoeng;
+                winstreakPoeng += 50;
+            }
             // bakgrunnsfarge blir winFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -219,6 +227,13 @@ function sjekkSSP(e){
             // Du vinner
             wins += 1;
             winstreak += 1;
+            score += 100;
+            // Dersom du har en winstreak får du poeng for det, 
+            //  og poeng gitt for winstreak øker med 50 for hver gang. 
+            if(winstreak > 1){
+                score += winstreakPoeng;
+                winstreakPoeng += 50;
+            }
             // bakgrunnsfarge blir winFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -226,6 +241,12 @@ function sjekkSSP(e){
             // Du vinner
             wins += 1;
             winstreak += 1;
+            score += 100;
+            // Dersom du har en winstreak får du poeng for det, og poeng gitt for
+            if(winstreak > 1){
+                score += winstreakPoeng;
+                winstreakPoeng += 50;
+            }
             // bakgrunnsfarge blir winFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -233,6 +254,8 @@ function sjekkSSP(e){
             // Du taper
             losses += 1;
             winstreak = 0;
+            score -= 50;
+            winstreakPoeng = 50;
             // bakgrunnsfarge blir loseFarge.
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -240,5 +263,9 @@ function sjekkSSP(e){
         console.log("Wins: " + wins); 
         console.log("Losses: " + losses);
         console.log("Winstreak: " + winstreak);
+        console.log("Score: " + score);
+        // Nå må vi oppdatere alle labeles med de nye poengene,
+        //  kjøre funksjonen som sjekker om vi har vunnet spillet eller ei,
+        //  
     }
 }
