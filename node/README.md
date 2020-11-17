@@ -11,7 +11,7 @@ Dataen om spilleren lagres i en JSON fil.
 #### Note:
 Jeg er ikke helt sikker på hvordan jeg skal gjøre dette, men jeg ser om jeg får det til. 
 
-# Requierments:
+# Requirements:
 Må ha node instalert for å kunen jobbe med serveren. https://nodejs.org/en/
 
 Bruker "fs" (file system) til å skrive inn i JSON filen. (inkludert i nodejs)
