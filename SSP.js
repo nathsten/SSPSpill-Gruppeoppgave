@@ -41,7 +41,7 @@ const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
 let highScoreArray = [0];
 
 // Sjekker om vi allerede har en lagret highscore og legger den til i highScoreArray.
-getFromLocalStorrage("scoreArray", highScoreArray);
+getFromLocalStorrage("scoreArray");
 
 /** 
 * Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
@@ -49,7 +49,7 @@ getFromLocalStorrage("scoreArray", highScoreArray);
 * Denne kjøres når siden starter. 
 * Per nå gjør ikke funksjonen noen ting.
 */
-oppdatereLabels(wins, losses, winstreak, finnHighScore(highScoreArray));
+oppdatereLabels(wins, losses, winstreak, score);
 
 /**
  * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
@@ -82,9 +82,6 @@ function endreFarge(element, farge){
     // Vi bruker CSS kommandoer på HTMLElementet som blir sendt inn. 
     // Først endrer vi background-color.
     element.style.backgroundColor = farge;
-    // Så gir vi elementet kommandoen transition, 
-    //  som forteller den, hvor lang tid den skal bruke på å gjennomføre ting. 
-    element.style.transition = "0.25s";
 
     // Vi venter 250ms, før vi endrer den tilbake til opprinnelig bakgrunnsfarge. 
     setTimeout(() => {
@@ -102,10 +99,11 @@ function endreFarge(element, farge){
  * @param {Number} scoreTall
  */
 function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
-    // winsDiv.innerHTML = `Vunnet: ${}`;
-    // loosesDiv.innerHTML = `Tapt: ${}`;
-    // winstreakDiv.innerHTML = `Winstreak: ${}`;
-    // scoreDiv.innerHTML = `Score: ${}`;
+    winsDiv.innerHTML = `Vunnet: ${winsTall}`;
+    loosesDiv.innerHTML = `Tapt: ${lossesTall}`;
+    winstreakDiv.innerHTML = `Winstreak: ${winstreakTall}`;
+    scoreDiv.innerHTML = `Score: ${scoreTall}`;
+    highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
 }
 
 /**
@@ -135,16 +133,24 @@ function finnHighScore(scoreList){
  * Funskjonen tar inn de globale vaiablene "antallWins" og "antallLosses".
  * Dette er ikke nødvendig fordi de er globale variabler, 
  * men vi gjør det alikevel for treningen sin del.
- * @param {Number} wins
- * @param {Number} losses
+ * @param {Number} winsTall
+ * @param {Number} lossesTall
  */
-function sjekkSeier(wins, losses){
+function sjekkSeier(winsTall, lossesTall){
     /**
      * Funksjonen skal sjekke om summen av dine seiere og tap >= 20.
      * Dersom den er 20, finner vi ut hvem som har vunnet og lagrer highScoren din
      * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
      */
-    if(wins + losses === 20){
+    if(winsTall + lossesTall === 20){
+        highScoreArray.push(score);
+        setToLocalStorrage("scoreArray", highScoreArray);
+        wins = 0;
+        score = 0;
+        losses = 0;
+        winstreak = 0;
+        winstreakPoeng = 50;
+        oppdatereLabels(wins, losses, winstreak, score);
         // Start spill på nytt.
     }
 }
@@ -174,10 +180,10 @@ function setToLocalStorrage(key, item){
     da bruker vi JSON.parse( localStorrage.getItem(key) )
  * @param {Number[]} array
 */
-function getFromLocalStorrage(key, array){
+function getFromLocalStorrage(key){
     if(localStorage.getItem(key)){
         let getHighScore = JSON.parse(localStorage.getItem(key));
-        array = getHighScore;
+        highScoreArray = getHighScore;
     }
 }
 
@@ -205,10 +211,10 @@ function sjekkSSP(e){
      */
     // For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
     // vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
-    if (t.className === "SSP") {
+if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
             // Det blir uavgjort
-            // bakgrunn blir uavgjortFarge.
+            endreFarge(t, uavgjortFarge)
 
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
             // Du vinner
@@ -221,6 +227,8 @@ function sjekkSSP(e){
                 winstreakPoeng += 50;
             }
             // bakgrunnsfarge blir winFarge.
+            endreFarge(t, winFarge);
+            
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
@@ -235,6 +243,9 @@ function sjekkSSP(e){
                 winstreakPoeng += 50;
             }
             // bakgrunnsfarge blir winFarge.
+            endreFarge(t, winFarge);
+
+            
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
@@ -248,6 +259,7 @@ function sjekkSSP(e){
                 winstreakPoeng += 50;
             }
             // bakgrunnsfarge blir winFarge.
+            endreFarge(t, winFarge);
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else {
@@ -257,6 +269,8 @@ function sjekkSSP(e){
             score -= 50;
             winstreakPoeng = 50;
             // bakgrunnsfarge blir loseFarge.
+            endreFarge(t, loseFarge);
+
 
             // Skal oppdatere divene med wins/loss og winstreak
         }
@@ -264,6 +278,8 @@ function sjekkSSP(e){
         console.log("Losses: " + losses);
         console.log("Winstreak: " + winstreak);
         console.log("Score: " + score);
+        oppdatereLabels(wins, losses, winstreak, score);
+        sjekkSeier(wins, losses);
         // Nå må vi oppdatere alle labeles med de nye poengene,
         //  kjøre funksjonen som sjekker om vi har vunnet spillet eller ei,
         //  
