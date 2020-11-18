@@ -91,10 +91,45 @@ body{
     background-image: url("/bilder/papir.png");
 }
 
+#boks {
+    position: absolute;
+    height: 150px;
+    width: 300px;
+    border-radius: 20%;
+    visibility: hidden;
+}
+
 @keyframes vinke{
     0%{transform: rotate(0deg);}
     25%{transform: rotate(-15deg);}
     50%{transform: rotate(0deg);}
     75%{transform: rotate(15deg);}
     100%{transform: rotate(0deg);}
+}
+
+@keyframes vant {
+    0% { visibility: visible; background-color: rgb(33, 231, 33); left: 0px;}
+    50% { left: 500px; }
+    100% {left: 1000px; visibility: hidden;}
+}
+
+@keyframes tapt {
+    0% { visibility: visible; background-color: rgb(231, 17, 17); left: 0px;}
+    50% { left: 500px; }
+    100% {left: 1000px; visibility: hidden;}
+}
+
+@keyframes uavgjort {
+    0% { visibility: visible; background-color: orange; left: 0px;}
+    50% { left: 500px; }
+    100% {left: 1000px; visibility: hidden;}
+}
+.vant {
+    animation: vant 3s linear;
+}
+.tapt {
+    animation: tapt 3s linear;
+}
+.uavgjort {
+    animation: uavgjort 3s linear;
 }

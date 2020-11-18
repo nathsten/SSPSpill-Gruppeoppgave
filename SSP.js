@@ -269,3 +269,7 @@ function sjekkSSP(e){
         //  
     }
 }
+
+@keyframes boks {
+
+}
