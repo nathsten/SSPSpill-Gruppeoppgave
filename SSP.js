@@ -10,6 +10,7 @@
  * @param {string} id
  * @returns {object}
  */
+// @ts-ignore
 const $ = (id) => document.getElementById(id);
 
 

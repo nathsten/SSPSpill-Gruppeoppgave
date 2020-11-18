@@ -98,3 +98,7 @@ body{
     75%{transform: rotate(15deg);}
     100%{transform: rotate(0deg);}
 }
+
+/**
+    Lage animasjon som flyr over skjermen dersom du vinner eller taper.
+*/

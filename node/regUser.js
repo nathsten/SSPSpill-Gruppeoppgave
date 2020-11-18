@@ -1,20 +1,20 @@
-// @ts-check
 
-/**
- * @param {string} id
- */
 const $ = (id) => document.getElementById(id);
 
-const userNameInpt = /**@type {HTMLInputElement}*/ ($("nameInpt"));
-const sendUserNameBtn = $("saveUser");
+const fs = require('fs');
 
-let userName = String(userNameInpt.value);
+function setup(){
+    const userNameInpt = /**@type {HTMLInputElement}*/ ($("nameInpt"));
+    const sendUserNameBtn = $("saveUser");
+    console.log("Server is running . . .")
 
-// export const sendUsername = () => userName;
+    sendUserNameBtn.addEventListener("click", setUsername);
 
-// sendUserNameBtn.addEventListener("click", setUsername);
+    function setUsername(){
+        let userName = String(userNameInpt.value);
+        console.log(userName);
+        let storeUser = JSON.stringify(userName, null, 2);
 
-// function setUsername(){
-//     // Midlertidlig
-//     localStorage.setItem("username", JSON.stringify(userName));
-// }
+        userNameInpt.value = "";
+    }
+}
