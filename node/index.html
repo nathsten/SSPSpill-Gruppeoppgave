@@ -5,16 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrer bruker</title>
     <link rel="stylesheet" href="regUser.css">
+    <style>
+        /* .inputUser{
+            
+        } */
+    </style>
 </head>
 <body>
     <div id="gui" class="guiClass">
         <label class="label">Skriv inn spillernavnet ditt: <br>
-            <input type="text" id="nameInpt" class="inputUser">
+            <input type="text" value="" id="nameInpt" class="inputUser">
         </label>
         <br>
         <button id="saveUser" class="buttonClass">Begynn å spille</button>
     </div>
     
     <script src="regUser.js"></script>
+
+    <script>
+        const saveUserBtn = document.getElementById("saveUser");
+        const inptUsername = document.getElementById("nameInpt");
+        saveUserBtn.addEventListener("click", function(){
+            let username = inptUsername.value;
+            window.open("localhost:3000/regUser/"+username, "_self");
+        })
+    </script>
 </body>
 </html>

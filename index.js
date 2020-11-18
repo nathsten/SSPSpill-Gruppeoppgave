@@ -3,7 +3,7 @@ const express = require('express');
 const port = 3000;
 
 const getScoreList = JSON.parse(fs.readFileSync('node/highscore.json'));
-
+let userID = Number((Object.keys(getScoreList).length) + 1);
 
 const index = express();
 
@@ -24,8 +24,11 @@ index.get('/regUser/:brukernavn', sendUsername);
 function sendUsername(request, response){
     let data = request.params;
     let brukernavnValue = data.brukernavn;
-    getScoreList[brukernavnValue] = 1;
-    let storeScoreList = JSON.stringify(getScoreList);
+
+    getScoreList[brukernavnValue] = {"userID": userID, "score": 100};
+
+    let storeScoreList = JSON.stringify(getScoreList, null, 2);
+
     fs.writeFileSync('node/highscore.json', storeScoreList, finished);
     response.send(`Takk for din registrering ${brukernavnValue}, du er nå registrert i vår database`);
 }
@@ -46,13 +49,13 @@ function searchUser(req, res){
     let msg;
 
     if(getScoreList[user]){
-        msg = `${user}: ${getScoreList[user]} poeng`;
-    }   else{
+        msg = `${user}: ${getScoreList[user]}`;
+    }   
+    else{
         msg = "Bruker var ikke funnet";
     }
     res.send(msg);
 }
-
 
 // getScoreList[newUser] = 0;
 

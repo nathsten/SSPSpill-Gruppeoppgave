@@ -1,3 +1,6 @@
 {
-  "Nathaniel": 2000
+  "Nathaniel": {
+    "userID": 1,
+    "score": 2000
+  }
 }
