@@ -1,13 +1,13 @@
 {
-  "name": "ssp-spill",
+  "name": "stein-saks-papir-spill",
   "version": "1.0.0",
-  "description": "stein saks papir mot en bot",
-  "main": "SSP.html",
+  "description": "stein saks papir spill mot en bot. Konkurer med andre spillere",
+  "main": "node/index.html",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nathsten/SSPSpill-Gruppeoppgave.git"
   },
-  "author": "",
+  "author": "David, Eleonora, Helene, Nathaniel",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nathsten/SSPSpill-Gruppeoppgave/issues"

@@ -7,6 +7,8 @@ let userID = Number((Object.keys(getScoreList).length) + 1);
 
 const index = express();
 
+// Rydde opp i mapper slik at alle egne sider får egene mappe (egen mappe for SSP spillet)
+
 const server = index.listen(port, callBack);
 
 function callBack(error){
