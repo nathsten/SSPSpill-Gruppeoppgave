@@ -16,7 +16,4 @@ Må ha node instalert for å kunen jobbe med serveren. https://nodejs.org/en/
 
 Bruker "fs" (file system) til å skrive inn i JSON filen. (inkludert i nodejs)
 
-Bruker "http" til serveren. (inkludert i nodejs)
-
-#### Bruker muligens heller express fremfor "http":
 Bruker "express" til serveren. (må instaleres) npm install express --save

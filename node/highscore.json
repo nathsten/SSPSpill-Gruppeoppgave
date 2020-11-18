@@ -1,6 +1,27 @@
 {
   "Nathaniel": {
+    "username": "Nathaniel",
     "userID": 1,
-    "score": 2000
+    "score": 100
+  },
+  "David": {
+    "username": "David",
+    "userID": 2,
+    "score": 100
+  },
+  "Eleonora": {
+    "username": "Eleonora",
+    "userID": 3,
+    "score": 100
+  },
+  "Helene": {
+    "username": "Helene",
+    "userID": 4,
+    "score": 100
+  },
+  "Kirat": {
+    "username": "Kirat",
+    "userID": 5,
+    "score": 100
   }
 }

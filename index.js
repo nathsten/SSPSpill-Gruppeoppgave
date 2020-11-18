@@ -7,8 +7,6 @@ let userID = Number((Object.keys(getScoreList).length) + 1);
 
 const index = express();
 
-// Rydde opp i mapper slik at alle egne sider får egene mappe (egen mappe for SSP spillet)
-
 const server = index.listen(port, callBack);
 
 function callBack(error){
@@ -27,7 +25,7 @@ function sendUsername(request, response){
     let data = request.params;
     let brukernavnValue = data.brukernavn;
 
-    getScoreList[brukernavnValue] = {"userID": userID, "score": 100};
+    getScoreList[brukernavnValue] = {"username": brukernavnValue, "userID": userID, "score": 100};
 
     let storeScoreList = JSON.stringify(getScoreList, null, 2);
 
@@ -58,16 +56,6 @@ function searchUser(req, res){
     }
     res.send(msg);
 }
-
-// getScoreList[newUser] = 0;
-
-// let data = JSON.stringify(getScoreList, null, 2);
-
-// fs.writeFileSync('node/highscore.json', data, finished);
-
-// function finished(){
-//     console.log("Done");
-// }
 
 /**
  * HTTP NODE SERVER KODE:

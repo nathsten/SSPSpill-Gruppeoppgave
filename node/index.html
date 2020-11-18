@@ -5,31 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrer bruker</title>
     <script src="regUser.js"></script>
-    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
-
-    <!-- <script data-main="scripts/main.js" src="scripts/require.js"></script> -->
+    <script src="p5Biblotek/p5.js"></script>
     <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         .guiClass{
             position: relative;
             width: 400px;
             height: 200px;
-            border: solid 1px black;
+            top: 20px;
+            border: solid 2px rgba(40, 97, 161, 0.616);
+            border-radius: 20px;
             left: calc(50% - 200px);
             text-align: center;
         }
+
+        .label{
+            position: relative;
+            font-size: 1.5em;
+            top: 10px;
+        }
+
+        .inputUser{
+            width: 200px;
+            font-size: 1.1em;
+            outline: none;
+            border-radius: 20px;
+            margin-top: 20px;
+            background-color: rgba(124, 202, 202, 0.342);
+            text-align: center;
+            transition: 0.25s;
+        }
+        .inputUser:hover{
+            background-color: rgba(202, 177, 124, 0.342);
+            width: 225px;
+        }
+        .inputUser:focus{
+            background-color: rgba(202, 177, 124, 0.342);
+            width: 225px;
+        }
+
+        .buttonClass{
+            position: relative;
+            outline: none;
+            background-color: rgba(95, 158, 160, 0.623);
+            transition: 0.25s;
+            font-size: 1.3em;
+            width: 200px;
+            padding: 10px 20px 10px 20px;
+            top: 40px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .buttonClass:hover{
+            background-color: rgba(91, 208, 212, 0.876);
+            width: 225px;
+        }
+
     </style>
 </head>
 <body>
     <div id="gui" class="guiClass">
         <label class="label">Skriv inn spillernavnet ditt: <br>
-            <input type="text" value="" id="nameInpt" class="inputUser">
+            <input type="text" value="" id="nameInpt" class="inputUser" placeholder="brukernavn">
         </label>
         <br>
         <button id="saveUser" class="buttonClass">Begynn å spille</button>
     </div>
-
-    <script>
-        setup();
-    </script>
 </body>
 </html>

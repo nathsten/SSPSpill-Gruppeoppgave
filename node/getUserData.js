@@ -1,15 +1,16 @@
 // @ts-check
 
+/**
+ * @param {string} id
+ */
 const getId = (id) => document.getElementById(id);
-
-const fs = require('fs');
 
 function lagBrukere(){
     const spillereDiv = getId("spillereDiv");
     const spillereListe = getId("spillereListe");
 
     // Denne er bare midlertidig, skal lese av highscore.json filen. 
-    let spillereData = ['Helene: Highscore: 100', 'Eleonora: Highscore: 100', 'Nathaniel: Highscore: 100'];
+    let spillereData = ['Helene: Highscore: 100', 'Eleonora: Highscore: 100', 'Nathaniel: Highscore: 100', 'David: Highscore: 100', 'Kirat: Highscore: 100'];
 
     /**
      * @param {string[]} spillere
