@@ -211,10 +211,10 @@ function sjekkSSP(e){
      */
     // For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
     // vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
-    if (t.className === "SSP") {
+if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
             // Det blir uavgjort
-            // bakgrunn blir uavgjortFarge.
+            endreFarge(t, uavgjortFarge)
 
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
             // Du vinner
@@ -227,6 +227,8 @@ function sjekkSSP(e){
                 winstreakPoeng += 50;
             }
             // bakgrunnsfarge blir winFarge.
+            endreFarge(t, winFarge);
+            
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
@@ -241,6 +243,9 @@ function sjekkSSP(e){
                 winstreakPoeng += 50;
             }
             // bakgrunnsfarge blir winFarge.
+            endreFarge(t, winFarge);
+
+            
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
@@ -254,6 +259,7 @@ function sjekkSSP(e){
                 winstreakPoeng += 50;
             }
             // bakgrunnsfarge blir winFarge.
+            endreFarge(t, winFarge);
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else {
@@ -263,6 +269,8 @@ function sjekkSSP(e){
             score -= 50;
             winstreakPoeng = 50;
             // bakgrunnsfarge blir loseFarge.
+            endreFarge(t, loseFarge);
+
 
             // Skal oppdatere divene med wins/loss og winstreak
         }
