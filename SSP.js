@@ -178,7 +178,6 @@ function setToLocalStorrage(key, item){
     for å så hente den ut og legge den dataen til i arrayen vi sender til den.
     For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
     da bruker vi JSON.parse( localStorrage.getItem(key) )
- * @param {Number[]} array
 */
 function getFromLocalStorrage(key){
     if(localStorage.getItem(key)){
