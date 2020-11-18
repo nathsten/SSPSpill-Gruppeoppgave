@@ -95,7 +95,7 @@ body{
     position: absolute;
     height: 150px;
     width: 300px;
-    border-radius: 20%;
+    border-radius: 20px;
     visibility: hidden;
     text-align: center;
     font-size: 3rem;
@@ -147,25 +147,23 @@ body{
     height: 250px;
     border: solid 1px black;
     background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
+    border-radius: 50px;
 
 }
 
 #SpillereHeader{
     width: 100%;
     text-align: center;
-    font-family: "Helvetica";
     color: black;
     text-decoration: none;
-    font-family: 'Niconne', cursive;
     font-size: 1.2rem;
-    
-
 }
 
-/* #spillereDiv>h3{
+#SpillereHeader>h1{
+    font-family: 'Niconne', cursive;
 
-} */
 
+}
 
 #spillereListe{
     display: grid;
@@ -175,5 +173,6 @@ body{
 
 #spillereListe>div{
     margin: 10px;
-    
+    margin-left: 20px;
+    font-size: 1.5em;
 }

@@ -49,9 +49,8 @@ getFromLocalStorrage("scoreArray");
 
 /** 
 * Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
-    til start verdien av wins, losses, winstreak, og highscoren din.
+    til start verdien av wins, losses, winstreak, og scoren din.
 * Denne kjøres når siden starter. 
-* Per nå gjør ikke funksjonen noen ting.
 */
 oppdatereLabels(wins, losses, winstreak, score);
 
@@ -90,13 +89,14 @@ function endreFarge(element, farge){
     // Vi venter 250ms, før vi endrer den tilbake til opprinnelig bakgrunnsfarge. 
     setTimeout(() => {
         element.style.backgroundColor = "rgba(0, 255, 255, 0.65)";
-        element.style.transition = "0.25s";
     }, 250);
 } 
 
 /**
  * Oppdaterer divene "#winstreak, #wins, #losses" sin innterHTML
     med tallene som blir tatt inn i parametrene (winsTall, lossesTall, winstreakTall).
+    I utgangspunktet litt unødvendig å ta inn tallene i parameterene, men vi gjør det alikevel
+    for treningen sin del.
  * @param {Number} winsTall
  * @param {Number} lossesTall
  * @param {Number} winstreakTall
@@ -124,7 +124,7 @@ function finnHighScore(scoreList){
     // "looper" igjennom arrayen.
     for(let i=0; i<scoreList.length; i++){
         // Dersom scoreList possisjon i (som er mellom 0 og lengden av scoreList)
-        //  er større enn den som allerede er lagre som "max", endrer vi max til funnet tall. ß
+        //  er større enn den som allerede er lagre som "max", endrer vi max til funnet tall.
         if(scoreList[i] > max) {
             max = scoreList[i];
         }
@@ -154,24 +154,30 @@ function sjekkSeier(winsTall, lossesTall){
         losses = 0;
         winstreak = 0;
         winstreakPoeng = 50;
-        oppdatereLabels(wins, losses, winstreak, score);
-        // Start spill på nytt.
-        // boksDiv.classlist.remove("vant");
-        // boksDiv.classlist.remove("tapt");
-        // boksDiv.classlist.remove("uavgjort");
+
+        // Dersom boksDiv har en klasse fra før av tar vi den vekk. 
         boksDiv.className = "";
+        // Bare for å restarte boksDiv. 
         void boksDiv.offsetWidth;
+        // Gjør innerHTMLen tom slik at vi kan endre på den nedenfor. 
         boksDiv.innerHTML = "";
+        // Sjekker km du har vunnet, tapt eller om det ble uavgjort. 
         if (winsTall > lossesTall) {
             boksDiv.className = "vant";
             boksDiv.innerHTML = "Du vant";
-        } else if (winsTall < lossesTall) {
+        } 
+        else if (winsTall < lossesTall) {
             boksDiv.className = "tapt";
             boksDiv.innerHTML = "Du tapte";
-        } else if (winsTall === lossesTall) {
+        } 
+        else if (winsTall === lossesTall) {
             boksDiv.className = "uavgjort";
             boksDiv.innerHTML = "Uavgjort";
         }
+        // Venter i 2sekunder før den restarter score-divene.
+        setTimeout(() => {
+        oppdatereLabels(wins, losses, winstreak, score);
+        }, 2000);
     }
 }
 
@@ -213,8 +219,6 @@ function getFromLocalStorrage(key){
  * Derretter kjører den funksjonen rndSSP(); som returnerer 
  * maskinen sitt tilfeldige svar på stein / saks / papir.
  * @param {{ target: HTMLElement; }} e
- * Per nå returnerer ikke funskjonen noen ting.
- * @returns {void}
  */
 function sjekkSSP(e){
     // t blir den av de tre inputene du har trykket på
@@ -227,26 +231,32 @@ function sjekkSSP(e){
      * Først må vi sjekke at du faktisk har trykket på en av SSP bildene.
      * Så sjekker vi om det blir uavgjort.
      * Dersom det ikke er uavgjort sjekker vi om du vinner eller taper. 
-     */
-    // For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
-    // vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
+
+     * For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
+        vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
+    */
 if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
-            // Det blir uavgjort
-            endreFarge(t, uavgjortFarge)
+            // Bakgrunnsfargen til HTMLElementet blir uavgjortFarge.
+            endreFarge(t, uavgjortFarge);
+            // Ingen endring på poengene.
 
         } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
             // Du vinner
             wins += 1;
             winstreak += 1;
             score += 100;
-            // Dersom du har en winstreak får du poeng for det, og poeng gitt for
+
+            // Dersom du har en winstreak får du poeng for det, 
+            //  og poeng gitt for winstreak øker med 50 for hver gang. 
             if(winstreak > 1){
                 score += winstreakPoeng;
                 winstreakPoeng += 50;
             }
-            // bakgrunnsfarge blir winFarge.
+
+            // bakgrunnsfargen til HTMLElementet blir winFarge.
             endreFarge(t, winFarge);
+            // Spiller av lyden for rett.
             correctSound.play();
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -255,51 +265,51 @@ if (t.className === "SSP") {
             wins += 1;
             winstreak += 1;
             score += 100;
+
             // Dersom du har en winstreak får du poeng for det, 
             //  og poeng gitt for winstreak øker med 50 for hver gang. 
             if(winstreak > 1){
                 score += winstreakPoeng;
                 winstreakPoeng += 50;
             }
-            // bakgrunnsfarge blir winFarge.
+
+            // bakgrunnsfargen til HTMLElementet blir winFarge.
             endreFarge(t, winFarge);
+            // Spiller av lyden for rett.
             correctSound.play();
             
-
-            // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
             // Du vinner
             wins += 1;
             winstreak += 1;
             score += 100;
-            // Dersom du har en winstreak får du poeng for det, og poeng gitt for
+
+            // Dersom du har en winstreak får du poeng for det, 
+            //  og poeng gitt for winstreak øker med 50 for hver gang. 
             if(winstreak > 1){
                 score += winstreakPoeng;
                 winstreakPoeng += 50;
             }
-            // bakgrunnsfarge blir winFarge.
+            // bakgrunnsfargen til HTMLElementet blir winFarge.
             endreFarge(t, winFarge);
+            // Spiller av lyden for rett.
             correctSound.play();
 
-            // Skal oppdatere divene med wins/loss og winstreak
         } else {
-            // Du taper
             losses += 1;
             winstreak = 0;
             score -= 50;
+            // Setter poeng per winstreak tilbake til 50.
             winstreakPoeng = 50;
-            // bakgrunnsfarge blir loseFarge.
-            endreFarge(t, loseFarge);
-            wrongSound.play();
 
-            // Skal oppdatere divene med wins/loss og winstreak
+            // Sender HTMLElementet vi jobber med til funkjsonen sammen med fargen.
+            endreFarge(t, loseFarge);
+            // Spiller av lyden for feil.
+            wrongSound.play();
         }
+        // Sender wins, losses, winstreak, og score til funksjonen slik at det blir vist på skjermen. 
         oppdatereLabels(wins, losses, winstreak, score);
+        // Sjekker om runden er over. 
         sjekkSeier(wins, losses);
-        // Nå må vi oppdatere alle labeles med de nye poengene,
-        //  kjøre funksjonen som sjekker om vi har vunnet spillet eller ei,
-        //  
     }
 }
-
-

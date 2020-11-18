@@ -18,11 +18,11 @@
 
     <div id="header">
         <div id="overskrift">Stein Saks Papir</div>
-        <div id="winstreak">Winstreak: 0</div>
-        <div id="wins">Vunnet: 0</div>
-        <div id="score">Score: 0</div>
-        <div id="losses">Tapt: 0</div>
-        <div id="highscore">Highscore: 0</div>
+        <div id="winstreak"></div>
+        <div id="wins"></div>
+        <div id="score"></div>
+        <div id="losses"></div>
+        <div id="highscore"></div>
     </div>
 
     <div id="SSPDiv">
@@ -33,13 +33,11 @@
 
     <div id="spillereDiv">
         <div id="SpillereHeader">
-            <h3> Highscore:</h3>
+            <h1>Highscore:</h1>
         </div>
        
        <div id="spillereListe">
-            <div>Helene: </div>
-            <div>Eleonora: </div>
-            <div>Nathaniel: </div>
+
        </div>
 
     </div>
@@ -47,5 +45,10 @@
  <div id="boks" class=""></div>
 
     <script src="SSP.js"></script>
+    <script src="node/getUserData.js"></script>
+
+    <script>
+        lagBrukere();
+    </script>
 </body>
 </html>
