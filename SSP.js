@@ -21,6 +21,9 @@ const winsDiv = $("wins");
 const loosesDiv = $("losses");
 const highScoreDiv = $("highscore");
 const scoreDiv = $("score");
+const boksDiv = $("boks");
+const correctSound = $("correctSound");
+const wrongSound = $("wrongSound");
 
 
 /** 
@@ -152,6 +155,22 @@ function sjekkSeier(winsTall, lossesTall){
         winstreakPoeng = 50;
         oppdatereLabels(wins, losses, winstreak, score);
         // Start spill på nytt.
+        // boksDiv.classlist.remove("vant");
+        // boksDiv.classlist.remove("tapt");
+        // boksDiv.classlist.remove("uavgjort");
+        boksDiv.className = "";
+        void boksDiv.offsetWidth;
+        boksDiv.innerHTML = "";
+        if (winsTall > lossesTall) {
+            boksDiv.className = "vant";
+            boksDiv.innerHTML = "Du vant";
+        } else if (winsTall < lossesTall) {
+            boksDiv.className = "tapt";
+            boksDiv.innerHTML = "Du tapte";
+        } else if (winsTall === lossesTall) {
+            boksDiv.className = "uavgjort";
+            boksDiv.innerHTML = "Uavgjort";
+        }
     }
 }
 
@@ -227,7 +246,7 @@ if (t.className === "SSP") {
             }
             // bakgrunnsfarge blir winFarge.
             endreFarge(t, winFarge);
-            
+            correctSound.play();
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
@@ -243,7 +262,7 @@ if (t.className === "SSP") {
             }
             // bakgrunnsfarge blir winFarge.
             endreFarge(t, winFarge);
-
+            correctSound.play();
             
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -259,6 +278,7 @@ if (t.className === "SSP") {
             }
             // bakgrunnsfarge blir winFarge.
             endreFarge(t, winFarge);
+            correctSound.play();
 
             // Skal oppdatere divene med wins/loss og winstreak
         } else {
@@ -269,14 +289,10 @@ if (t.className === "SSP") {
             winstreakPoeng = 50;
             // bakgrunnsfarge blir loseFarge.
             endreFarge(t, loseFarge);
-
+            wrongSound.play();
 
             // Skal oppdatere divene med wins/loss og winstreak
         }
-        console.log("Wins: " + wins); 
-        console.log("Losses: " + losses);
-        console.log("Winstreak: " + winstreak);
-        console.log("Score: " + score);
         oppdatereLabels(wins, losses, winstreak, score);
         sjekkSeier(wins, losses);
         // Nå må vi oppdatere alle labeles med de nye poengene,
@@ -285,6 +301,4 @@ if (t.className === "SSP") {
     }
 }
 
-@keyframes boks {
 
-}

@@ -97,6 +97,10 @@ body{
     width: 300px;
     border-radius: 20%;
     visibility: hidden;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 8rem;
+
 }
 
 @keyframes vinke{
@@ -108,24 +112,25 @@ body{
 }
 
 @keyframes vant {
-    0% { visibility: visible; background-color: rgb(33, 231, 33); left: 0px;}
-    50% { left: 500px; }
-    100% {left: 1000px; visibility: hidden;}
+    0% { visibility: visible; background-color: rgb(33, 231, 33); left: 0px; opacity: 0%;}
+    50% { left: 500px; opacity: 100%;}
+    100% {left: 1000px; opacity: 0%; visibility: hidden;}
 }
 
 @keyframes tapt {
-    0% { visibility: visible; background-color: rgb(231, 17, 17); left: 0px;}
-    50% { left: 500px; }
-    100% {left: 1000px; visibility: hidden;}
+    0% { visibility: visible; background-color: rgb(231, 17, 17); left: 0px; opacity: 0%;}
+    50% { left: 500px; opacity: 100%;}
+    100% {left: 1000px; opacity: 0%; visibility: hidden;}
 }
 
 @keyframes uavgjort {
-    0% { visibility: visible; background-color: orange; left: 0px;}
-    50% { left: 500px; }
-    100% {left: 1000px; visibility: hidden;}
+    0% { visibility: visible; background-color: orange; left: 0px; opacity: 0%;}
+    50% { left: 500px; opacity: 100%;}
+    100% {left: 1000px; opacity: 0%; visibility: hidden;}
 }
 .vant {
     animation: vant 3s linear;
+
 }
 .tapt {
     animation: tapt 3s linear;
