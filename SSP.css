@@ -112,31 +112,37 @@ body{
 }
 
 @keyframes vant {
-    0% { visibility: visible; background-color: rgb(33, 231, 33); left: 0px; opacity: 0%;}
-    50% { left: 500px; opacity: 100%;}
-    100% {left: 1000px; opacity: 0%; visibility: hidden;}
+    0% { visibility: visible; background-color: rgb(33, 231, 33); left: 0%; opacity: 0%;}
+    15% { left: 25%; opacity: 80%; visibility: visible;}
+    50% { left: 50%; opacity: 100%; visibility: visible;}
+    85% { left: 75%; opacity: 100%; visibility: visible;}
+    100% {left: 100%; opacity: 0%; visibility: hidden;}
 }
 
 @keyframes tapt {
-    0% { visibility: visible; background-color: rgb(231, 17, 17); left: 0px; opacity: 0%;}
-    50% { left: 500px; opacity: 100%;}
-    100% {left: 1000px; opacity: 0%; visibility: hidden;}
+    0% { visibility: visible; background-color: rgb(231, 17, 17); left: 0%; opacity: 0%;}
+    15% { left: 25%; opacity: 80%; visibility: visible;}
+    50% { left: 50%; opacity: 100%; visibility: visible;}
+    85% { left: 75%; opacity: 100%; visibility: visible;}
+    100% {left: 100%; opacity: 0%; visibility: hidden;}
 }
 
 @keyframes uavgjort {
     0% { visibility: visible; background-color: orange; left: 0px; opacity: 0%;}
-    50% { left: 500px; opacity: 100%;}
-    100% {left: 1000px; opacity: 0%; visibility: hidden;}
+    15% { left: 25%; opacity: 80%; visibility: visible;}
+    50% { left: 50%; opacity: 100%; visibility: visible;}
+    85% { left: 75%; opacity: 100%; visibility: visible;}
+    100% {left: 100%; opacity: 0%; visibility: hidden;}
 }
 .vant {
-    animation: vant 3s linear;
+    animation: vant 4s linear;
 
 }
 .tapt {
-    animation: tapt 3s linear;
+    animation: tapt 4s linear;
 }
 .uavgjort {
-    animation: uavgjort 3s linear;
+    animation: uavgjort 4s linear;
 }
 
 #spillereDiv {

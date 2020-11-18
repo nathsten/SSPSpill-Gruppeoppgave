@@ -1,6 +1,9 @@
 # Stein, saks papir spill - Gruppeoppgave
 Stein, saks, papir spill mot maskinen.
 
+# Spill spillet nå lokalt mot maskinen!
+https://stein-saks-papir.netlify.app/
+
 ## Div med Stein, saks, papir knapper. 
 Diven må bestå av tre diver som får innerHTML "stein" / "saks" / "papir"( font-size blir på 0% fordi vi vil ikke se teksten) slik at det blir lett for oss å sjekke hvilke du har trykket på i "SjekkSSP()" funksjonen.
 

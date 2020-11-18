@@ -1,8 +1,6 @@
 
 const $ = (id) => document.getElementById(id);
 
-const fs = require('fs');
-
 function setup(){
     const userNameInpt = /**@type {HTMLInputElement}*/ ($("nameInpt"));
     const sendUserNameBtn = $("saveUser");
