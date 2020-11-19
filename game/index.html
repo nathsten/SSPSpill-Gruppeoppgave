@@ -6,15 +6,16 @@
     <title>Stein Saks Papir</title>
     <link rel="stylesheet" href="SSP.css">
     <link rel="icon" type="png" href="/bilder/icon.png">
-    <script src="https://requirejs.org/docs/release/2.3.6/r.js"></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.6/r.js"></script> -->
+    <script src="p5Biblotek/p5.js"></script>
 </head>
 <body>
     <audio id="correctSound">
-        <source type="audio/ogg" src="/lyder/Correct.mp3">
+        <source type="audio/ogg" src="lyder/Correct.mp3">
     </audio>
     
     <audio id="wrongSound">
-        <source type="audio/ogg" src="/lyder/Wrong.mp3">
+        <source type="audio/ogg" src="lyder/Wrong.mp3">
     </audio>
 
     <div id="header">
@@ -47,7 +48,7 @@
 
     <script src="SSP.js"></script>
 
-    <script src="/node/getUserData.js"></script>
+    <script src="getUserData.js"></script>
     <script>
         lagBrukere();
     </script>

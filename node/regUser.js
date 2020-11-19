@@ -27,8 +27,20 @@ function setup(){
         }
 
         userNameInpt.value = "";
+        // setTimeout(() => {
+        //     loadJSON('game', gameLoad)
+        // }, 500);
     }
 }
+
+// function gameLoad(err){
+//     if(!err){
+//         console.log('Game successfully opended');
+//     }
+//     else{
+//         console.log('Noe er gale..')
+//     }
+// }
 
 function getData(data){
     console.log(data);

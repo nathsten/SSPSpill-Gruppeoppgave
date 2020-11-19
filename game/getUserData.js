@@ -1,13 +1,27 @@
-// @ts-check
+let users;
+let userArray = [];
 
-/**
- * @param {string} id
- */
-const getId = (id) => document.getElementById(id);
+// Laster inn spillerene fra databasen.
+function setup(){
+    loadJSON('all', getUserData);
+}
+
+// Lager en variabel med brukerene i. 
+function getUserData(data){
+    console.log(data);
+    users = data;
+    console.log(users['Nathaniel'].score);
+}
+
+// Skal sortere ut alle spillerene i en array.
+function structureSpillere(){
+    let userKeys = keys(users);
+    return userKeys;
+}
 
 function lagBrukere(){
-    const spillereDiv = getId("spillereDiv");
-    const spillereListe = getId("spillereListe");
+    const spillereDiv = $("spillereDiv");
+    const spillereListe = $("spillereListe");
 
     // Bruke loadJSON til å lese JSON filen med spillerene. Bare linke den i SSP.html!!
 

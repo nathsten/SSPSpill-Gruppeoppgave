@@ -17,7 +17,12 @@ function callBack(error){
     }
 }
 
-index.use(express.static('node'));
+
+function loadPage(pageName){
+    index.use(express.static(pageName));
+}
+
+loadPage('game');
 
 index.get('/regUser/:brukernavn', sendUsername);
 
@@ -55,6 +60,12 @@ function searchUser(req, res){
         msg = "Bruker var ikke funnet";
     }
     res.send(msg);
+}
+
+index.get('/loadGame', loadGame);
+
+function loadGame(){
+    loadPage('game');
 }
 
 /**

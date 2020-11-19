@@ -16,11 +16,11 @@ https://stein-saks-papir.netlify.app/
     * #### game:
         * Alle filene vi trenger til spillet (SSP.html, SSP.css, SSP.js).
 
-    * #### bilder:
-        * .png filene av stein, saks, og papir, samt icon.png.
+        * ##### bilder:
+            * .png filene av stein, saks, og papir, samt icon.png.
 
-    * #### lyder:
-        * .mp3 filer av lyden som spilles av når du vinner og når du taper.
+        * ##### lyder:
+            * .mp3 filer av lyden som spilles av når du vinner og når du taper.
 
     * #### node:
         * index.html: Første siden som lastes av serveren, hvor du registrerer brukernavnet ditt.

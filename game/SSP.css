@@ -80,15 +80,15 @@ body{
 }
 
 #stein{
-    background-image: url("/bilder/stein.png");
+    background-image: url("bilder/stein.png");
 }
 
 #saks{
-    background-image: url("/bilder/saks.png");
+    background-image: url("bilder/saks.png");
 }
 
 #papir{
-    background-image: url("/bilder/papir.png");
+    background-image: url("bilder/papir.png");
 }
 
 #boks {
