@@ -9,8 +9,10 @@ function lagBrukere(){
     const spillereDiv = getId("spillereDiv");
     const spillereListe = getId("spillereListe");
 
+    // Bruke loadJSON til å lese JSON filen med spillerene. Bare linke den i SSP.html!!
+
     // Denne er bare midlertidig, skal lese av highscore.json filen. 
-    let spillereData = ['Helene: Highscore: 100', 'Eleonora: Highscore: 100', 'Nathaniel: Highscore: 100', 'David: Highscore: 100', 'Kirat: Highscore: 100'];
+    let spillereData = ['Helene: 100', 'Eleonora: 100', 'Nathaniel: 100', 'David: 100', 'Kirat: 100'];
 
     /**
      * @param {string[]} spillere

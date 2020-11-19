@@ -112,7 +112,7 @@ body{
 }
 
 @keyframes vant {
-    0% { visibility: visible; background-color: rgb(33, 231, 33); left: 0%; opacity: 0%;}
+    0% { visibility: hidden; left: 0%; opacity: 0%;}
     15% { left: 25%; opacity: 80%; visibility: visible;}
     50% { left: 50%; opacity: 100%; visibility: visible;}
     85% { left: 75%; opacity: 100%; visibility: visible;}
@@ -120,7 +120,7 @@ body{
 }
 
 @keyframes tapt {
-    0% { visibility: visible; background-color: rgb(231, 17, 17); left: 0%; opacity: 0%;}
+    0% { visibility: visible; left: 0%; opacity: 0%;}
     15% { left: 25%; opacity: 80%; visibility: visible;}
     50% { left: 50%; opacity: 100%; visibility: visible;}
     85% { left: 75%; opacity: 100%; visibility: visible;}
@@ -128,21 +128,23 @@ body{
 }
 
 @keyframes uavgjort {
-    0% { visibility: visible; background-color: orange; left: 0px; opacity: 0%;}
+    0% { visibility: hidden; left: 0px; opacity: 0%;}
     15% { left: 25%; opacity: 80%; visibility: visible;}
     50% { left: 50%; opacity: 100%; visibility: visible;}
-    85% { left: 75%; opacity: 100%; visibility: visible;}
+    85% { left: 75%; opacity: 80%; visibility: visible;}
     100% {left: 100%; opacity: 0%; visibility: hidden;}
 }
 .vant {
     animation: vant 4s linear;
-
+    background-color: rgb(33, 231, 33);
 }
 .tapt {
     animation: tapt 4s linear;
+    background-color: rgb(231, 17, 17);
 }
 .uavgjort {
     animation: uavgjort 4s linear;
+    background-color: orange;
 }
 
 #spillereDiv {
@@ -154,26 +156,27 @@ body{
     border: solid 1px black;
     background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
     border-radius: 50px;
-
+    overflow: scroll;
 }
 
 #SpillereHeader{
-    width: 100%;
+    position: relative;
+    width: 50%;
     text-align: center;
     color: black;
     text-decoration: none;
     font-size: 1.2rem;
+    left: calc(50% - 25%);
 }
 
 #SpillereHeader>h1{
     font-family: 'Niconne', cursive;
-
-
+    border-bottom: #5d89f0 solid 2px;
 }
 
 #spillereListe{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
 }
 

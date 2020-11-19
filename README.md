@@ -4,6 +4,43 @@ Stein, saks, papir spill mot maskinen.
 # Spill spillet nå lokalt mot maskinen!
 https://stein-saks-papir.netlify.app/
 
+# Struktur:
+
+* ### Hovedmappe:
+    * index.js: Javascript fil som lager serveren og alle kommandoene som hører til den. 
+
+    * package.json: En pakke med info om programmet, må ha med for å bruke npm install.
+
+    * .gitignore: Ignorer å laste opp mappen i node/p5Biblotek. Dette er hvor funksjonen loadJSON finnes.
+
+    * #### game:
+        * Alle filene vi trenger til spillet (SSP.html, SSP.css, SSP.js).
+
+    * #### bilder:
+        * .png filene av stein, saks, og papir, samt icon.png.
+
+    * #### lyder:
+        * .mp3 filer av lyden som spilles av når du vinner og når du taper.
+
+    * #### node:
+        * index.html: Første siden som lastes av serveren, hvor du registrerer brukernavnet ditt.
+
+        * regUser.js: Javascript filen til index.html som lagrer dataen via index.js.
+
+        * getUserData.js: Javascript filen som henter brukerene og viser den på SSP.html i spillereListe diven. 
+
+        * highscore.json: Databasen hvor vi lagrer spillerene med deres brukernavn, highscore og userID. 
+
+        * ##### p5Biblotek (.gitignore): 
+            * p5.js: Et biblotek for p5 funksjoner, blant annet loadJSON(); 
+            
+            * Last ned mappen: https://p5js.org/download/
+
+            * Dokumentasjon til loadJSON: https://p5js.org/reference/#/p5/loadJSON
+
+
+# Funksjonell beskrivelse:
+
 ## Div med Stein, saks, papir knapper. 
 Diven må bestå av tre diver som får innerHTML "stein" / "saks" / "papir"( font-size blir på 0% fordi vi vil ikke se teksten) slik at det blir lett for oss å sjekke hvilke du har trykket på i "SjekkSSP()" funksjonen.
 
