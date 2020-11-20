@@ -1,17 +1,25 @@
-let users;
+let userList;
 let userArray = [];
+let thisUser;
 
 // Laster inn spillerene fra databasen.
 function setup(){
     loadJSON('all', getUserData);
 }
-
 // Lager en variabel med brukerene i. 
+// Alle variabler med brukere må skje her
 function getUserData(data){
     console.log(data);
-    users = data;
-    console.log(users['Nathaniel'].score);
+    userList = data;
+    console.log(userList['Nathaniel'].score);
+    console.log(userList[thisUser]);
 }
+if(localStorage.getItem("username")){
+    const getThisUsername = JSON.parse(localStorage.getItem("username"));
+    thisUser = getThisUsername;
+}
+
+console.log(thisUser);
 
 // Skal sortere ut alle spillerene i en array.
 function structureSpillere(){

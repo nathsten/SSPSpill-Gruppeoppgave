@@ -3,6 +3,8 @@ const $ = (id) => document.getElementById(id);
 function setup(){
     const userNameInpt = /**@type {HTMLInputElement}*/ ($("nameInpt"));
     const sendUserNameBtn = $("saveUser");
+    const gui = $("gui");
+
     console.log("Server is running . . .");
 
     loadJSON('all', getData);
@@ -22,14 +24,23 @@ function setup(){
         let storeUser = JSON.stringify(userName);
         loadJSON(`regUser/${userName}`, finished);
 
+        gui.innerHTML = "";
+
+        const msg = document.createElement("div");
+        msg.id = "msg";
+        msg.innerHTML = `Takk ${userName} du er nå registrert, spillet starter øyeblikk`;
+        gui.append(msg);
+
+        localStorage.setItem("username", JSON.stringify(userName));
+
         function finished(data){
             console.log(data);
         }
 
         userNameInpt.value = "";
-        // setTimeout(() => {
-        //     loadJSON('game', gameLoad)
-        // }, 500);
+        setTimeout(() => {
+            location.reload();
+        }, 2000);
     }
 }
 

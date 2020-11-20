@@ -17,12 +17,30 @@ function callBack(error){
     }
 }
 
+// Hvis userRegistred ikke finnes i localstorrage så setter vi den til false først.
+// Henter fra localStorage om userRegistred === true eller false. 
+// Hvis true så sender vi 'game', hvis false så sender vi 'node'.
+// Når du registrerer deg så blir userRegistred satt til true og siden lastes inn på nytt. 
 
-function loadPage(pageName){
-    index.use(express.static(pageName));
+let userRegistered = false;
+let pageLoad;
+
+// if(localStorage.getItem("userRegistered")){
+//     const getUserInfo = JSON.parse(localStorage.getItem("userRegistered"));
+//     userRegistered = getUserInfo;
+// }
+
+const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
+userRegistered = getUserRegistered["userRegiststrered"];
+
+if(userRegistered !== "false"){
+    pageLoad = 'game';
+}
+else{
+    pageLoad = 'node';
 }
 
-loadPage('game');
+index.use(express.static(pageLoad));
 
 index.get('/regUser/:brukernavn', sendUsername);
 
@@ -35,7 +53,15 @@ function sendUsername(request, response){
     let storeScoreList = JSON.stringify(getScoreList, null, 2);
 
     fs.writeFileSync('node/highscore.json', storeScoreList, finished);
+
+    const storeUserRegistered = getUserRegistered["userRegiststrered"] = {"userRegiststrered": "true"};
+    const JSONstoreUserRegistered = JSON.stringify(storeUserRegistered, null, 2);
+
     response.send(`Takk for din registrering ${brukernavnValue}, du er nå registrert i vår database`);
+    fs.writeFileSync('node/userRegistrered.json', JSONstoreUserRegistered, callBackSaveUser);
+    function callBackSaveUser(data){
+        console.log(data)
+    }
 }
 function finished(){
     console.log("Done");
