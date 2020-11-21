@@ -17,47 +17,57 @@ function callBack(error){
     }
 }
 
-// Hvis userRegistred ikke finnes i localstorrage så setter vi den til false først.
-// Henter fra localStorage om userRegistred === true eller false. 
-// Hvis true så sender vi 'game', hvis false så sender vi 'node'.
-// Når du registrerer deg så blir userRegistred satt til true og siden lastes inn på nytt. 
-
+// Hvis ikke noe annet så er du ikke registrert. 
 let userRegistered = false;
+// Siden vi skal laste inn, foreløpig ingenting. 
 let pageLoad;
 
-// if(localStorage.getItem("userRegistered")){
-//     const getUserInfo = JSON.parse(localStorage.getItem("userRegistered"));
-//     userRegistered = getUserInfo;
-// }
-
+// Laster inn userRegistrered.json og sjekker om den er true/false. 
 const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
 userRegistered = getUserRegistered["userRegiststrered"];
 
+// Hvis userRegistrered er true, så laster vi inn spillet. 
 if(userRegistered !== "false"){
+    // Siden vi skal laste inn er mappen 'game'.
     pageLoad = 'game';
 }
+// Dersom den er false eller noe annet av en eller annen grunn så laster vi inn registreringssiden. 
 else{
+    // Siden vi skal laste inn er mappen 'node'. 
     pageLoad = 'node';
 }
 
+// Bruker index(variabelen for serveren) til å åpne siden som vi bestemte over. 
 index.use(express.static(pageLoad));
 
+// Funksjonen som lagrer brukeren. 
 index.get('/regUser/:brukernavn', sendUsername);
 
+// tar i mot en request, og sender en response.
 function sendUsername(request, response){
+    // data blir det du sente inn. 
     let data = request.params;
+    // brukernavnValue blir det du skrev inn som brukernavn. 
     let brukernavnValue = data.brukernavn;
 
+    // scoreListen som er highscore.json får en ny objekt som er deg.
+    // Du vil få 100 som highscore automatisk, samt userID. 
     getScoreList[brukernavnValue] = {"username": brukernavnValue, "userID": userID, "score": 100};
 
+    // Vi gjør den om til JSON string. 
     let storeScoreList = JSON.stringify(getScoreList, null, 2);
 
+    // Vi lagrer dataen i highscore.json
     fs.writeFileSync('node/highscore.json', storeScoreList, finished);
 
+    // Endrer på userRegiststrered fra false til true. 
     const storeUserRegistered = getUserRegistered["userRegiststrered"] = {"userRegiststrered": "true"};
+    // Gjør den om til JSON String. 
     const JSONstoreUserRegistered = JSON.stringify(storeUserRegistered, null, 2);
 
+    // Sender response. 
     response.send(`Takk for din registrering ${brukernavnValue}, du er nå registrert i vår database`);
+    // Skriver tilbake at userRegistrered er true. 
     fs.writeFileSync('node/userRegistrered.json', JSONstoreUserRegistered, callBackSaveUser);
     function callBackSaveUser(data){
         console.log(data)
@@ -67,12 +77,14 @@ function finished(){
     console.log("Done");
 }
 
+// For å laste inn alt som står i highscore.json
 index.get('/all', sendBrukere);
 
 function sendBrukere(req, res){
     res.send(getScoreList);
 }
 
+// For å søke etter et brukernavn
 index.get('/searchUser/:username', searchUser);
 
 function searchUser(req, res){
@@ -87,36 +99,3 @@ function searchUser(req, res){
     }
     res.send(msg);
 }
-
-index.get('/loadGame', loadGame);
-
-function loadGame(){
-    loadPage('game');
-}
-
-/**
- * HTTP NODE SERVER KODE:
- * Ser ut så jeg må bruke express fremfor node http.
- */
-// const http = require('http');
-
-// const server = http.createServer(function(req, res){
-//     res.writeHead(200, {'Content-Type': 'text/html'});
-//     fs.readFile('node/index.html', function(error, data){
-//         if(error){
-//             res.writeHead(404);
-//             res.write('Error 404, not found');
-//         }   else{
-//             res.write(data);
-//         }
-//         res.end();
-//     })
-// })
-
-// server.listen(port, function(error){
-//     if(error){
-//         console.error('Noe gikk galt...')
-//     }   else{
-//         console.log(`Server kjører på: localhost:${port}`);
-//     }
-// })

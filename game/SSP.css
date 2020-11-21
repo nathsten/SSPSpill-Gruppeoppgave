@@ -111,39 +111,24 @@ body{
     100%{transform: rotate(0deg);}
 }
 
-@keyframes vant {
-    0% { visibility: hidden; left: 0%; opacity: 0%;}
-    15% { left: 25%; opacity: 80%; visibility: visible;}
-    50% { left: 50%; opacity: 100%; visibility: visible;}
-    85% { left: 75%; opacity: 100%; visibility: visible;}
+@keyframes flyt {
+    0% { visibility: hidden; left: -15%; opacity: 0%;}
+    15% { left: 20%; opacity: 80%; visibility: visible;}
+    50% { left: 45%; opacity: 100%; visibility: visible;}
+    85% { left: 70%; opacity: 80%; visibility: visible;}
     100% {left: 100%; opacity: 0%; visibility: hidden;}
 }
 
-@keyframes tapt {
-    0% { visibility: visible; left: 0%; opacity: 0%;}
-    15% { left: 25%; opacity: 80%; visibility: visible;}
-    50% { left: 50%; opacity: 100%; visibility: visible;}
-    85% { left: 75%; opacity: 100%; visibility: visible;}
-    100% {left: 100%; opacity: 0%; visibility: hidden;}
-}
-
-@keyframes uavgjort {
-    0% { visibility: hidden; left: 0px; opacity: 0%;}
-    15% { left: 25%; opacity: 80%; visibility: visible;}
-    50% { left: 50%; opacity: 100%; visibility: visible;}
-    85% { left: 75%; opacity: 80%; visibility: visible;}
-    100% {left: 100%; opacity: 0%; visibility: hidden;}
-}
 .vant {
-    animation: vant 4s linear;
+    animation: flyt 4s linear;
     background-color: rgb(33, 231, 33);
 }
 .tapt {
-    animation: tapt 4s linear;
+    animation: flyt 4s linear;
     background-color: rgb(231, 17, 17);
 }
 .uavgjort {
-    animation: uavgjort 4s linear;
+    animation: flyt 4s linear;
     background-color: orange;
 }
 
