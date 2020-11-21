@@ -15,7 +15,14 @@ Dersom du slår en annen spiller skal du få beskjed om det.
 Dataen om spilleren lagres i en JSON fil. 
 
 #### Note:
-Serveren funker nå til å registrere spillere i databasen (highscore.JSON). Skal hente ut dataen i "getUserData.js" med "loadJSON('/all')", også lage en array med navnene og et object med scorene lagret i highscore.JSON.  
+Når kan du registrer deg for å så bli sendt videre til spillet. 
+
+Programmet husker på hvem du er via localStorage. 
+
+Med getUserData.js laster vi inn brukerne med '/all' fra highscore.json og bruker en "for-løkke" til å lage en egen div for hver bruker med sin highscore på siden i #spillereListe. 
+
+Det som gjenstår er å oppdatere highscoren din dersom du får en høyere score enn din tidligere score. 
+Mulig vi må bruke 'fs' for dette og det KAN lage noen problemer, må tenke litt på dette. 
 
 # Requirements:
 Må ha node instalert for å kunen jobbe med serveren. https://nodejs.org/en/
@@ -24,4 +31,4 @@ Bruker "fs" (file system) til å skrive inn i JSON filen. (inkludert i nodejs)
 
 Bruker "express" til serveren. (må instaleres) npm install express --save
 
-Bruker p5.js for å laste inn JSON dataen via serveren. (Må lastes ned) https://p5js.org/download/
+Bruker p5.js for å laste inn JSON dataen via serveren, har linket til koden øverst i begge index.html filene. 

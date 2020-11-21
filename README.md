@@ -1,7 +1,9 @@
 # Stein, saks papir spill - Gruppeoppgave
 Stein, saks, papir spill mot maskinen.
 
-# Spill spillet nå lokalt mot maskinen!
+Konkurer mot vennene dine for å få den høyeste highscoren!
+
+# Spill spillet lokalt nå!
 https://stein-saks-papir.netlify.app/
 
 # Struktur:
@@ -31,12 +33,16 @@ https://stein-saks-papir.netlify.app/
 
         * highscore.json: Databasen hvor vi lagrer spillerene med deres brukernavn, highscore og userID. 
 
+        * userRegistered.json: Databasen hvor vi lagrer om "userRegistered": true/false. 
+
         * ##### p5Biblotek (.gitignore): 
             * p5.js: Et biblotek for p5 funksjoner, blant annet loadJSON(); 
             
             * Last ned mappen: https://p5js.org/download/
 
             * Dokumentasjon til loadJSON: https://p5js.org/reference/#/p5/loadJSON
+
+            * Er nå linket i script tagen øverst i begge index.html sidene. 
 
 
 # Funksjonell beskrivelse:
