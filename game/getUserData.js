@@ -44,6 +44,7 @@ function lagBrukere(users, userArray){
      * diven (spillereListe) vi legger de nye divene med brukerdataene inni. 
      */
     function createSpillereListe(users, spillereArray, div){
+        div.innerHTML = "";
         // For-løkke som lager en ny div per bruker.
         for(let i=0; i<spillereArray.length; i++){
             const spillerDiv = document.createElement("div");
@@ -53,4 +54,35 @@ function lagBrukere(users, userArray){
     }
     // Til slutt kjører vi funksjonen som lager spillerene på siden og sender nødvendig data til den. 
     createSpillereListe(users, userArray, spillereListe);
+}
+let thisUserForNewScore;
+
+if(localStorage.getItem("username")){
+    const getThisUsername = JSON.parse(localStorage.getItem("username"));
+    thisUserForNewScore = getThisUsername;
+}
+
+/**
+ * Updates user score in highscore.json
+ * @param {Number} thisUserScore
+ */
+function updateUserScore(thisUserScore){
+    loadJSON(`newHighscore/${thisUserForNewScore}/${thisUserScore}`, finishedUpdateUserScore);
+    loadJSON('all', updateLagSpillere);
+
+    function updateLagSpillere(data){
+        let users = data;
+        let userArray = Object.keys(data);
+
+        lagBrukere(users, userArray);
+    }
+}
+
+function finishedUpdateUserScore(error, data){
+    if(error){
+        console.error('Noe gikk galt med å oppdatere brukeren highscore')
+    }
+    else{
+        console.log(data);
+    }
 }

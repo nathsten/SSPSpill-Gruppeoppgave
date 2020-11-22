@@ -18,6 +18,8 @@ https://stein-saks-papir.netlify.app/
     * #### game:
         * Alle filene vi trenger til spillet (SSP.html, SSP.css, SSP.js).
 
+        * getUserData.js: Javascript filen som henter brukerene og viser den på index.html i spillereListe diven. 
+
         * ##### bilder:
             * .png filene av stein, saks, og papir, samt icon.png.
 
@@ -28,8 +30,6 @@ https://stein-saks-papir.netlify.app/
         * index.html: Første siden som lastes av serveren, hvor du registrerer brukernavnet ditt.
 
         * regUser.js: Javascript filen til index.html som lagrer dataen via index.js.
-
-        * getUserData.js: Javascript filen som henter brukerene og viser den på SSP.html i spillereListe diven. 
 
         * highscore.json: Databasen hvor vi lagrer spillerene med deres brukernavn, highscore og userID. 
 

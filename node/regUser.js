@@ -64,6 +64,7 @@ function setup(){
     }
 }
 
+// Flytte alt inni her fordi, vi må sjekke daten
 function getData(data){
     console.log(data);
 }

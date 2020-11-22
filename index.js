@@ -99,3 +99,29 @@ function searchUser(req, res){
     }
     res.send(msg);
 }
+
+index.get('/newHighscore/:user/:score', storeNewScore);
+
+function storeNewScore(req, res){
+    // Lagrer nye scoren på thisUser i highscore.json.
+    let user = req.params.user;
+    let newScore = req.params.score;
+
+    getScoreList[user].score = newScore;
+
+    const storeNewHigscore = JSON.stringify(getScoreList, null, 2);
+
+    fs.writeFileSync('node/highscore.json', storeNewHigscore, newHighscoreStored);
+
+    function newHighscoreStored(data, error){
+        if(error){
+            console.log('Noe gikk galt med å lagre ny highscore...')
+        }
+        else{
+            console.log(data);
+        }
+    }
+    res.send(`Higscoren til ${user} er endret.`);
+
+    // Må nå bruke loadJSON('/user/score) for å kjøre funksjonen og lagre din nye highscore i highscore.json
+}

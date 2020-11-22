@@ -147,6 +147,9 @@ function sjekkSeier(winsTall, lossesTall){
      * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
      */
     if(winsTall + lossesTall === 20){
+        if(score > finnHighScore(highScoreArray)){
+            updateUserScore(score);
+        }
         highScoreArray.push(score);
         setToLocalStorrage("scoreArray", highScoreArray);
         wins = 0;
