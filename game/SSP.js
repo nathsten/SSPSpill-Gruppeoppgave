@@ -147,16 +147,32 @@ function sjekkSeier(winsTall, lossesTall){
      * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
      */
     if(winsTall + lossesTall === 20){
-        if(score > finnHighScore(highScoreArray)){
-            updateUserScore(score);
+        // @ts-ignore
+        loadJSON('all', findThisUserScore);
+
+        /**
+         * @param {JSON} data
+         */
+        function findThisUserScore(data){
+            const thisUserForNewHighscore = JSON.parse(localStorage.getItem("username"));
+            let users = data;
+            let thisUserScore = Number(users[thisUserForNewHighscore].score);
+
+            if(score > thisUserScore){
+                // @ts-ignore
+                updateUserScore(score);
+            }
         }
+
         highScoreArray.push(score);
         setToLocalStorrage("scoreArray", highScoreArray);
-        wins = 0;
-        score = 0;
-        losses = 0;
-        winstreak = 0;
-        winstreakPoeng = 50;
+        setTimeout(() => {
+            wins = 0;
+            score = 0;
+            losses = 0;
+            winstreak = 0;
+            winstreakPoeng = 50;
+        }, 500);
 
         // Dersom boksDiv har en klasse fra før av tar vi den vekk. 
         boksDiv.className = "";
