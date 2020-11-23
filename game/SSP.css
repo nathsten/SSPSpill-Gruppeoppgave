@@ -176,7 +176,7 @@ body{
     height: 100px;
     border: 1px black solid;
     top: 10px;
-    background: #5d89f0;
+    background: #73f05d;
     visibility: hidden;
     border-radius: 20px;
     text-align: center;
@@ -189,7 +189,7 @@ body{
     height: 100px;
     border: 1px black solid;
     bottom: 10px;
-    background: #5d89f0;
+    background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
     visibility: hidden;
     border-radius: 20px;
     text-align: center;

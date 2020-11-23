@@ -25,6 +25,8 @@ const scoreDiv = $("score");
 const boksDiv = $("boks");
 const correctSound = $("correctSound");
 const wrongSound = $("wrongSound");
+const nyhighscore = $("nyhighscore");
+const duslo = $("duslo");
 
 
 /** 
@@ -43,6 +45,7 @@ const loseFarge = "rgba(245, 69, 38, 0.739)";
 const winFarge = "rgba(136, 231, 27, 0.685)";
 const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
 let highScoreArray = [0];
+const thisUser = JSON.parse(localStorage.getItem("username"));
 
 // Sjekker om vi allerede har en lagret highscore og legger den til i highScoreArray.
 getFromLocalStorrage("scoreArray");
@@ -107,6 +110,8 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
     loosesDiv.innerHTML = `Tapt: ${lossesTall}`;
     winstreakDiv.innerHTML = `Winstreak: ${winstreakTall}`;
     scoreDiv.innerHTML = `Score: ${scoreTall}`;
+
+    // Bruke loadJSON('all', function(data){}), men det funket ikke av en eller annen grunn..........
     highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
 }
 
@@ -159,7 +164,12 @@ function sjekkSeier(winsTall, lossesTall){
             let thisUserScore = Number(users[thisUserForNewHighscore].score);
 
             if(score > thisUserScore){
+                nyhighscore.className = "";
+                void nyhighscore.offsetWidth;
+                nyhighscore.className = "aktivHighscore";
+                nyhighscore.innerHTML = `NY HIGHSCORE ${score}!`;
                 // @ts-ignore
+                // Funskjonen ligger i getUserData.js
                 updateUserScore(score);
             }
         }
@@ -254,7 +264,7 @@ function sjekkSSP(e){
      * For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
         vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
     */
-if (t.className === "SSP") {
+    if (t.className === "SSP") {
         if (t.innerHTML === maskinSSP) {
             // Bakgrunnsfargen til HTMLElementet blir uavgjortFarge.
             endreFarge(t, uavgjortFarge);

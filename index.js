@@ -1,6 +1,10 @@
 const fs = require('fs');
 const express = require('express');
 const port = 3000;
+const path = require('path');
+const router = express.Router();
+
+// import {userRegisteredFunk} from './node/regUser.js';
 
 const getScoreList = JSON.parse(fs.readFileSync('node/highscore.json'));
 let userID = Number((Object.keys(getScoreList).length) + 1);
@@ -26,8 +30,24 @@ let pageLoad;
 const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
 userRegistered = getUserRegistered["userRegiststrered"];
 
+// index.get('/userExist/:existence', checkUserExistence);
+
+// Må finne utav dette. 
+// function checkUserExistence(req, res){
+//     let userExistence = req.params.existence;
+//     let userRegistered;
+
+//     if(userExistence == true){
+//         userRegistered = "true"
+//     }
+//     else{
+//         userRegistered = "false"
+//     }
+//     loadPage(userRegistered);
+// }
+
 // Hvis userRegistrered er true, så laster vi inn spillet. 
-if(userRegistered !== "false"){
+if(userRegistered === "true"){
     // Siden vi skal laste inn er mappen 'game'.
     pageLoad = 'game';
 }
@@ -38,6 +58,7 @@ else{
 }
 
 // Bruker index(variabelen for serveren) til å åpne siden som vi bestemte over. 
+// Skal sette meg mer inn i de uliek måtene å laste inn sider på, mulig det finnes en bedre måte. 
 index.use(express.static(pageLoad));
 
 // Funksjonen som lagrer brukeren. 
@@ -52,7 +73,7 @@ function sendUsername(request, response){
 
     // scoreListen som er highscore.json får en ny objekt som er deg.
     // Du vil få 100 som highscore automatisk, samt userID. 
-    getScoreList[brukernavnValue] = {"username": brukernavnValue, "userID": userID, "score": 100};
+    getScoreList[brukernavnValue] = {"username": brukernavnValue, "userID": userID, "score": 0};
 
     // Vi gjør den om til JSON string. 
     let storeScoreList = JSON.stringify(getScoreList, null, 2);
@@ -125,3 +146,7 @@ function storeNewScore(req, res){
 
     // Må nå bruke loadJSON('/user/score) for å kjøre funksjonen og lagre din nye highscore i highscore.json
 }
+
+index.get('/loadGame',function(req, res){
+    res.sendFile(path.join(__dirname+'/game' + '/index.html'));
+});

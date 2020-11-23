@@ -1,6 +1,16 @@
 const $ = (id) => document.getElementById(id);
 
 function setup(){
+    // if(localStorage.getItem("username")){
+    //     loadJSON('userExist/' + "true", userExistFunk);
+    // }
+    // else{
+    //     loadJSON('userExist/' + "false", userExistFunk)
+    // }
+    // function userExistFunk(data){
+    //     console.log(data);
+    // }
+
     // Koblinger til HTML siden. 
     const userNameInpt = /**@type {HTMLInputElement}*/ ($("nameInpt"));
     const sendUserNameBtn = $("saveUser");
@@ -29,8 +39,25 @@ function setup(){
         let userName = String(userNameInpt.value);
         console.log(userName);
 
-        // Du blir lagret så lenge du ikke submiter et tomt felt. 
-        if(userName !== ""){
+        loadJSON('all', checkUsername);
+
+        function checkUsername(data){
+            const useres = data;
+
+            if(userName === ""){
+                alert("Venligst fyll inn feltet")
+            }
+            else if(useres[userName] != undefined){
+                const rndNum = () => Math.floor(Math.random() * 9);
+                alert(`Beklager ${userName} finnes allerede, prøv feks: ${userName}${rndNum()}${rndNum()}${rndNum()}`);
+            }
+            else{
+                registerUser();
+            }
+        }
+
+        // Du blir lagret så lenge du ikke submiter et tomt felt.   
+        function registerUser(){
             // registerer deg til highscore.json med 'regUser/:username', funksjonen på index.js(45).
             loadJSON(`regUser/${userName}`, finished);
 
@@ -57,14 +84,9 @@ function setup(){
                 location.reload();
             }, 2000);
         }
-        // else if(brukernavnet allerede finnes){}
-        else{
-            alert("Vennligst skriv inn et gyldig brukernavn");
-        }
     }
 }
 
-// Flytte alt inni her fordi, vi må sjekke daten
 function getData(data){
     console.log(data);
 }

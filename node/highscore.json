@@ -2,26 +2,26 @@
   "Nathaniel": {
     "username": "Nathaniel",
     "userID": 1,
-    "score": "2550"
+    "score": "3650"
   },
   "David": {
     "username": "David",
     "userID": 2,
-    "score": 2150
+    "score": "2150"
   },
   "Eleonora": {
     "username": "Eleonora",
     "userID": 3,
-    "score": 1350
+    "score": "1350"
   },
   "Helene": {
     "username": "Helene",
     "userID": 4,
-    "score": 1750
+    "score": "1750"
   },
   "Kirat": {
     "username": "Kirat",
     "userID": 5,
-    "score": 1800
+    "score": "1800"
   }
 }
