@@ -170,3 +170,46 @@ body{
     margin-left: 20px;
     font-size: 1.5em;
 }
+#nyhighscore {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    border: 1px black solid;
+    top: 10px;
+    background: #5d89f0;
+    visibility: hidden;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 6rem;
+}
+#duslo {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    border: 1px black solid;
+    bottom: 10px;
+    background: #5d89f0;
+    visibility: hidden;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 6rem;
+}
+@keyframes newHighscore {
+    0% {left: 35%; top: 10px; visibility: visible;}
+    33% {left: 35%; top: 50%; transform: scale(2);}
+    85% {left: 35%; top: 50%; transform: scale(2);}
+    100% {left: 35%; top: 105%; transform: scale(1); visibility: hidden;}
+}
+@keyframes duSlo {
+    0% {left: 35%; bottom: 10px; visibility: visible;}
+    50% {left: 35%; bottom: 50%; transform: scale(2);}
+    100% {left: 35%; bottom: 105%; transform: scale(1); visibility: hidden;}
+}
+.aktivHighscore {
+    animation: newHighscore 4.2s linear;
+}
+.aktivDuSlo {
+    animation: duSlo 4.2s linear;
+}
