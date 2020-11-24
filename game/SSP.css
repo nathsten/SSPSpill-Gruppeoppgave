@@ -204,7 +204,8 @@ body{
 }
 @keyframes duSlo {
     0% {left: 35%; bottom: 10px; visibility: visible;}
-    50% {left: 35%; bottom: 50%; transform: scale(2);}
+    30% {left: 35%; bottom: 50%; transform: scale(2);}
+    70% {left: 35%; bottom: 50%; transform: scale(2);}
     100% {left: 35%; bottom: 105%; transform: scale(1); visibility: hidden;}
 }
 .aktivHighscore {

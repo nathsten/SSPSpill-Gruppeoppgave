@@ -13,7 +13,6 @@
 // @ts-ignore
 const $ = (id) => document.getElementById(id);
 
-
 // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
 const SSPDiv = $("SSPDiv");
 //Vi lager resten av koblingene nedover her:
@@ -33,6 +32,7 @@ const duslo = $("duslo");
  * EventListener som kjører funskjonen sjekkSSP(); når du 
  * trykker på en av stein / saks / papir bildene på skjermen.
 */
+// @ts-ignore
 SSPDiv.addEventListener("click", sjekkSSP);
 
 // Globale variabler:
@@ -110,7 +110,6 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
     loosesDiv.innerHTML = `Tapt: ${lossesTall}`;
     winstreakDiv.innerHTML = `Winstreak: ${winstreakTall}`;
     scoreDiv.innerHTML = `Score: ${scoreTall}`;
-
     // Bruke loadJSON('all', function(data){}), men det funket ikke av en eller annen grunn..........
     highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
 }
@@ -162,6 +161,7 @@ function sjekkSeier(winsTall, lossesTall){
             const thisUserForNewHighscore = JSON.parse(localStorage.getItem("username"));
             let users = data;
             let thisUserScore = Number(users[thisUserForNewHighscore].score);
+            let usernames = Object.keys(data);
 
             if(score > thisUserScore){
                 nyhighscore.className = "";
@@ -171,6 +171,22 @@ function sjekkSeier(winsTall, lossesTall){
                 // @ts-ignore
                 // Funskjonen ligger i getUserData.js
                 updateUserScore(score);
+            }
+            // Hvor vi lagrer de du har slått. 
+            let useresBeaten = [];
+            for(let i=0; i<usernames.length; i++){
+                // Sjekker om din score er større enn hver enkelt bruker er større enn deres.
+                if(score > Number(users[usernames[i]].score)){
+                    // Pusher det eventuelle brukernavnet. 
+                    useresBeaten.push(usernames[i])
+                }
+            }
+            // Så lenge vi har noen inni usersBeaten så viser vi animasjonen. 
+            if(useresBeaten[0] !== undefined){
+                duslo.className = "";
+                void duslo.offsetWidth;
+                duslo.className = "aktivDuSlo";
+                duslo.innerHTML = `Du slo: ${useresBeaten}`;
             }
         }
 
@@ -286,6 +302,7 @@ function sjekkSSP(e){
             // bakgrunnsfargen til HTMLElementet blir winFarge.
             endreFarge(t, winFarge);
             // Spiller av lyden for rett.
+            // @ts-ignore
             correctSound.play();
 
             // Skal oppdatere divene med wins/loss og winstreak
@@ -305,6 +322,7 @@ function sjekkSSP(e){
             // bakgrunnsfargen til HTMLElementet blir winFarge.
             endreFarge(t, winFarge);
             // Spiller av lyden for rett.
+            // @ts-ignore
             correctSound.play();
             
         } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
@@ -322,6 +340,7 @@ function sjekkSSP(e){
             // bakgrunnsfargen til HTMLElementet blir winFarge.
             endreFarge(t, winFarge);
             // Spiller av lyden for rett.
+            // @ts-ignore
             correctSound.play();
 
         } else {
@@ -334,6 +353,7 @@ function sjekkSSP(e){
             // Sender HTMLElementet vi jobber med til funkjsonen sammen med fargen.
             endreFarge(t, loseFarge);
             // Spiller av lyden for feil.
+            // @ts-ignore
             wrongSound.play();
         }
         // Sender wins, losses, winstreak, og score til funksjonen slik at det blir vist på skjermen. 

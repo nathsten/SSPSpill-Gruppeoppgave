@@ -21,30 +21,43 @@ function callBack(error){
     }
 }
 
+
 // Hvis ikke noe annet så er du ikke registrert. 
-let userRegistered = false;
+let userRegistered;
 // Siden vi skal laste inn, foreløpig ingenting. 
 let pageLoad;
 
-// Laster inn userRegistrered.json og sjekker om den er true/false. 
+// // Laster inn userRegistrered.json og sjekker om den er true/false. 
 const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
 userRegistered = getUserRegistered["userRegiststrered"];
 
-// index.get('/userExist/:existence', checkUserExistence);
+// Prøver å finne en måte å gjøre dette på med localStorage, men ser ikke ut så det går. 
+// index.get('/user/:auth', checkAuth)
 
-// Må finne utav dette. 
-// function checkUserExistence(req, res){
-//     let userExistence = req.params.existence;
-//     let userRegistered;
+// function userFound(){
+//     console.log('User found');
+//     userRegistered = 'false';
+//     return userRegistered;
+// }
 
-//     if(userExistence == true){
-//         userRegistered = "true"
+// function checkAuth(req, res){
+//     const userAuth = req.params.auth;
+//     if(userAuth === 'true'){
+//         userFound();
 //     }
 //     else{
-//         userRegistered = "false"
+//         console.log('User not found');
 //     }
-//     loadPage(userRegistered);
 // }
+
+// if(
+//     index.get('/user/:auth', function(req, res){
+//         const userAuth = req.params.auth;
+//         return userAuth;
+//     }) == true
+//     ){
+//         userRegistered = 'true';
+//     }
 
 // Hvis userRegistrered er true, så laster vi inn spillet. 
 if(userRegistered === "true"){
