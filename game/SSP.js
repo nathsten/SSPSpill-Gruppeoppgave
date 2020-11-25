@@ -168,6 +168,9 @@ function sjekkSeier(winsTall, lossesTall){
                 void nyhighscore.offsetWidth;
                 nyhighscore.className = "aktivHighscore";
                 nyhighscore.innerHTML = `NY HIGHSCORE ${score}!`;
+                setTimeout(() => {
+                    nyhighscore.className = "";
+                }, 4500);
                 // @ts-ignore
                 // Funskjonen ligger i getUserData.js
                 updateUserScore(score);
@@ -178,15 +181,23 @@ function sjekkSeier(winsTall, lossesTall){
                 // Sjekker om din score er større enn hver enkelt bruker er større enn deres.
                 if(score > Number(users[usernames[i]].score)){
                     // Pusher det eventuelle brukernavnet. 
-                    useresBeaten.push(usernames[i])
+                    if(usernames[i] !== thisUserForNewHighscore){
+                        useresBeaten.push(usernames[i]);
+                    }
                 }
             }
             // Så lenge vi har noen inni usersBeaten så viser vi animasjonen. 
+            let time = 0;
             if(useresBeaten[0] !== undefined){
-                duslo.className = "";
-                void duslo.offsetWidth;
-                duslo.className = "aktivDuSlo";
-                duslo.innerHTML = `Du slo: ${useresBeaten}`;
+                if(nyhighscore.className === "aktivHighscore"){
+                    time = 3500;
+                }
+                setTimeout(() => {
+                    duslo.className = "";
+                    void duslo.offsetWidth;
+                    duslo.className = "aktivDuSlo";
+                    duslo.innerHTML = `Du slo: ${useresBeaten}`;
+                }, time);
             }
         }
 

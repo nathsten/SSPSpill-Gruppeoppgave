@@ -4,8 +4,6 @@ const port = 3000;
 const path = require('path');
 const router = express.Router();
 
-// import {userRegisteredFunk} from './node/regUser.js';
-
 const getScoreList = JSON.parse(fs.readFileSync('node/highscore.json'));
 let userID = Number((Object.keys(getScoreList).length) + 1);
 
@@ -32,32 +30,23 @@ const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'
 userRegistered = getUserRegistered["userRegiststrered"];
 
 // Prøver å finne en måte å gjøre dette på med localStorage, men ser ikke ut så det går. 
-// index.get('/user/:auth', checkAuth)
+index.get('/user/:auth', checkAuth)
 
-// function userFound(){
-//     console.log('User found');
-//     userRegistered = 'false';
-//     return userRegistered;
-// }
+function userFound(){
+    console.log('User found');
+    userRegistered = 'true';
+    console.log(userRegistered);
+}
 
-// function checkAuth(req, res){
-//     const userAuth = req.params.auth;
-//     if(userAuth === 'true'){
-//         userFound();
-//     }
-//     else{
-//         console.log('User not found');
-//     }
-// }
-
-// if(
-//     index.get('/user/:auth', function(req, res){
-//         const userAuth = req.params.auth;
-//         return userAuth;
-//     }) == true
-//     ){
-//         userRegistered = 'true';
-//     }
+function checkAuth(req, res){
+    const userAuth = req.params.auth;
+    if(userAuth === 'true'){
+        userFound();
+    }
+    else{
+        console.log('User not found');
+    }
+}
 
 // Hvis userRegistrered er true, så laster vi inn spillet. 
 if(userRegistered === "true"){

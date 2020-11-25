@@ -65,7 +65,16 @@ Dersom det stemmer kan vi først sjekke om du har trykket på er den samme som m
 
 Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne ut om din slår maskinen eller om den slår deg, da får vinneren poeng. Vinner du blir bakgrunnsfargen grønn også skrifter den tilbake ila 500ms. Taper du blir bakgrunnsfargen rød også skifter den tilbake ila 500ms. 
 
+## Flydiagram:
+
+
+
 ## Pseudokode
+
+### 0. Hvis det er første gang spilleren går på nettsiden må den registrere seg
+        
+        0.1 Brukernavnet ditt blir lagret i highscore.json
+
 ### 1. Brukeren åpner siden og siden sjekker i localStorrage om spilleren har lagret noen highscores tidligere. 
 
         1.10 Dersom den har det blir det hentet ut og vises i headeren, da kan du se tidligere high score. 
@@ -88,10 +97,18 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
 ### 3. Dersom summen av dine wins og losses blir 20. 
         3.10 Vi gir beskjed om du har vunnet eller tapt. 
 
-        3.11 Scoren din blir lagret i en array, med dine andre scores. 
+        3.11 Scoren din blir lagret i en array, med dine andre scores
+
+            3.111 Scoren blir lagret på din bruker i highscore.json
 
         3.12 wins, losses, winstreak og score blir til 0 og spillet starter på nytt
 
         3.12 Hvis scoren din er større enn din gamle score:
 
             3.121 HigscoreDiv blir oppdatert. 
+
+            3.122 Animasjon viser din nye highscore.
+
+        3.13 Hvis scoren din er større enn noen andre sin:
+
+            3.131 Animasjon med spillerene du slo vises. 
