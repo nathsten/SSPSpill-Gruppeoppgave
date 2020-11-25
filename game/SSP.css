@@ -193,8 +193,8 @@ body{
     visibility: hidden;
     border-radius: 20px;
     text-align: center;
-    font-size: 1.5rem;
-    line-height: 6rem;
+    font-size: 1.25em;
+    padding-top: 20px;
 }
 @keyframes newHighscore {
     0% {left: 35%; top: 10px; visibility: visible;}

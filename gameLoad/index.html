@@ -1,4 +1,276 @@
-// @ts-check
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stein Saks Papir</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <style>
+        body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#header {
+    border: black 1px solid;
+    border-radius: 20px;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right, #6b6b6b,#ffffff, #ff0000);
+}
+#winstreak, #wins, #losses, #highscore, #score {
+    position: absolute;
+    font-size: 1.5em;
+    top: 15px;
+    width: 130px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px black solid;
+    border-radius: 10px;
+    top: 30px;
+    padding-left: 10px;
+}
+#overskrift {
+    position: absolute;
+    top: 20px;
+    font-size: 3rem;
+    left: calc(50% - 169px);
+    margin-top: 5px;
+}
+#wins {
+    left: 2%;
+}
+#losses {
+    left: 13.5%;
+}
+#score{
+    left: 24.5%;
+}
+
+#highscore {
+    right: 2%;
+    width: 220px;
+}
+#winstreak{
+    right: 20%;
+    width: 180px;
+}
+
+
+#SSPDiv{
+    position: relative;
+    width: 60%;
+    height: 400px;
+    left: calc(50% - 30%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    user-select: none;
+    font-size: 3.5em;
+}
+
+#SSPDiv>div{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 255, 255, 0.65);
+    left: calc(50% - 125px);
+    top: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.25s;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
+
+#SSPDiv>div{
+    text-align: center;
+    line-height: 15rem;
+}
+
+#SSPDiv>div:hover{
+    background-color: rgba(39, 151, 255, 0.527);
+    /* animation: vinke 1s linear infinite; */
+}
+
+/* #stein{
+    background-image: url("bilder/stein.png");
+}
+
+#saks{
+    background-image: url("bilder/saks.png");
+}
+
+#papir{
+    background-image: url("bilder/papir.png");
+} */
+
+#boks {
+    position: absolute;
+    height: 150px;
+    width: 300px;
+    border-radius: 20px;
+    visibility: hidden;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 8rem;
+
+}
+
+@keyframes vinke{
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(-15deg);}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(15deg);}
+    100%{transform: rotate(0deg);}
+}
+
+@keyframes flyt {
+    0% { visibility: hidden; left: -15%; opacity: 0%;}
+    15% { left: 20%; opacity: 80%; visibility: visible;}
+    50% { left: 45%; opacity: 100%; visibility: visible;}
+    85% { left: 70%; opacity: 80%; visibility: visible;}
+    100% {left: 100%; opacity: 0%; visibility: hidden;}
+}
+
+.vant {
+    animation: flyt 4s linear;
+    background-color: rgb(33, 231, 33);
+}
+.tapt {
+    animation: flyt 4s linear;
+    background-color: rgb(231, 17, 17);
+}
+.uavgjort {
+    animation: flyt 4s linear;
+    background-color: orange;
+}
+
+#spillereDiv {
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 45%);
+    width: 90%;
+    height: 250px;
+    border: solid 1px black;
+    background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
+    border-radius: 50px;
+    overflow: scroll;
+}
+
+#SpillereHeader{
+    position: relative;
+    width: 50%;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    left: calc(50% - 25%);
+}
+
+#SpillereHeader>h1{
+    font-family: 'Niconne', cursive;
+    border-bottom: #5d89f0 solid 2px;
+}
+
+#spillereListe{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+}
+
+#spillereListe>div{
+    margin: 10px;
+    margin-left: 20px;
+    font-size: 1.5em;
+}
+#nyhighscore {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    border: 1px black solid;
+    top: 10px;
+    background: #73f05d;
+    visibility: hidden;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 6rem;
+}
+#duslo {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    border: 1px black solid;
+    bottom: 10px;
+    background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
+    visibility: hidden;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.25em;
+    padding-top: 20px;
+}
+@keyframes newHighscore {
+    0% {left: 35%; top: 10px; visibility: visible;}
+    33% {left: 35%; top: 50%; transform: scale(2);}
+    85% {left: 35%; top: 50%; transform: scale(2);}
+    100% {left: 35%; top: 105%; transform: scale(1); visibility: hidden;}
+}
+@keyframes duSlo {
+    0% {left: 35%; bottom: 10px; visibility: visible;}
+    30% {left: 35%; bottom: 50%; transform: scale(2);}
+    70% {left: 35%; bottom: 50%; transform: scale(2);}
+    100% {left: 35%; bottom: 105%; transform: scale(1); visibility: hidden;}
+}
+.aktivHighscore {
+    animation: newHighscore 4.2s linear;
+}
+.aktivDuSlo {
+    animation: duSlo 4.2s linear;
+}
+
+    </style>
+</head>
+<body>
+    <audio id="correctSound">
+        <source type="audio/ogg" src="lyder/Correct.mp3">
+    </audio>
+    
+    <audio id="wrongSound">
+        <source type="audio/ogg" src="lyder/Wrong.mp3">
+    </audio>
+
+    <div id="header">
+        <div id="overskrift">Stein Saks Papir</div>
+        <div id="winstreak"></div>
+        <div id="wins"></div>
+        <div id="score"></div>
+        <div id="losses"></div>
+        <div id="highscore"></div>
+    </div>
+
+    <div id="SSPDiv">
+        <div id="stein" class="SSP">stein</div>
+        <div id="saks" class="SSP">saks</div>
+        <div id="papir" class="SSP">papir</div>
+    </div>
+
+    <div id="spillereDiv">
+        <div id="SpillereHeader">
+            <h1>Highscores:</h1>
+        </div>
+       
+       <div id="spillereListe">
+
+       </div>
+
+    </div>
+    
+    <div id="boks" class=""></div>
+    
+    <div id="nyhighscore"></div>
+    <div id="duslo"></div>
+    <script>
+        // @ts-check
 
 /**
  * Forkortelse for document.getElementById("idName");
@@ -378,3 +650,135 @@ function sjekkSSP(e){
         sjekkSeier(wins, losses);
     }
 }
+
+// Slutt på SSP.js
+
+
+// Start på getUserData.js
+// Laster inn spillerene fra databasen.
+function setup(){
+    // @ts-ignore
+    loadJSON('all', getUserData);
+}
+// Lager en variabel med brukerene i. 
+// Alle variabler med brukere må skje her
+function getUserData(data){
+    // Objektet med brukerene
+    let userList = data;
+    // Arrayen med bare brukenavenene
+    let userArray = Object.keys(data);
+    // brukeren som maksinen tilhører. 
+    let thisUser;
+
+    // console.log(data);
+    // console.log(userList['Nathaniel'].score);
+    // console.log(userList[thisUser]);
+    // console.log(Object.keys(userList));
+
+    // Henter brukernavent ditt i localStorage, dette er sånn at programet vet hvem du er.
+    if(localStorage.getItem("username")){
+        const getThisUsername = JSON.parse(localStorage.getItem("username"));
+        thisUser = getThisUsername;
+    }
+
+    console.log(userList[thisUser]);
+    console.log(userList[userArray[0]].username);
+
+    // Kjøre funksjonen som lager brukerene, denne MÅ kjøre etter vi har hentet dataene fra /all (highscore.json)
+    lagBrukere(userList, userArray);
+}
+
+// Funksjonen som kobles til HTML siden og lager divene med brukerne sin highscore i. 
+function lagBrukere(users, userArray){
+    // Kobling til #spillereListe.
+    const spillereListe = $("spillereListe");
+
+    /**
+     * @param {object} users
+     * @param {string[]} spillereArray
+     * @param {HTMLElement} div
+     * Funksjonen tar inn objektet med spillerene, 
+     * arrayen med navet til alle spillerene
+     * diven (spillereListe) vi legger de nye divene med brukerdataene inni. 
+     */
+    function createSpillereListe(users, spillereArray, div){
+        div.innerHTML = "";
+        // For-løkke som lager en ny div per bruker.
+        for(let i=0; i<spillereArray.length; i++){
+            const spillerDiv = document.createElement("div");
+            spillerDiv.innerHTML = `${users[spillereArray[i]].username}: ${users[spillereArray[i]].score}`;
+            if(users[spillereArray[i]].username === thisUserForNewScore){
+                spillerDiv.style.color = "rgb(0, 109, 182)";
+                spillerDiv.style.textDecoration = "underline";
+            }
+            div.append(spillerDiv);
+        }
+    }
+
+    // Til slutt kjører vi funksjonen som lager spillerene på siden og sender nødvendig data til den. 
+    createSpillereListe(users, sortUsersByScore(users, userArray), spillereListe);
+
+    // Funksjon som sorterer brukerene etter highscore.
+    function sortUsersByScore(users, userArray){
+        // en kopi av arrayen siden vi skal endre på den. 
+        let arrayOfUsers = userArray;
+        let sortedUsers = [];
+        // Så lenge lengden av arrayOfUsers er større enn 0, kjører funksjonen. 
+        while (arrayOfUsers.length !== 0){
+            let leadingUser = arrayOfUsers[0]; // Antar at dette er den største. 
+            let leadingUsersScore = Number(users[arrayOfUsers[0]].score); // Antar at dette er den største. 
+            for(let i=0; i<arrayOfUsers.length; i++){
+                let userScore = Number(users[arrayOfUsers[i]].score);
+                // Hvis bruker nr i sin score er større enn den antatte, blir den brukeren satt som leadingUser. 
+                if(userScore > leadingUsersScore){
+                    leadingUser = arrayOfUsers[i];
+                    leadingUsersScore = Number(users[arrayOfUsers[i]].score);
+                }
+            }
+            // Legger leadingUser til i arrayen 
+            sortedUsers.push(leadingUser);
+            let index = arrayOfUsers.indexOf(leadingUser);
+            // Fjerner den brukeren som vi valgte ut nå. 
+            arrayOfUsers.splice(index, 1);
+            // For loopen kjører på nytt helt til array en er tom. 
+        }
+        // Returnerer en array med navnene sortert etter hvem som har høyest highscore. 
+        return sortedUsers;
+    }
+}
+let thisUserForNewScore;
+
+if(localStorage.getItem("username")){
+    const getThisUsername = JSON.parse(localStorage.getItem("username"));
+    thisUserForNewScore = getThisUsername;
+}
+
+/**
+ * Updates user score in highscore.json
+ * @param {Number} thisUserScore
+ */
+function updateUserScore(thisUserScore){
+    // @ts-ignore
+    loadJSON(`newHighscore/${thisUserForNewScore}/${thisUserScore}`, finishedUpdateUserScore);
+    // @ts-ignore
+    loadJSON('all', updateLagSpillere);
+
+    function updateLagSpillere(data){
+        let users = data;
+        let userArray = Object.keys(data);
+
+        lagBrukere(users, userArray);
+    }
+}
+
+function finishedUpdateUserScore(error, data){
+    if(error){
+        console.error('Noe gikk galt med å oppdatere brukeren highscore')
+    }
+    else{
+        console.log(data);
+    }
+}
+    </script>
+</body>
+</html>

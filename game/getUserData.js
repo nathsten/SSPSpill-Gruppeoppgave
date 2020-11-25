@@ -49,11 +49,44 @@ function lagBrukere(users, userArray){
         for(let i=0; i<spillereArray.length; i++){
             const spillerDiv = document.createElement("div");
             spillerDiv.innerHTML = `${users[spillereArray[i]].username}: ${users[spillereArray[i]].score}`;
+            if(users[spillereArray[i]].username === thisUserForNewScore){
+                spillerDiv.style.color = "rgb(60, 236, 60)";
+                spillerDiv.style.textDecoration = "underline";
+            }
             div.append(spillerDiv);
         }
     }
+
     // Til slutt kjører vi funksjonen som lager spillerene på siden og sender nødvendig data til den. 
-    createSpillereListe(users, userArray, spillereListe);
+    createSpillereListe(users, sortUsersByScore(users, userArray), spillereListe);
+
+    // Funksjon som sorterer brukerene etter highscore.
+    function sortUsersByScore(users, userArray){
+        // en kopi av arrayen siden vi skal endre på den. 
+        let arrayOfUsers = userArray;
+        let sortedUsers = [];
+        // Så lenge lengden av arrayOfUsers er større enn 0, kjører funksjonen. 
+        while (arrayOfUsers.length !== 0){
+            let leadingUser = arrayOfUsers[0]; // Antar at dette er den største. 
+            let leadingUsersScore = Number(users[arrayOfUsers[0]].score); // Antar at dette er den største. 
+            for(let i=0; i<arrayOfUsers.length; i++){
+                let userScore = Number(users[arrayOfUsers[i]].score);
+                // Hvis bruker nr i sin score er større enn den antatte, blir den brukeren satt som leadingUser. 
+                if(userScore > leadingUsersScore){
+                    leadingUser = arrayOfUsers[i];
+                    leadingUsersScore = Number(users[arrayOfUsers[i]].score);
+                }
+            }
+            // Legger leadingUser til i arrayen 
+            sortedUsers.push(leadingUser);
+            let index = arrayOfUsers.indexOf(leadingUser);
+            // Fjerner den brukeren som vi valgte ut nå. 
+            arrayOfUsers.splice(index, 1);
+            // For loopen kjører på nytt helt til array en er tom. 
+        }
+        // Returnerer en array med navnene sortert etter hvem som har høyest highscore. 
+        return sortedUsers;
+    }
 }
 let thisUserForNewScore;
 

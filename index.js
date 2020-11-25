@@ -1,8 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const port = 3000;
-const path = require('path');
-const router = express.Router();
+const cookieParser = require('cookie-parser');
 
 const getScoreList = JSON.parse(fs.readFileSync('node/highscore.json'));
 let userID = Number((Object.keys(getScoreList).length) + 1);
@@ -19,49 +18,47 @@ function callBack(error){
     }
 }
 
-
+// !! Denne brukes ikke mer fordi nå laster vi inn spille via reqCookie!! skal tas vekk. 
 // Hvis ikke noe annet så er du ikke registrert. 
-let userRegistered;
+// let userRegistered;
 // Siden vi skal laste inn, foreløpig ingenting. 
-let pageLoad;
+// let pageLoad;
 
 // // Laster inn userRegistrered.json og sjekker om den er true/false. 
-const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
-userRegistered = getUserRegistered["userRegiststrered"];
-
-// Prøver å finne en måte å gjøre dette på med localStorage, men ser ikke ut så det går. 
-index.get('/user/:auth', checkAuth)
-
-function userFound(){
-    console.log('User found');
-    userRegistered = 'true';
-    console.log(userRegistered);
-}
-
-function checkAuth(req, res){
-    const userAuth = req.params.auth;
-    if(userAuth === 'true'){
-        userFound();
-    }
-    else{
-        console.log('User not found');
-    }
-}
+// const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
+// userRegistered = getUserRegistered["userRegiststrered"];
 
 // Hvis userRegistrered er true, så laster vi inn spillet. 
-if(userRegistered === "true"){
-    // Siden vi skal laste inn er mappen 'game'.
-    pageLoad = 'game';
-}
-// Dersom den er false eller noe annet av en eller annen grunn så laster vi inn registreringssiden. 
-else{
-    // Siden vi skal laste inn er mappen 'node'. 
-    pageLoad = 'node';
-}
+// if(userRegistered === "true"){
+//     // Siden vi skal laste inn er mappen 'game'.
+//     pageLoad = 'game';
+// }
+// // Dersom den er false eller noe annet av en eller annen grunn så laster vi inn registreringssiden. 
+// else{
+//     // Siden vi skal laste inn er mappen 'node'. 
+//     pageLoad = 'node';
+// }
+// // Bruker index(variabelen for serveren) til å åpne siden som vi bestemte over. 
+// // Skal sette meg mer inn i de ulike måtene å laste inn sider på, mulig det finnes en bedre måte. 
+// index.use(express.static(pageLoad));
 
-// Bruker index(variabelen for serveren) til å åpne siden som vi bestemte over. 
-// Skal sette meg mer inn i de uliek måtene å laste inn sider på, mulig det finnes en bedre måte. 
-index.use(express.static(pageLoad));
+// Bruke coockie parser til å lese av om du er registrert eller ei. 
+index.use(cookieParser());
+
+index.get('/', reqCookie);
+
+function reqCookie(req, res) {
+    const cookie = req.headers.cookie;
+    if(cookie === 'name=true'){
+        console.log('User found');
+        res.sendFile(__dirname + '/gameLoad/index.html');
+        console.log(cookie);
+    }
+    else{
+        res.sendFile(__dirname + '/node/index.html');
+        console.log('No user found');
+    }
+}
 
 // Funksjonen som lagrer brukeren. 
 index.get('/regUser/:brukernavn', sendUsername);
@@ -73,9 +70,10 @@ function sendUsername(request, response){
     // brukernavnValue blir det du skrev inn som brukernavn. 
     let brukernavnValue = data.brukernavn;
 
+    response.cookie('name', 'true').send('cookie set');
     // scoreListen som er highscore.json får en ny objekt som er deg.
     // Du vil få 100 som highscore automatisk, samt userID. 
-    getScoreList[brukernavnValue] = {"username": brukernavnValue, "userID": userID, "score": 0};
+    getScoreList[brukernavnValue] = {"username": brukernavnValue, "userID": userID, "score": String(0)};
 
     // Vi gjør den om til JSON string. 
     let storeScoreList = JSON.stringify(getScoreList, null, 2);
@@ -148,7 +146,3 @@ function storeNewScore(req, res){
 
     // Må nå bruke loadJSON('/user/score) for å kjøre funksjonen og lagre din nye highscore i highscore.json
 }
-
-index.get('/loadGame',function(req, res){
-    res.sendFile(path.join(__dirname+'/game' + '/index.html'));
-});

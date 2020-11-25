@@ -43,6 +43,10 @@ https://stein-saks-papir.netlify.app/
             * Dokumentasjon til loadJSON: https://p5js.org/reference/#/p5/loadJSON
 
             * Er nå linket i script tagen øverst i begge index.html sidene. 
+        
+    * ### gameLoad:
+        
+        * Ikke bry dere om denne, dette er html siden som lastes inn helt "plain" til serveren. Fant ingen bedre måte å gjøre det på dessverre, se index.js fra linje 47. 
 
 
 # Funksjonell beskrivelse:

@@ -1,14 +1,6 @@
 const $ = (id) => document.getElementById(id);
 
 function setup(){
-    if(localStorage.getItem("username")){
-        loadJSON('user/true', () => {
-        })
-    }
-    else{
-        loadJSON('user/false')
-    }
-
     // Koblinger til HTML siden. 
     const userNameInpt = /**@type {HTMLInputElement}*/ ($("nameInpt"));
     const sendUserNameBtn = $("saveUser");

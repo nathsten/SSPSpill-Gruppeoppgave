@@ -12,5 +12,8 @@
   "bugs": {
     "url": "https://github.com/nathsten/SSPSpill-Gruppeoppgave/issues"
   },
-  "homepage": "https://github.com/nathsten/SSPSpill-Gruppeoppgave#readme"
+  "homepage": "https://github.com/nathsten/SSPSpill-Gruppeoppgave#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5"
+  }
 }
