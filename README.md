@@ -71,6 +71,7 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
 
 ## Flydiagram:
 
+![Flytdiagram SSP](https://user-images.githubusercontent.com/70739893/100218439-0df65c00-2f15-11eb-8fb1-32407d7a701c.jpg)
 
 
 ## Pseudokode
