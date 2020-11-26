@@ -19,30 +19,6 @@ function callBack(error){
     }
 }
 
-// !! Denne brukes ikke mer fordi nå laster vi inn spille via reqCookie!! skal tas vekk. 
-// Hvis ikke noe annet så er du ikke registrert. 
-// let userRegistered;
-// Siden vi skal laste inn, foreløpig ingenting. 
-// let pageLoad;
-
-// // Laster inn userRegistrered.json og sjekker om den er true/false. 
-// const getUserRegistered = JSON.parse(fs.readFileSync('node/userRegistrered.json'));
-// userRegistered = getUserRegistered["userRegiststrered"];
-
-// Hvis userRegistrered er true, så laster vi inn spillet. 
-// if(userRegistered === "true"){
-//     // Siden vi skal laste inn er mappen 'game'.
-//     pageLoad = 'game';
-// }
-// // Dersom den er false eller noe annet av en eller annen grunn så laster vi inn registreringssiden. 
-// else{
-//     // Siden vi skal laste inn er mappen 'node'. 
-//     pageLoad = 'node';
-// }
-// // Bruker index(variabelen for serveren) til å åpne siden som vi bestemte over. 
-// // Skal sette meg mer inn i de ulike måtene å laste inn sider på, mulig det finnes en bedre måte. 
-// index.use(express.static(pageLoad));
-
 // Bruke coockie parser til å lese av om du er registrert eller ei. 
 index.use(cookieParser());
 
