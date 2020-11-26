@@ -2,26 +2,31 @@
   "Nathaniel": {
     "username": "Nathaniel",
     "userID": 1,
-    "score": "0"
+    "score": "1750"
   },
   "David": {
     "username": "David",
     "userID": 2,
-    "score": "0"
+    "score": "420"
   },
   "Eleonora": {
     "username": "Eleonora",
     "userID": 3,
-    "score": "0"
+    "score": "800"
   },
   "Helene": {
     "username": "Helene",
     "userID": 4,
-    "score": "0"
+    "score": "2300"
   },
   "Kirat": {
     "username": "Kirat",
     "userID": 5,
-    "score": "0"
+    "score": "1800"
+  },
+  "Nathiboy": {
+    "username": "Nathiboy",
+    "userID": 6,
+    "score": "1950"
   }
 }

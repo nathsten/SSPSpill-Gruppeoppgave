@@ -69,7 +69,7 @@ Dersom det stemmer kan vi først sjekke om du har trykket på er den samme som m
 
 Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne ut om din slår maskinen eller om den slår deg, da får vinneren poeng. Vinner du blir bakgrunnsfargen grønn også skrifter den tilbake ila 500ms. Taper du blir bakgrunnsfargen rød også skifter den tilbake ila 500ms. 
 
-## Flydiagram:
+## Flytdiagram:
 
 ![Flytdiagram SSP](https://user-images.githubusercontent.com/70739893/100218439-0df65c00-2f15-11eb-8fb1-32407d7a701c.jpg)
 

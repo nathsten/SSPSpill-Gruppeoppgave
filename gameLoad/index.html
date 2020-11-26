@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stein Saks Papir</title>
+    <link rel="icon" type="png" href="https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/icon.png">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
     <style>
         body{
@@ -55,7 +56,6 @@
     width: 180px;
 }
 
-
 #SSPDiv{
     position: relative;
     width: 60%;
@@ -64,7 +64,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     user-select: none;
-    font-size: 3.5em;
+    font-size: 0%;
 }
 
 #SSPDiv>div{
@@ -82,27 +82,22 @@
     background-repeat: no-repeat;
 }
 
-#SSPDiv>div{
-    text-align: center;
-    line-height: 15rem;
-}
-
 #SSPDiv>div:hover{
     background-color: rgba(39, 151, 255, 0.527);
-    /* animation: vinke 1s linear infinite; */
+    animation: vinke 1s linear infinite;
 }
 
-/* #stein{
-    background-image: url("bilder/stein.png");
+#stein{
+    background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/stein.png");
 }
 
 #saks{
-    background-image: url("bilder/saks.png");
+    background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/saks.png");
 }
 
 #papir{
-    background-image: url("bilder/papir.png");
-} */
+    background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/papir.png");
+}
 
 #boks {
     position: absolute;
@@ -232,11 +227,11 @@
 </head>
 <body>
     <audio id="correctSound">
-        <source type="audio/ogg" src="lyder/Correct.mp3">
+        <source type="audio/ogg" src="https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/lyder/Correct.mp3">
     </audio>
     
     <audio id="wrongSound">
-        <source type="audio/ogg" src="lyder/Wrong.mp3">
+        <source type="audio/ogg" src="https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/lyder/Wrong.mp3">
     </audio>
 
     <div id="header">
@@ -681,8 +676,8 @@ function getUserData(data){
         thisUser = getThisUsername;
     }
 
-    console.log(userList[thisUser]);
-    console.log(userList[userArray[0]].username);
+    // console.log(userList[thisUser]);
+    // console.log(userList[userArray[0]].username);
 
     // Kjøre funksjonen som lager brukerene, denne MÅ kjøre etter vi har hentet dataene fra /all (highscore.json)
     lagBrukere(userList, userArray);
@@ -706,7 +701,7 @@ function lagBrukere(users, userArray){
         // For-løkke som lager en ny div per bruker.
         for(let i=0; i<spillereArray.length; i++){
             const spillerDiv = document.createElement("div");
-            spillerDiv.innerHTML = `${users[spillereArray[i]].username}: ${users[spillereArray[i]].score}`;
+            spillerDiv.innerHTML = `${i+1}. ${users[spillereArray[i]].username}: ${users[spillereArray[i]].score}`;
             if(users[spillereArray[i]].username === thisUserForNewScore){
                 spillerDiv.style.color = "rgb(0, 109, 182)";
                 spillerDiv.style.textDecoration = "underline";
