@@ -67,7 +67,7 @@ function sendUsername(request, response){
     // const JSONstoreUserRegistered = JSON.stringify(storeUserRegistered, null, 2);
 
     // Sender response. 
-    response.send(`Takk for din registrering ${brukernavnValue}, du er nå registrert i vår database`);
+    // response.send(`Takk for din registrering ${brukernavnValue}, du er nå registrert i vår database`);ç
     // Skriver tilbake at userRegistrered er true. 
     // fs.writeFileSync('node/userRegistrered.json', JSONstoreUserRegistered, callBackSaveUser);
 }

@@ -126,7 +126,9 @@
                     }
                     else if(useres[userName] != undefined){
                         const rndNum = () => Math.floor(Math.random() * 9);
-                        alert(`Beklager ${userName} finnes allerede, prøv feks: ${userName}${rndNum()}${rndNum()}${rndNum()}`);
+                        alert(`Beklager "${userName}" finnes allerede, prøv feks: ${userName}${rndNum()}${rndNum()}${rndNum()}`);
+                        userNameInpt.value = "";
+                        userNameInpt.focus();
                     }
                     else{
                         registerUser();

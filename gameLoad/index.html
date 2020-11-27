@@ -377,8 +377,7 @@ function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
     loosesDiv.innerHTML = `Tapt: ${lossesTall}`;
     winstreakDiv.innerHTML = `Winstreak: ${winstreakTall}`;
     scoreDiv.innerHTML = `Score: ${scoreTall}`;
-    // Bruke loadJSON('all', function(data){}), men det funket ikke av en eller annen grunn..........
-    highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
+    // highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
 }
 
 /**
@@ -708,6 +707,8 @@ function lagBrukere(users, userArray){
             }
             div.append(spillerDiv);
         }
+        // Legger til highscoren i highscoreDiven, istede for å sortere den største fra highscore arrayen. 
+        highScoreDiv.innerHTML = `Highscore: ${users[thisUser].score}`;
     }
 
     // Til slutt kjører vi funksjonen som lager spillerene på siden og sender nødvendig data til den. 
