@@ -27,7 +27,7 @@ https://stein-saks-papir.netlify.app/
             * .mp3 filer av lyden som spilles av når du vinner og når du taper.
 
     * #### node:
-        * index.html: Første siden som lastes av serveren, hvor du registrerer brukernavnet ditt.
+        * index.html: Første siden som lastes av serveren, hvor du registrerer brukernavnet ditt. Har flyttet alt fra regUser.js inn i denen også pga måten serveren laster inn sidene. 
 
         * regUser.js: Javascript filen til index.html som lagrer dataen via index.js.
 
@@ -46,7 +46,7 @@ https://stein-saks-papir.netlify.app/
         
     * ### gameLoad:
         
-        * Ikke bry dere om denne, dette er html siden som lastes inn helt "plain" til serveren. Fant ingen bedre måte å gjøre det på dessverre, se index.js fra linje 47. 
+        * Dette er html siden som lastes inn helt "plain" til serveren, her må alt av CSS og JS ligge inni "<script></script>" .html siden. Alle bilder og lyder blir lastet inn rett fra githuben. Fant ingen bedre måte å gjøre det på dessverre, se index.js fra linje 26. 
 
 
 # Funksjonell beskrivelse:

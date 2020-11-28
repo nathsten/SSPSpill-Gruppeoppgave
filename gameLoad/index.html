@@ -9,219 +9,219 @@
     <style>
         body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    }
 
-#header {
-    border: black 1px solid;
-    border-radius: 20px;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to right, #6b6b6b,#ffffff, #ff0000);
-}
-#winstreak, #wins, #losses, #highscore, #score {
-    position: absolute;
-    font-size: 1.5em;
-    top: 15px;
-    width: 130px;
-    height: 50px;
-    line-height: 50px;
-    border: 2px black solid;
-    border-radius: 10px;
-    top: 30px;
-    padding-left: 10px;
-}
-#overskrift {
-    position: absolute;
-    top: 20px;
-    font-size: 3rem;
-    left: calc(50% - 169px);
-    margin-top: 5px;
-}
-#wins {
-    left: 2%;
-}
-#losses {
-    left: 13.5%;
-}
-#score{
-    left: 24.5%;
-}
+    #header {
+        border: black 1px solid;
+        border-radius: 20px;
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(to right, #6b6b6b,#ffffff, #ff0000);
+    }
+    #winstreak, #wins, #losses, #highscore, #score {
+        position: absolute;
+        font-size: 1.5em;
+        top: 15px;
+        width: 130px;
+        height: 50px;
+        line-height: 50px;
+        border: 2px black solid;
+        border-radius: 10px;
+        top: 30px;
+        padding-left: 10px;
+    }
+    #overskrift {
+        position: absolute;
+        top: 20px;
+        font-size: 3rem;
+        left: calc(50% - 169px);
+        margin-top: 5px;
+    }
+    #wins {
+        left: 2%;
+    }
+    #losses {
+        left: 13.5%;
+    }
+    #score{
+        left: 24.5%;
+    }
 
-#highscore {
-    right: 2%;
-    width: 220px;
-}
-#winstreak{
-    right: 20%;
-    width: 180px;
-}
+    #highscore {
+        right: 2%;
+        width: 220px;
+    }
+    #winstreak{
+        right: 20%;
+        width: 180px;
+    }
 
-#SSPDiv{
-    position: relative;
-    width: 60%;
-    height: 400px;
-    left: calc(50% - 30%);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    user-select: none;
-    font-size: 0%;
-}
+    #SSPDiv{
+        position: relative;
+        width: 60%;
+        height: 400px;
+        left: calc(50% - 30%);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        user-select: none;
+        font-size: 0%;
+    }
 
-#SSPDiv>div{
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background-color: rgba(0, 255, 255, 0.65);
-    left: calc(50% - 125px);
-    top: 75px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.25s;
-    background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
-}
+    #SSPDiv>div{
+        position: relative;
+        width: 250px;
+        height: 250px;
+        background-color: rgba(0, 255, 255, 0.65);
+        left: calc(50% - 125px);
+        top: 75px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.25s;
+        background-position: center;
+        background-size: 60%;
+        background-repeat: no-repeat;
+    }
 
-#SSPDiv>div:hover{
-    background-color: rgba(39, 151, 255, 0.527);
-    animation: vinke 1s linear infinite;
-}
+    #SSPDiv>div:hover{
+        background-color: rgba(39, 151, 255, 0.527);
+        animation: vinke 1s linear infinite;
+    }
 
-#stein{
-    background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/stein.png");
-}
+    #stein{
+        background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/stein.png");
+    }
 
-#saks{
-    background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/saks.png");
-}
+    #saks{
+        background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/saks.png");
+    }
 
-#papir{
-    background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/papir.png");
-}
+    #papir{
+        background-image: url("https://raw.githubusercontent.com/nathsten/SSPSpill-Gruppeoppgave/main/game/bilder/papir.png");
+    }
 
-#boks {
-    position: absolute;
-    height: 150px;
-    width: 300px;
-    border-radius: 20px;
-    visibility: hidden;
-    text-align: center;
-    font-size: 3rem;
-    line-height: 8rem;
+    #boks {
+        position: absolute;
+        height: 150px;
+        width: 300px;
+        border-radius: 20px;
+        visibility: hidden;
+        text-align: center;
+        font-size: 3rem;
+        line-height: 8rem;
 
-}
+    }
 
-@keyframes vinke{
-    0%{transform: rotate(0deg);}
-    25%{transform: rotate(-15deg);}
-    50%{transform: rotate(0deg);}
-    75%{transform: rotate(15deg);}
-    100%{transform: rotate(0deg);}
-}
+    @keyframes vinke{
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(-15deg);}
+        50%{transform: rotate(0deg);}
+        75%{transform: rotate(15deg);}
+        100%{transform: rotate(0deg);}
+    }
 
-@keyframes flyt {
-    0% { visibility: hidden; left: -15%; opacity: 0%;}
-    15% { left: 20%; opacity: 80%; visibility: visible;}
-    50% { left: 45%; opacity: 100%; visibility: visible;}
-    85% { left: 70%; opacity: 80%; visibility: visible;}
-    100% {left: 100%; opacity: 0%; visibility: hidden;}
-}
+    @keyframes flyt {
+        0% { visibility: hidden; left: -15%; opacity: 0%;}
+        15% { left: 20%; opacity: 80%; visibility: visible;}
+        50% { left: 45%; opacity: 100%; visibility: visible;}
+        85% { left: 70%; opacity: 80%; visibility: visible;}
+        100% {left: 100%; opacity: 0%; visibility: hidden;}
+    }
 
-.vant {
-    animation: flyt 4s linear;
-    background-color: rgb(33, 231, 33);
-}
-.tapt {
-    animation: flyt 4s linear;
-    background-color: rgb(231, 17, 17);
-}
-.uavgjort {
-    animation: flyt 4s linear;
-    background-color: orange;
-}
+    .vant {
+        animation: flyt 4s linear;
+        background-color: rgb(33, 231, 33);
+    }
+    .tapt {
+        animation: flyt 4s linear;
+        background-color: rgb(231, 17, 17);
+    }
+    .uavgjort {
+        animation: flyt 4s linear;
+        background-color: orange;
+    }
 
-#spillereDiv {
-    position: absolute;
-    bottom: 30px;
-    left: calc(50% - 45%);
-    width: 90%;
-    height: 250px;
-    border: solid 1px black;
-    background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
-    border-radius: 50px;
-    overflow: scroll;
-}
+    #spillereDiv {
+        position: absolute;
+        bottom: 30px;
+        left: calc(50% - 45%);
+        width: 90%;
+        height: 250px;
+        border: solid 1px black;
+        background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
+        border-radius: 50px;
+        overflow: scroll;
+    }
 
-#SpillereHeader{
-    position: relative;
-    width: 50%;
-    text-align: center;
-    color: black;
-    text-decoration: none;
-    font-size: 1.2rem;
-    left: calc(50% - 25%);
-}
+    #SpillereHeader{
+        position: relative;
+        width: 50%;
+        text-align: center;
+        color: black;
+        text-decoration: none;
+        font-size: 1.2rem;
+        left: calc(50% - 25%);
+    }
 
-#SpillereHeader>h1{
-    font-family: 'Niconne', cursive;
-    border-bottom: #5d89f0 solid 2px;
-}
+    #SpillereHeader>h1{
+        font-family: 'Niconne', cursive;
+        border-bottom: #5d89f0 solid 2px;
+    }
 
-#spillereListe{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-}
+    #spillereListe{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+    }
 
-#spillereListe>div{
-    margin: 10px;
-    margin-left: 20px;
-    font-size: 1.5em;
-}
-#nyhighscore {
-    position: absolute;
-    width: 400px;
-    height: 100px;
-    border: 1px black solid;
-    top: 10px;
-    background: #73f05d;
-    visibility: hidden;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 6rem;
-}
-#duslo {
-    position: absolute;
-    width: 400px;
-    height: 100px;
-    border: 1px black solid;
-    bottom: 10px;
-    background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
-    visibility: hidden;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 1.25em;
-    padding-top: 20px;
-}
-@keyframes newHighscore {
-    0% {left: 35%; top: 10px; visibility: visible;}
-    33% {left: 35%; top: 50%; transform: scale(2);}
-    85% {left: 35%; top: 50%; transform: scale(2);}
-    100% {left: 35%; top: 105%; transform: scale(1); visibility: hidden;}
-}
-@keyframes duSlo {
-    0% {left: 35%; bottom: 10px; visibility: visible;}
-    30% {left: 35%; bottom: 50%; transform: scale(2);}
-    70% {left: 35%; bottom: 50%; transform: scale(2);}
-    100% {left: 35%; bottom: 105%; transform: scale(1); visibility: hidden;}
-}
-.aktivHighscore {
-    animation: newHighscore 4.2s linear;
-}
-.aktivDuSlo {
-    animation: duSlo 4.2s linear;
-}
+    #spillereListe>div{
+        margin: 10px;
+        margin-left: 20px;
+        font-size: 1.5em;
+    }
+    #nyhighscore {
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        border: 1px black solid;
+        top: 10px;
+        background: #73f05d;
+        visibility: hidden;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 6rem;
+    }
+    #duslo {
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        border: 1px black solid;
+        bottom: 10px;
+        background: linear-gradient(to right, #ff5555,#fffb23, #5bf06f, #5d89f0, #965cf3);
+        visibility: hidden;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 1.25em;
+        padding-top: 20px;
+    }
+    @keyframes newHighscore {
+        0% {left: 35%; top: 10px; visibility: visible;}
+        33% {left: 35%; top: 50%; transform: scale(2);}
+        85% {left: 35%; top: 50%; transform: scale(2);}
+        100% {left: 35%; top: 105%; transform: scale(1); visibility: hidden;}
+    }
+    @keyframes duSlo {
+        0% {left: 35%; bottom: 10px; visibility: visible;}
+        30% {left: 35%; bottom: 50%; transform: scale(2);}
+        70% {left: 35%; bottom: 50%; transform: scale(2);}
+        100% {left: 35%; bottom: 105%; transform: scale(1); visibility: hidden;}
+    }
+    .aktivHighscore {
+        animation: newHighscore 4.2s linear;
+    }
+    .aktivDuSlo {
+        animation: duSlo 4.2s linear;
+    }
 
     </style>
 </head>
@@ -265,516 +265,528 @@
     <div id="nyhighscore"></div>
     <div id="duslo"></div>
     <script>
-        // @ts-check
+    // @ts-check
 
-/**
- * Forkortelse for document.getElementById("idName");
- * Kunne også ha vert skrevet slik:
-    function $(id){
-        return document.getElementById(id);
+    /**
+     * Forkortelse for document.getElementById("idName");
+     * Kunne også ha vert skrevet slik:
+        function $(id){
+            return document.getElementById(id);
+        }
+    * Den må ikke hete "$", men det er bare et typisk tegn for å hente data (ligner på jquery);
+    * @param {string} id
+    * @returns {object}
+    */
+    // @ts-ignore
+    const $ = (id) => document.getElementById(id);
+
+    // Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
+    const SSPDiv = $("SSPDiv");
+    //Vi lager resten av koblingene nedover her:
+    const winstreakDiv = $("winstreak");
+    const winsDiv = $("wins");
+    const loosesDiv = $("losses");
+    const highScoreDiv = $("highscore");
+    const scoreDiv = $("score");
+    const boksDiv = $("boks");
+    const correctSound = $("correctSound");
+    const wrongSound = $("wrongSound");
+    const nyhighscore = $("nyhighscore");
+    const duslo = $("duslo");
+
+
+    /** 
+     * EventListener som kjører funskjonen sjekkSSP(); når du 
+     * trykker på en av stein / saks / papir bildene på skjermen.
+    */
+    // @ts-ignore
+    SSPDiv.addEventListener("click", sjekkSSP);
+
+    // Globale variabler:
+    let wins = 0;
+    let losses = 0;
+    let score = 0;
+    let winstreak = 0;
+    let winstreakPoeng = 50;
+    const loseFarge = "rgba(245, 69, 38, 0.739)";
+    const winFarge = "rgba(136, 231, 27, 0.685)";
+    const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
+    let highScoreArray = [0];
+    const thisUser = JSON.parse(localStorage.getItem("username"));
+
+    // Sjekker om vi allerede har en lagret highscore og legger den til i highScoreArray.
+    getFromLocalStorrage("scoreArray");
+
+    /** 
+    * Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
+        til start verdien av wins, losses, winstreak, og scoren din.
+    * Denne kjøres når siden starter. 
+    */
+    oppdatereLabels(wins, losses, winstreak, score);
+
+    /**
+     * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
+     * @returns {String}
+     * Skriver den som "const" fordi da kan vi ikke endre på funksjonen
+     * ved et uheld senere.
+     */
+    const rndSSP = () => {
+        // En array med med lengde 0-2.
+        const SSP = ['stein', 'saks', 'papir'];
+        // Returnerer et tilfeldig tall mellom 0 og lengden av SSP arrayen (0 - 2).
+        const rndTall = () => Math.floor(Math.random() * SSP.length);
+        // Output blir SSP[0/1/2];
+        const output = SSP[rndTall()];
+        // Returnerer stein / saks / papir som en String
+        return output;
     }
- * Den må ikke hete "$", men det er bare et typisk tegn for å hente data (ligner på jquery);
- * @param {string} id
- * @returns {object}
- */
-// @ts-ignore
-const $ = (id) => document.getElementById(id);
 
-// Kobling til SSPDiv, denne inneholder de tre inputene for SSP på nettsiden
-const SSPDiv = $("SSPDiv");
-//Vi lager resten av koblingene nedover her:
-const winstreakDiv = $("winstreak");
-const winsDiv = $("wins");
-const loosesDiv = $("losses");
-const highScoreDiv = $("highscore");
-const scoreDiv = $("score");
-const boksDiv = $("boks");
-const correctSound = $("correctSound");
-const wrongSound = $("wrongSound");
-const nyhighscore = $("nyhighscore");
-const duslo = $("duslo");
+    /**
+     * Funksjonen tar inn et HTMLElement som vi lager koblinger til ovenfor:
+     * @param {HTMLElement} element
+     * Fargen vi sender til funksjonen er en string: "rgba(214, 147, 79, 0.78)".
+     * @param {String} farge
+     * Her skal funksjonen først endre bakgrunnsfargen til elementet
+        og bruke 250ms på det.
+        Derretter venter den 250ms før den bruker nye 250ms
+        til å endre tilbake til standard
+    */
+    function endreFarge(element, farge){
+        // Vi bruker CSS kommandoer på HTMLElementet som blir sendt inn. 
+        // Først endrer vi background-color.
+        element.style.backgroundColor = farge;
 
+        // Vi venter 250ms, før vi endrer den tilbake til opprinnelig bakgrunnsfarge. 
+        setTimeout(() => {
+            element.style.backgroundColor = "rgba(0, 255, 255, 0.65)";
+        }, 250);
+    } 
 
-/** 
- * EventListener som kjører funskjonen sjekkSSP(); når du 
- * trykker på en av stein / saks / papir bildene på skjermen.
-*/
-// @ts-ignore
-SSPDiv.addEventListener("click", sjekkSSP);
+    /**
+     * Oppdaterer divene "#winstreak, #wins, #losses" sin innterHTML
+        med tallene som blir tatt inn i parametrene (winsTall, lossesTall, winstreakTall).
+        I utgangspunktet litt unødvendig å ta inn tallene i parameterene, men vi gjør det alikevel
+        for treningen sin del.
+    * @param {Number} winsTall
+    * @param {Number} lossesTall
+    * @param {Number} winstreakTall
+    * @param {Number} scoreTall
+    */
+    function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
+        winsDiv.innerHTML = `Vunnet: ${winsTall}`;
+        loosesDiv.innerHTML = `Tapt: ${lossesTall}`;
+        winstreakDiv.innerHTML = `Winstreak: ${winstreakTall}`;
+        scoreDiv.innerHTML = `Score: ${scoreTall}`;
+        // highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
+    }
 
-// Globale variabler:
-let wins = 0;
-let losses = 0;
-let score = 0;
-let winstreak = 0;
-let winstreakPoeng = 50;
-const loseFarge = "rgba(245, 69, 38, 0.739)";
-const winFarge = "rgba(136, 231, 27, 0.685)";
-const uavgjortFarge = "rgba(255, 255, 0, 0.664)";
-let highScoreArray = [0];
-const thisUser = JSON.parse(localStorage.getItem("username"));
+    /**
+     * Bruker en "for løkke" til å sortere ut det høyeste tallet 
+     * i arrayen som blir tilsendt
+     * Tar inn en array med tall
+     * @param {Number[]} scoreList
+     * Returnerer et enkelt tall (mulig vi skal gjøre det om til String)
+     * @returns {Number}
+     */
+    function finnHighScore(scoreList){
+        let max = scoreList[0]; // Annta at den første verdien i arrayen er størt. 
 
-// Sjekker om vi allerede har en lagret highscore og legger den til i highScoreArray.
-getFromLocalStorrage("scoreArray");
+        // "looper" igjennom arrayen.
+        for(let i=0; i<scoreList.length; i++){
+            // Dersom scoreList possisjon i (som er mellom 0 og lengden av scoreList)
+            //  er større enn den som allerede er lagre som "max", endrer vi max til funnet tall.
+            if(scoreList[i] > max) {
+                max = scoreList[i];
+            }
+        }
+        // Til slutt returnerer vi "max", som er den største verdien funnet i arrayen. 
+        return max;
+    }
 
-/** 
-* Setter de ulike divene (winstreakDiv, winsDiv, loosesDiv, highScoreDiv) sin innerHTML
-    til start verdien av wins, losses, winstreak, og scoren din.
-* Denne kjøres når siden starter. 
-*/
-oppdatereLabels(wins, losses, winstreak, score);
+    /**
+     * Funskjonen tar inn de globale vaiablene "antallWins" og "antallLosses".
+     * Dette er ikke nødvendig fordi de er globale variabler, 
+     * men vi gjør det alikevel for treningen sin del.
+     * @param {Number} winsTall
+     * @param {Number} lossesTall
+     */
+    function sjekkSeier(winsTall, lossesTall){
+        /**
+         * Funksjonen skal sjekke om summen av dine seiere og tap >= 20.
+         * Dersom den er 20, finner vi ut hvem som har vunnet og lagrer highScoren din
+         * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
+         */
+        if(winsTall + lossesTall === 20){
+            // @ts-ignore
+            loadJSON('all', findThisUserScore);
 
-/**
- * Funksjon som returnerer tilfeldig 'stein', 'saks', 'papir'.
- * @returns {String}
- * Skriver den som "const" fordi da kan vi ikke endre på funksjonen
- * ved et uheld senere.
- */
-const rndSSP = () => {
-    // En array med med lengde 0-2.
-    const SSP = ['stein', 'saks', 'papir'];
-    // Returnerer et tilfeldig tall mellom 0 og lengden av SSP arrayen (0 - 2).
-    const rndTall = () => Math.floor(Math.random() * SSP.length);
-    // Output blir SSP[0/1/2];
-    const output = SSP[rndTall()];
-    // Returnerer stein / saks / papir som en String
-    return output;
-}
+            /**
+             * @param {JSON} data
+             */
+            function findThisUserScore(data){
+                const thisUserForNewHighscore = JSON.parse(localStorage.getItem("username"));
+                let users = data;
+                let thisUserScore = Number(users[thisUserForNewHighscore].score);
+                let usernames = Object.keys(data);
 
-/**
- * Funksjonen tar inn et HTMLElement som vi lager koblinger til ovenfor:
- * @param {HTMLElement} element
- * Fargen vi sender til funksjonen er en string: "rgba(214, 147, 79, 0.78)".
- * @param {String} farge
- * Her skal funksjonen først endre bakgrunnsfargen til elementet
-    og bruke 250ms på det.
-    Derretter venter den 250ms før den bruker nye 250ms
-    til å endre tilbake til standard
- */
-function endreFarge(element, farge){
-    // Vi bruker CSS kommandoer på HTMLElementet som blir sendt inn. 
-    // Først endrer vi background-color.
-    element.style.backgroundColor = farge;
+                if(score > thisUserScore){
+                    nyhighscore.className = "";
+                    void nyhighscore.offsetWidth;
+                    nyhighscore.className = "aktivHighscore";
+                    nyhighscore.innerHTML = `NY HIGHSCORE ${score}!`;
+                    setTimeout(() => {
+                        nyhighscore.className = "";
+                    }, 4500);
+                    // @ts-ignore
+                    // Funskjonen ligger i getUserData.js
+                    updateUserScore(score);
+                }
+                // Hvor vi lagrer de du har slått. 
+                let useresBeaten = [];
+                for(let i=0; i<usernames.length; i++){
+                    // Sjekker om din score er større enn hver enkelt bruker er større enn deres.
+                    if(score > Number(users[usernames[i]].score)){
+                        // Pusher det eventuelle brukernavnet. 
+                        if(usernames[i] !== thisUserForNewHighscore){
+                            useresBeaten.push(usernames[i]);
+                        }
+                    }
+                }
+                // Så lenge vi har noen inni usersBeaten så viser vi animasjonen. 
+                let time = 0;
+                if(useresBeaten[0] !== undefined){
+                    if(nyhighscore.className === "aktivHighscore"){
+                        time = 3500;
+                    }
+                    setTimeout(() => {
+                        duslo.className = "";
+                        void duslo.offsetWidth;
+                        duslo.className = "aktivDuSlo";
+                        let useresBeatenStr = "";
+                        for(let j=0; j<useresBeaten.length; j++){
+                            useresBeatenStr += String(useresBeaten[j]);
+                            useresBeatenStr += " ";
+                        }
+                        duslo.innerHTML = `Du slo: ${useresBeatenStr}`;
+                    }, time);
+                }
+            }
 
-    // Vi venter 250ms, før vi endrer den tilbake til opprinnelig bakgrunnsfarge. 
-    setTimeout(() => {
-        element.style.backgroundColor = "rgba(0, 255, 255, 0.65)";
-    }, 250);
-} 
+            highScoreArray.push(score);
+            setToLocalStorrage("scoreArray", highScoreArray);
+            setTimeout(() => {
+                wins = 0;
+                score = 0;
+                losses = 0;
+                winstreak = 0;
+                winstreakPoeng = 50;
+            }, 500);
 
-/**
- * Oppdaterer divene "#winstreak, #wins, #losses" sin innterHTML
-    med tallene som blir tatt inn i parametrene (winsTall, lossesTall, winstreakTall).
-    I utgangspunktet litt unødvendig å ta inn tallene i parameterene, men vi gjør det alikevel
-    for treningen sin del.
- * @param {Number} winsTall
- * @param {Number} lossesTall
- * @param {Number} winstreakTall
- * @param {Number} scoreTall
- */
-function oppdatereLabels(winsTall, lossesTall, winstreakTall, scoreTall){
-    winsDiv.innerHTML = `Vunnet: ${winsTall}`;
-    loosesDiv.innerHTML = `Tapt: ${lossesTall}`;
-    winstreakDiv.innerHTML = `Winstreak: ${winstreakTall}`;
-    scoreDiv.innerHTML = `Score: ${scoreTall}`;
-    // highScoreDiv.innerHTML = `HighScore: ${finnHighScore(highScoreArray)}`;
-}
-
-/**
- * Bruker en "for løkke" til å sortere ut det høyeste tallet 
- * i arrayen som blir tilsendt
- * Tar inn en array med tall
- * @param {Number[]} scoreList
- * Returnerer et enkelt tall (mulig vi skal gjøre det om til String)
- * @returns {Number}
- */
-function finnHighScore(scoreList){
-    let max = scoreList[0]; // Annta at den første verdien i arrayen er størt. 
-
-    // "looper" igjennom arrayen.
-    for(let i=0; i<scoreList.length; i++){
-        // Dersom scoreList possisjon i (som er mellom 0 og lengden av scoreList)
-        //  er større enn den som allerede er lagre som "max", endrer vi max til funnet tall.
-        if(scoreList[i] > max) {
-            max = scoreList[i];
+            // Dersom boksDiv har en klasse fra før av tar vi den vekk. 
+            boksDiv.className = "";
+            // Bare for å restarte boksDiv. 
+            void boksDiv.offsetWidth;
+            // Gjør innerHTMLen tom slik at vi kan endre på den nedenfor. 
+            boksDiv.innerHTML = "";
+            // Sjekker km du har vunnet, tapt eller om det ble uavgjort. 
+            if (winsTall > lossesTall) {
+                boksDiv.className = "vant";
+                boksDiv.innerHTML = "Du vant";
+            } 
+            else if (winsTall < lossesTall) {
+                boksDiv.className = "tapt";
+                boksDiv.innerHTML = "Du tapte";
+            } 
+            else if (winsTall === lossesTall) {
+                boksDiv.className = "uavgjort";
+                boksDiv.innerHTML = "Uavgjort";
+            }
+            // Venter i 2sekunder før den restarter score-divene.
+            setTimeout(() => {
+            oppdatereLabels(wins, losses, winstreak, score);
+            }, 2000);
         }
     }
-    // Til slutt returnerer vi "max", som er den største verdien funnet i arrayen. 
-    return max;
-}
 
-/**
- * Funskjonen tar inn de globale vaiablene "antallWins" og "antallLosses".
- * Dette er ikke nødvendig fordi de er globale variabler, 
- * men vi gjør det alikevel for treningen sin del.
- * @param {Number} winsTall
- * @param {Number} lossesTall
- */
-function sjekkSeier(winsTall, lossesTall){
     /**
-     * Funksjonen skal sjekke om summen av dine seiere og tap >= 20.
-     * Dersom den er 20, finner vi ut hvem som har vunnet og lagrer highScoren din
-     * Derretter må vi restarte scoren, wins, losses og winstreak og starte spillet på nytt. 
+     * key (navnet til dataen vi lagrer i localStorrage) 
+     * sender vi som en String "scoreArray".
+     * @param {String} key
+     * Vi tar inn og lagrer arrayen med tall som "item", dette må gjøres
+     * om til en JSON String. ( JSON.stringify(item) )
+     * @param {Number[]} item
+     * Funksjonen skal lagre highScoreArray(eller den arrayen vi sender til den)
+        i localStorrage vi bruker navet "scoreArray" som key. 
+    */
+    function setToLocalStorrage(key, item){
+        localStorage.setItem(key, JSON.stringify(item));
+    }
+
+    /**
+     * Tar inn navnet på dataen vi skal hente ut som en String
+     * @param {String} key
+     * Funksjonen erstatter den tomme globale arrayen highScoreArray med 
+     * dataen den får fra localStorrage. 
+     * Funksjoenen sjekker om verdien allerede finnes i localStorrage,
+        for å så hente den ut og legge den dataen til i arrayen vi sender til den.
+        For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
+        da bruker vi JSON.parse( localStorrage.getItem(key) )
+    */
+    function getFromLocalStorrage(key){
+        if(localStorage.getItem(key)){
+            let getHighScore = JSON.parse(localStorage.getItem(key));
+            highScoreArray = getHighScore;
+        }
+    }
+
+    /**
+     * HOVEDFUNKSJONEN:
+     * Den tar inn "e" som den bruker til å finne ut hvile av 
+     * SSP bildene du har trykket på, og lagrer den som "t". 
+     * Derretter kjører den funksjonen rndSSP(); som returnerer 
+     * maskinen sitt tilfeldige svar på stein / saks / papir.
+     * @param {{ target: HTMLElement; }} e
      */
-    if(winsTall + lossesTall === 20){
-        // @ts-ignore
-        loadJSON('all', findThisUserScore);
+    function sjekkSSP(e){
+        // t blir den av de tre inputene du har trykket på
+        const t = e.target;
+        
+        // maskinSSP er maskinen sin tilfeldig valgte stein / saks / papir.
+        const maskinSSP = rndSSP();
 
         /**
-         * @param {JSON} data
-         */
-        function findThisUserScore(data){
-            const thisUserForNewHighscore = JSON.parse(localStorage.getItem("username"));
-            let users = data;
-            let thisUserScore = Number(users[thisUserForNewHighscore].score);
-            let usernames = Object.keys(data);
+         * Først må vi sjekke at du faktisk har trykket på en av SSP bildene.
+         * Så sjekker vi om det blir uavgjort.
+         * Dersom det ikke er uavgjort sjekker vi om du vinner eller taper. 
 
-            if(score > thisUserScore){
-                nyhighscore.className = "";
-                void nyhighscore.offsetWidth;
-                nyhighscore.className = "aktivHighscore";
-                nyhighscore.innerHTML = `NY HIGHSCORE ${score}!`;
-                setTimeout(() => {
-                    nyhighscore.className = "";
-                }, 4500);
+        * For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
+            vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
+        */
+        if (t.className === "SSP") {
+            if (t.innerHTML === maskinSSP) {
+                // Bakgrunnsfargen til HTMLElementet blir uavgjortFarge.
+                endreFarge(t, uavgjortFarge);
+                // Ingen endring på poengene.
+
+            } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
+                // Du vinner
+                wins += 1;
+                winstreak += 1;
+                score += 100;
+
+                // Dersom du har en winstreak får du poeng for det, 
+                //  og poeng gitt for winstreak øker med 50 for hver gang. 
+                if(winstreak > 1){
+                    score += winstreakPoeng;
+                    winstreakPoeng += 50;
+                }
+
+                // bakgrunnsfargen til HTMLElementet blir winFarge.
+                endreFarge(t, winFarge);
+                // Spiller av lyden for rett.
                 // @ts-ignore
-                // Funskjonen ligger i getUserData.js
-                updateUserScore(score);
-            }
-            // Hvor vi lagrer de du har slått. 
-            let useresBeaten = [];
-            for(let i=0; i<usernames.length; i++){
-                // Sjekker om din score er større enn hver enkelt bruker er større enn deres.
-                if(score > Number(users[usernames[i]].score)){
-                    // Pusher det eventuelle brukernavnet. 
-                    if(usernames[i] !== thisUserForNewHighscore){
-                        useresBeaten.push(usernames[i]);
-                    }
+                correctSound.play();
+
+                // Skal oppdatere divene med wins/loss og winstreak
+            } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
+                // Du vinner
+                wins += 1;
+                winstreak += 1;
+                score += 100;
+
+                // Dersom du har en winstreak får du poeng for det, 
+                //  og poeng gitt for winstreak øker med 50 for hver gang. 
+                if(winstreak > 1){
+                    score += winstreakPoeng;
+                    winstreakPoeng += 50;
                 }
-            }
-            // Så lenge vi har noen inni usersBeaten så viser vi animasjonen. 
-            let time = 0;
-            if(useresBeaten[0] !== undefined){
-                if(nyhighscore.className === "aktivHighscore"){
-                    time = 3500;
+
+                // bakgrunnsfargen til HTMLElementet blir winFarge.
+                endreFarge(t, winFarge);
+                // Spiller av lyden for rett.
+                // @ts-ignore
+                correctSound.play();
+                
+            } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
+                // Du vinner
+                wins += 1;
+                winstreak += 1;
+                score += 100;
+
+                // Dersom du har en winstreak får du poeng for det, 
+                //  og poeng gitt for winstreak øker med 50 for hver gang. 
+                if(winstreak > 1){
+                    score += winstreakPoeng;
+                    winstreakPoeng += 50;
                 }
-                setTimeout(() => {
-                    duslo.className = "";
-                    void duslo.offsetWidth;
-                    duslo.className = "aktivDuSlo";
-                    let useresBeatenStr = "";
-                    for(let j=0; j<useresBeaten.length; j++){
-                        useresBeatenStr += String(useresBeaten[j]);
-                        useresBeatenStr += " ";
-                    }
-                    duslo.innerHTML = `Du slo: ${useresBeatenStr}`;
-                }, time);
+                // bakgrunnsfargen til HTMLElementet blir winFarge.
+                endreFarge(t, winFarge);
+                // Spiller av lyden for rett.
+                // @ts-ignore
+                correctSound.play();
+
+            } else {
+                losses += 1;
+                winstreak = 0;
+                score -= 50;
+                // Setter poeng per winstreak tilbake til 50.
+                winstreakPoeng = 50;
+
+                // Sender HTMLElementet vi jobber med til funkjsonen sammen med fargen.
+                endreFarge(t, loseFarge);
+                // Spiller av lyden for feil.
+                // @ts-ignore
+                wrongSound.play();
             }
+            // Sender wins, losses, winstreak, og score til funksjonen slik at det blir vist på skjermen. 
+            oppdatereLabels(wins, losses, winstreak, score);
+            // Sjekker om runden er over. 
+            sjekkSeier(wins, losses);
         }
-
-        highScoreArray.push(score);
-        setToLocalStorrage("scoreArray", highScoreArray);
-        setTimeout(() => {
-            wins = 0;
-            score = 0;
-            losses = 0;
-            winstreak = 0;
-            winstreakPoeng = 50;
-        }, 500);
-
-        // Dersom boksDiv har en klasse fra før av tar vi den vekk. 
-        boksDiv.className = "";
-        // Bare for å restarte boksDiv. 
-        void boksDiv.offsetWidth;
-        // Gjør innerHTMLen tom slik at vi kan endre på den nedenfor. 
-        boksDiv.innerHTML = "";
-        // Sjekker km du har vunnet, tapt eller om det ble uavgjort. 
-        if (winsTall > lossesTall) {
-            boksDiv.className = "vant";
-            boksDiv.innerHTML = "Du vant";
-        } 
-        else if (winsTall < lossesTall) {
-            boksDiv.className = "tapt";
-            boksDiv.innerHTML = "Du tapte";
-        } 
-        else if (winsTall === lossesTall) {
-            boksDiv.className = "uavgjort";
-            boksDiv.innerHTML = "Uavgjort";
-        }
-        // Venter i 2sekunder før den restarter score-divene.
-        setTimeout(() => {
-        oppdatereLabels(wins, losses, winstreak, score);
-        }, 2000);
     }
-}
 
-/**
- * key (navnet til dataen vi lagrer i localStorrage) 
- * sender vi som en String "scoreArray".
- * @param {String} key
- * Vi tar inn og lagrer arrayen med tall som "item", dette må gjøres
- * om til en JSON String. ( JSON.stringify(item) )
- * @param {Number[]} item
- * Funksjonen skal lagre highScoreArray(eller den arrayen vi sender til den)
-    i localStorrage vi bruker navet "scoreArray" som key. 
- */
-function setToLocalStorrage(key, item){
-    localStorage.setItem(key, JSON.stringify(item));
-}
+    // Slutt på SSP.js
 
-/**
- * Tar inn navnet på dataen vi skal hente ut som en String
- * @param {String} key
- * Funksjonen erstatter den tomme globale arrayen highScoreArray med 
- * dataen den får fra localStorrage. 
- * Funksjoenen sjekker om verdien allerede finnes i localStorrage,
-    for å så hente den ut og legge den dataen til i arrayen vi sender til den.
-    For at vi skal kunne bruke den igjen må vi gjøre den tilbake til en vanlig Array
-    da bruker vi JSON.parse( localStorrage.getItem(key) )
-*/
-function getFromLocalStorrage(key){
-    if(localStorage.getItem(key)){
-        let getHighScore = JSON.parse(localStorage.getItem(key));
-        highScoreArray = getHighScore;
+
+    // Start på getUserData.js
+    // Laster inn spillerene fra databasen.
+    function setup(){
+        // @ts-ignore
+        loadJSON('all', getUserData);
     }
-}
-
-/**
- * HOVEDFUNKSJONEN:
- * Den tar inn "e" som den bruker til å finne ut hvile av 
- * SSP bildene du har trykket på, og lagrer den som "t". 
- * Derretter kjører den funksjonen rndSSP(); som returnerer 
- * maskinen sitt tilfeldige svar på stein / saks / papir.
- * @param {{ target: HTMLElement; }} e
- */
-function sjekkSSP(e){
-    // t blir den av de tre inputene du har trykket på
-    const t = e.target;
-    
-    // maskinSSP er maskinen sin tilfeldig valgte stein / saks / papir.
-    const maskinSSP = rndSSP();
-
+    // Lager en variabel med brukerene i. 
+    // Alle variabler med brukere må skje her
     /**
-     * Først må vi sjekke at du faktisk har trykket på en av SSP bildene.
-     * Så sjekker vi om det blir uavgjort.
-     * Dersom det ikke er uavgjort sjekker vi om du vinner eller taper. 
-
-     * For å endre bakgrunnsfargen kjører vi funksjonen endreFarge(t, winFagre)
-        vi sender "t" fordi det er det HTMLElementet vi jobber med, og "winFarge", dersom du har vunnet.
+     * @param {JSON} data
     */
-    if (t.className === "SSP") {
-        if (t.innerHTML === maskinSSP) {
-            // Bakgrunnsfargen til HTMLElementet blir uavgjortFarge.
-            endreFarge(t, uavgjortFarge);
-            // Ingen endring på poengene.
+    function getUserData(data){
+        // Objektet med brukerene
+        let userList = data;
+        // Arrayen med bare brukenavenene
+        let userArray = Object.keys(data);
+        // brukeren som maksinen tilhører. 
+        let thisUser;
 
-        } else if (t.innerHTML === "stein" && maskinSSP === "saks") {
-            // Du vinner
-            wins += 1;
-            winstreak += 1;
-            score += 100;
+        // console.log(data);
+        // console.log(userList['Nathaniel'].score);
+        // console.log(userList[thisUser]);
+        // console.log(Object.keys(userList));
 
-            // Dersom du har en winstreak får du poeng for det, 
-            //  og poeng gitt for winstreak øker med 50 for hver gang. 
-            if(winstreak > 1){
-                score += winstreakPoeng;
-                winstreakPoeng += 50;
-            }
-
-            // bakgrunnsfargen til HTMLElementet blir winFarge.
-            endreFarge(t, winFarge);
-            // Spiller av lyden for rett.
-            // @ts-ignore
-            correctSound.play();
-
-            // Skal oppdatere divene med wins/loss og winstreak
-        } else if (t.innerHTML === "saks" && maskinSSP === "papir") {
-            // Du vinner
-            wins += 1;
-            winstreak += 1;
-            score += 100;
-
-            // Dersom du har en winstreak får du poeng for det, 
-            //  og poeng gitt for winstreak øker med 50 for hver gang. 
-            if(winstreak > 1){
-                score += winstreakPoeng;
-                winstreakPoeng += 50;
-            }
-
-            // bakgrunnsfargen til HTMLElementet blir winFarge.
-            endreFarge(t, winFarge);
-            // Spiller av lyden for rett.
-            // @ts-ignore
-            correctSound.play();
-            
-        } else if (t.innerHTML === "papir" && maskinSSP === "stein") {
-            // Du vinner
-            wins += 1;
-            winstreak += 1;
-            score += 100;
-
-            // Dersom du har en winstreak får du poeng for det, 
-            //  og poeng gitt for winstreak øker med 50 for hver gang. 
-            if(winstreak > 1){
-                score += winstreakPoeng;
-                winstreakPoeng += 50;
-            }
-            // bakgrunnsfargen til HTMLElementet blir winFarge.
-            endreFarge(t, winFarge);
-            // Spiller av lyden for rett.
-            // @ts-ignore
-            correctSound.play();
-
-        } else {
-            losses += 1;
-            winstreak = 0;
-            score -= 50;
-            // Setter poeng per winstreak tilbake til 50.
-            winstreakPoeng = 50;
-
-            // Sender HTMLElementet vi jobber med til funkjsonen sammen med fargen.
-            endreFarge(t, loseFarge);
-            // Spiller av lyden for feil.
-            // @ts-ignore
-            wrongSound.play();
+        // Henter brukernavent ditt i localStorage, dette er sånn at programet vet hvem du er.
+        if(localStorage.getItem("username")){
+            const getThisUsername = JSON.parse(localStorage.getItem("username"));
+            thisUser = getThisUsername;
         }
-        // Sender wins, losses, winstreak, og score til funksjonen slik at det blir vist på skjermen. 
-        oppdatereLabels(wins, losses, winstreak, score);
-        // Sjekker om runden er over. 
-        sjekkSeier(wins, losses);
-    }
-}
 
-// Slutt på SSP.js
+        // console.log(userList[thisUser]);
+        // console.log(userList[userArray[0]].username);
 
-
-// Start på getUserData.js
-// Laster inn spillerene fra databasen.
-function setup(){
-    // @ts-ignore
-    loadJSON('all', getUserData);
-}
-// Lager en variabel med brukerene i. 
-// Alle variabler med brukere må skje her
-function getUserData(data){
-    // Objektet med brukerene
-    let userList = data;
-    // Arrayen med bare brukenavenene
-    let userArray = Object.keys(data);
-    // brukeren som maksinen tilhører. 
-    let thisUser;
-
-    // console.log(data);
-    // console.log(userList['Nathaniel'].score);
-    // console.log(userList[thisUser]);
-    // console.log(Object.keys(userList));
-
-    // Henter brukernavent ditt i localStorage, dette er sånn at programet vet hvem du er.
-    if(localStorage.getItem("username")){
-        const getThisUsername = JSON.parse(localStorage.getItem("username"));
-        thisUser = getThisUsername;
+        // Kjøre funksjonen som lager brukerene, denne MÅ kjøre etter vi har hentet dataene fra /all (highscore.json)
+        lagBrukere(userList, userArray);
     }
 
-    // console.log(userList[thisUser]);
-    // console.log(userList[userArray[0]].username);
-
-    // Kjøre funksjonen som lager brukerene, denne MÅ kjøre etter vi har hentet dataene fra /all (highscore.json)
-    lagBrukere(userList, userArray);
-}
-
-// Funksjonen som kobles til HTML siden og lager divene med brukerne sin highscore i. 
-function lagBrukere(users, userArray){
-    // Kobling til #spillereListe.
-    const spillereListe = $("spillereListe");
-
+    // Funksjonen som kobles til HTML siden og lager divene med brukerne sin highscore i. 
     /**
      * @param {object} users
-     * @param {string[]} spillereArray
-     * @param {HTMLElement} div
-     * Funksjonen tar inn objektet med spillerene, 
-     * arrayen med navet til alle spillerene
-     * diven (spillereListe) vi legger de nye divene med brukerdataene inni. 
-     */
-    function createSpillereListe(users, spillereArray, div){
-        div.innerHTML = "";
-        // For-løkke som lager en ny div per bruker.
-        for(let i=0; i<spillereArray.length; i++){
-            const spillerDiv = document.createElement("div");
-            spillerDiv.innerHTML = `${i+1}. ${users[spillereArray[i]].username}: ${users[spillereArray[i]].score}`;
-            if(users[spillereArray[i]].username === thisUserForNewScore){
-                spillerDiv.style.color = "rgb(0, 109, 182)";
-                spillerDiv.style.textDecoration = "underline";
-            }
-            div.append(spillerDiv);
-        }
-        // Legger til highscoren i highscoreDiven, istede for å sortere den største fra highscore arrayen. 
-        highScoreDiv.innerHTML = `Highscore: ${users[thisUser].score}`;
-    }
+     * @param {string[]} userArray
+    */
+    function lagBrukere(users, userArray){
+        // Kobling til #spillereListe.
+        const spillereListe = $("spillereListe");
 
-    // Til slutt kjører vi funksjonen som lager spillerene på siden og sender nødvendig data til den. 
-    createSpillereListe(users, sortUsersByScore(users, userArray), spillereListe);
-
-    // Funksjon som sorterer brukerene etter highscore.
-    function sortUsersByScore(users, userArray){
-        // en kopi av arrayen siden vi skal endre på den. 
-        let arrayOfUsers = userArray;
-        let sortedUsers = [];
-        // Så lenge lengden av arrayOfUsers er større enn 0, kjører funksjonen. 
-        while (arrayOfUsers.length !== 0){
-            let leadingUser = arrayOfUsers[0]; // Antar at dette er den største. 
-            let leadingUsersScore = Number(users[arrayOfUsers[0]].score); // Antar at dette er den største. 
-            for(let i=0; i<arrayOfUsers.length; i++){
-                let userScore = Number(users[arrayOfUsers[i]].score);
-                // Hvis bruker nr i sin score er større enn den antatte, blir den brukeren satt som leadingUser. 
-                if(userScore > leadingUsersScore){
-                    leadingUser = arrayOfUsers[i];
-                    leadingUsersScore = Number(users[arrayOfUsers[i]].score);
+        /**
+         * @param {object} users
+         * @param {string[]} spillereArray
+         * @param {HTMLElement} div
+         * Funksjonen tar inn objektet med spillerene, 
+         * arrayen med navet til alle spillerene
+         * diven (spillereListe) vi legger de nye divene med brukerdataene inni. 
+         */
+        function createSpillereListe(users, spillereArray, div){
+            div.innerHTML = "";
+            // For-løkke som lager en ny div per bruker.
+            for(let i=0; i<spillereArray.length; i++){
+                const spillerDiv = document.createElement("div");
+                spillerDiv.innerHTML = `${i+1}. ${users[spillereArray[i]].username}: ${users[spillereArray[i]].score}`;
+                if(users[spillereArray[i]].username === thisUserForNewScore){
+                    spillerDiv.style.color = "rgb(0, 109, 182)";
+                    spillerDiv.style.textDecoration = "underline";
                 }
+                div.append(spillerDiv);
             }
-            // Legger leadingUser til i arrayen 
-            sortedUsers.push(leadingUser);
-            let index = arrayOfUsers.indexOf(leadingUser);
-            // Fjerner den brukeren som vi valgte ut nå. 
-            arrayOfUsers.splice(index, 1);
-            // For loopen kjører på nytt helt til array en er tom. 
+            // Legger til highscoren i highscoreDiven, istede for å sortere den største fra highscore arrayen. 
+            highScoreDiv.innerHTML = `Highscore: ${users[thisUser].score}`;
         }
-        // Returnerer en array med navnene sortert etter hvem som har høyest highscore. 
-        return sortedUsers;
+
+        // Til slutt kjører vi funksjonen som lager spillerene på siden og sender nødvendig data til den. 
+        createSpillereListe(users, sortUsersByScore(users, userArray), spillereListe);
+
+        // Funksjon som sorterer brukerene etter highscore.
+        /**
+         * @param {object} users
+         * @param {string[]} userArray
+         * @returns {string[]}
+        */
+        function sortUsersByScore(users, userArray){
+            // en kopi av arrayen siden vi skal endre på den. 
+            let arrayOfUsers = userArray;
+            let sortedUsers = [];
+            // Så lenge lengden av arrayOfUsers er større enn 0, kjører funksjonen. 
+            while (arrayOfUsers.length !== 0){
+                let leadingUser = arrayOfUsers[0]; // Antar at dette er den største. 
+                let leadingUsersScore = Number(users[arrayOfUsers[0]].score); // Antar at dette er den største. 
+                for(let i=0; i<arrayOfUsers.length; i++){
+                    let userScore = Number(users[arrayOfUsers[i]].score);
+                    // Hvis bruker nr i sin score er større enn den antatte, blir den brukeren satt som leadingUser. 
+                    if(userScore > leadingUsersScore){
+                        leadingUser = arrayOfUsers[i];
+                        leadingUsersScore = Number(users[arrayOfUsers[i]].score);
+                    }
+                }
+                // Legger leadingUser til i arrayen 
+                sortedUsers.push(leadingUser);
+                let index = arrayOfUsers.indexOf(leadingUser);
+                // Fjerner den brukeren som vi valgte ut nå. 
+                arrayOfUsers.splice(index, 1);
+                // For loopen kjører på nytt helt til array en er tom. 
+            }
+            // Returnerer en array med navnene sortert etter hvem som har høyest highscore. 
+            return sortedUsers;
+        }
     }
-}
-let thisUserForNewScore;
+    let thisUserForNewScore;
 
-if(localStorage.getItem("username")){
-    const getThisUsername = JSON.parse(localStorage.getItem("username"));
-    thisUserForNewScore = getThisUsername;
-}
-
-/**
- * Updates user score in highscore.json
- * @param {Number} thisUserScore
- */
-function updateUserScore(thisUserScore){
-    // @ts-ignore
-    loadJSON(`newHighscore/${thisUserForNewScore}/${thisUserScore}`, finishedUpdateUserScore);
-    // @ts-ignore
-    loadJSON('all', updateLagSpillere);
-
-    function updateLagSpillere(data){
-        let users = data;
-        let userArray = Object.keys(data);
-
-        lagBrukere(users, userArray);
+    if(localStorage.getItem("username")){
+        const getThisUsername = JSON.parse(localStorage.getItem("username"));
+        thisUserForNewScore = getThisUsername;
     }
-}
 
-function finishedUpdateUserScore(error, data){
-    if(error){
-        console.error('Noe gikk galt med å oppdatere brukeren highscore')
+    /**
+     * Updates user score in highscore.json
+     * @param {Number} thisUserScore
+     */
+    function updateUserScore(thisUserScore){
+        // @ts-ignore
+        // Først sender vi inn den nye highscoren
+        loadJSON(`newHighscore/${thisUserForNewScore}/${thisUserScore}`, finishedUpdateUserScore);
+        // @ts-ignore
+        // Så leser vi av det nye objektet med data
+        loadJSON('all', updateLagSpillere);
+
+        function updateLagSpillere(data){
+            let users = data;
+            let userArray = Object.keys(data);
+            // Vi lager de nødvenige variablene og seder de til lagBrukere så de kan bli sortert og laget på skjermen igjen. 
+            lagBrukere(users, userArray);
+        }
     }
-    else{
-        console.log(data);
+
+    // En callback hvis noe går galt. 
+    function finishedUpdateUserScore(error){
+        if(error){
+            console.error('Noe gikk galt med å oppdatere brukeren highscore')
+        }
     }
-}
     </script>
 </body>
 </html>
