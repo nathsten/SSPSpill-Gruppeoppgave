@@ -36,4 +36,6 @@ Bruker "fs" (file system) til å skrive inn i JSON filen. (inkludert i nodejs)
 
 Bruker "express" til serveren. (må instaleres) npm install express --save
 
+Bruker "cookie-parser" til å lagre og laste inn cookies når brukeren registrer seg. (må instaleres) npm install cookie-parse --save
+
 Bruker p5.js for å laste inn JSON dataen via serveren, har linket til koden øverst i begge index.html filene. 

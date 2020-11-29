@@ -71,8 +71,7 @@ Hvis den du har trykket på ikke er lik den som maskinen har valgt må vi finne 
 
 ## Flytdiagram:
 
-![Flytdiagram SSP](https://user-images.githubusercontent.com/70739893/100218439-0df65c00-2f15-11eb-8fb1-32407d7a701c.jpg)
-
+![Flytdiagram SSP](https://user-images.githubusercontent.com/70739893/100540997-45307a00-3241-11eb-92ec-6aaa1584e39f.png)
 
 ## Pseudokode
 
