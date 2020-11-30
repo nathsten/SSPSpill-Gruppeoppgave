@@ -1,27 +1,3 @@
 {
-  "Nathaniel": {
-    "username": "Nathaniel",
-    "userID": 1,
-    "score": "0"
-  },
-  "David": {
-    "username": "David",
-    "userID": 2,
-    "score": "0"
-  },
-  "Eleonora": {
-    "username": "Eleonora",
-    "userID": 3,
-    "score": "0"
-  },
-  "Helene": {
-    "username": "Helene",
-    "userID": 4,
-    "score": "0"
-  },
-  "Kirat": {
-    "username": "Kirat",
-    "userID": 5,
-    "score": "0"
-  }
+
 }
