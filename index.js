@@ -13,11 +13,11 @@ const index = express();
 const server = index.listen(port, callBack);
 
 function callBack(error){
-    if(error){
-        console.log('Noe gikk galt...')
-    }   else{
-        console.log(`Server kjører på: localhost:${port}`);
-    }
+    // if(error){
+    //     console.log('Noe gikk galt...')
+    // }   else{
+    //     console.log(`Server kjører på: localhost:${port}`);
+    // }
 }
 
 // Bruke coockie parser til å lese av om du er registrert eller ei. 
@@ -29,14 +29,14 @@ index.get('/', reqCookie);
 function reqCookie(req, res) {
     const cookie = req.headers.cookie;
     if(cookie === 'name=true'){
-        console.log('User found');
+        // console.log('User found');
         // laster inn spill siden dersom du er registrert
         res.sendFile(__dirname + '/gameLoad/index.html');
     }
     else{
         // Laster inn registreringssiden dersom du ikke allerede har registrert deg. 
         res.sendFile(__dirname + '/node/index.html');
-        console.log('No user found');
+        // console.log('No user found');
     }
 }
 
@@ -112,9 +112,9 @@ function storeNewScore(req, res){
 
     // Bare en callback funksjon.
     function newHighscoreStored(data, error){
-        if(error){
-            console.log('Noe gikk galt med å lagre ny highscore...');
-        }
+        // if(error){
+        //     console.log('Noe gikk galt med å lagre ny highscore...');
+        // }
     }
     // Dersom du gjør det manuelt får du denne responsen. 
     res.send(`Higscoren til ${user} er endret.`);
